@@ -5,27 +5,21 @@ const schema = z.object({
   whatsapp: z.string().min(8).max(20),
 });
 
+const SPREADSHEET_ID = "1BwhJE_7gP8-SGdnKdCFcbkWktZLJeZuiY6gb3ToiiZw";
+const RANGE = "Sheet1!A:B";
+
 export const subscribeWhatsapp = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => schema.parse(input))
   .handler(async ({ data }) => {
     const apiKey = process.env.LOVABLE_API_KEY;
-    const connKey = process.env.MICROSOFT_EXCEL_API_KEY;
-    const itemId = process.env.EXCEL_ITEM_ID;
-    const worksheet = process.env.EXCEL_WORKSHEET ?? "Sheet1";
-    const table = process.env.EXCEL_TABLE ?? "Table1";
+    const connKey = process.env.GOOGLE_SHEETS_API_KEY;
 
     if (!apiKey || !connKey) {
-      console.error("[excel] missing LOVABLE_API_KEY or MICROSOFT_EXCEL_API_KEY");
-      return { ok: false as const, error: "excel_not_configured" };
-    }
-    if (!itemId) {
-      console.error("[excel] missing EXCEL_ITEM_ID env var");
-      return { ok: false as const, error: "missing_item_id" };
+      console.error("[sheets] missing LOVABLE_API_KEY or GOOGLE_SHEETS_API_KEY");
+      return { ok: false as const, error: "sheets_not_configured" };
     }
 
-    const url = `https://connector-gateway.lovable.dev/microsoft_excel/me/drive/items/${itemId}/workbook/worksheets/${encodeURIComponent(
-      worksheet,
-    )}/tables/${encodeURIComponent(table)}/rows/add`;
+    const url = `https://connector-gateway.lovable.dev/google_sheets/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`;
 
     try {
       const res = await fetch(url, {
@@ -42,13 +36,13 @@ export const subscribeWhatsapp = createServerFn({ method: "POST" })
 
       if (!res.ok) {
         const text = await res.text();
-        console.error(`[excel] gateway ${res.status}: ${text}`);
+        console.error(`[sheets] gateway ${res.status}: ${text}`);
         return { ok: false as const, error: `gateway_${res.status}` };
       }
 
       return { ok: true as const };
     } catch (err) {
-      console.error("[excel] request failed", err);
+      console.error("[sheets] request failed", err);
       return { ok: false as const, error: "request_failed" };
     }
   });
