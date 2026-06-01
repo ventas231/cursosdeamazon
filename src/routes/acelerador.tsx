@@ -45,10 +45,10 @@ function UrgencyBar() {
   return (
     <div className="bg-primary text-primary-foreground text-center px-4 py-3">
       <p className="font-bold text-sm sm:text-base">
-        ⏰ Precio de lanzamiento: $497 USD — sube a $697 el 15 de junio
+        ⏰ Precio de lanzamiento: $497 USD — sube a $697 el 25 de junio
       </p>
       <p className="text-xs sm:text-sm opacity-90 mt-1">
-        El 15 de junio se lanza "Gana más en Amazon trabajando menos con Claude" — y el precio del paquete sube
+        El 25 de junio se lanza "Gana más en Amazon trabajando menos con Claude" — y el precio del paquete sube
       </p>
     </div>
   );
@@ -82,7 +82,7 @@ function PrimaryCTA({ id }: { id?: string }) {
         🔒 Pago seguro · Garantía incluida · Acceso inmediato
       </p>
       <p className="text-center text-primary text-xs mt-1">
-        Precio sube a $697 el 15 de junio
+        Precio sube a $697 el 25 de junio
       </p>
     </div>
   );
@@ -238,7 +238,7 @@ function WhatYouGet() {
         >
           <p className="text-sm line-through opacity-80">Valor total: $4,581 USD</p>
           <p className="text-3xl sm:text-4xl font-bold my-2">TUYO HOY: $497 USD →</p>
-          <p className="text-sm opacity-90">El 15 de junio sube a $697</p>
+          <p className="text-sm opacity-90">El 25 de junio sube a $697</p>
         </a>
       </div>
     </section>
@@ -363,7 +363,7 @@ function SecondCTA() {
           INSCRIBIRME AHORA — $497 USD →
         </a>
         <p className="text-muted-foreground text-sm mt-4">
-          Acceso inmediato · El precio sube a $697 el 15 de junio
+          Acceso inmediato · El precio sube a $697 el 25 de junio
         </p>
       </div>
     </section>
