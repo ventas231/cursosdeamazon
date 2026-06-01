@@ -135,6 +135,9 @@ function Checkout() {
                 <span>Total</span>
                 <span>$497 USD</span>
               </div>
+              <div className="text-[11px] text-right mt-1" style={{ color: MUTED }}>
+                * Todos los precios están en DÓLARES AMERICANOS (USD)
+              </div>
             </div>
 
             <label className="flex items-start gap-2 mt-5 text-sm" style={{ color: TEXT }}>
