@@ -6,7 +6,7 @@ const schema = z.object({
 });
 
 const SPREADSHEET_ID = "1BwhJE_7gP8-SGdnKdCFcbkWktZLJeZuiY6gb3ToiiZw";
-const RANGE = "Sheet1!A:B";
+const RANGE = "'Hoja 1'!A:B";
 
 export const subscribeWhatsapp = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => schema.parse(input))
