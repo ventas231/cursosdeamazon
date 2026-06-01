@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
-import { Shield, Lock, Rocket, Bot, Zap, FileText, Users, BarChart3, ShieldCheck, Target, Search, Star, MessageCircle, Calendar } from "lucide-react";
+import { Shield, Lock, Rocket, Bot, Zap, FileText, Users, BarChart3, ShieldCheck, Target, Search, Star, MessageCircle, Calendar, HelpCircle } from "lucide-react";
 import gerardoPhoto from "@/assets/gerardo.png";
 
-const PAYPAL_CLIENT_ID = "BAAMhKt0OVUziTZNju5pr7LLLrkpFJRo4jphJ03qF9Jgonva2nHtkyM_FYlbaOK9kt3H_J7D_up7bN9EvI";
-const PAYPAL_BUTTON_ID = "DCRL5DX7AH24C";
+const PAYPAL_CLIENT_ID = "BAABdtkl8eNEhFa8UJqHSBT6-sceiny3Pm7tK0MUNU_Q6XYhTqLULJuYc01qoCq2wJArbT4fQ6aV1KhL4M";
+const PAYPAL_BUTTON_ID = "HZH4E3ERVXFXS";
 
 declare global {
   interface Window {
@@ -34,7 +34,7 @@ function PayPalHostedButton() {
     if (!script) {
       script = document.createElement("script");
       script.id = SCRIPT_ID;
-      script.src = `https://www.paypal.com/sdk/js?client-id=${PAYPAL_CLIENT_ID}&components=hosted-buttons&disable-funding=venmo&currency=MXN`;
+      script.src = `https://www.paypal.com/sdk/js?client-id=${PAYPAL_CLIENT_ID}&components=hosted-buttons&enable-funding=venmo&currency=USD`;
       script.async = true;
       document.body.appendChild(script);
     }
