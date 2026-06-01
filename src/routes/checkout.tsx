@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
-import { Shield, Lock, Rocket, Bot, Zap, FileText, Users, BarChart3, ShieldCheck, Target, Search, Star, MessageCircle, Calendar } from "lucide-react";
+import { Shield, Lock, Rocket, Bot, Zap, FileText, Users, BarChart3, ShieldCheck, Target, Search, Star, MessageCircle, Calendar, HelpCircle } from "lucide-react";
 import gerardoPhoto from "@/assets/gerardo.png";
 
-const PAYPAL_CLIENT_ID = "BAAMhKt0OVUziTZNju5pr7LLLrkpFJRo4jphJ03qF9Jgonva2nHtkyM_FYlbaOK9kt3H_J7D_up7bN9EvI";
-const PAYPAL_BUTTON_ID = "DCRL5DX7AH24C";
+const PAYPAL_CLIENT_ID = "BAABdtkl8eNEhFa8UJqHSBT6-sceiny3Pm7tK0MUNU_Q6XYhTqLULJuYc01qoCq2wJArbT4fQ6aV1KhL4M";
+const PAYPAL_BUTTON_ID = "HZH4E3ERVXFXS";
 
 declare global {
   interface Window {
@@ -34,7 +34,7 @@ function PayPalHostedButton() {
     if (!script) {
       script = document.createElement("script");
       script.id = SCRIPT_ID;
-      script.src = `https://www.paypal.com/sdk/js?client-id=${PAYPAL_CLIENT_ID}&components=hosted-buttons&disable-funding=venmo&currency=MXN`;
+      script.src = `https://www.paypal.com/sdk/js?client-id=${PAYPAL_CLIENT_ID}&components=hosted-buttons&enable-funding=venmo&currency=USD`;
       script.async = true;
       document.body.appendChild(script);
     }
@@ -66,12 +66,12 @@ const DARK = "#1a1a1a";
 const GREEN = "#22a06b";
 
 const valueItems = [
-  { icon: <Rocket className="h-6 w-6" style={{ color: ACCENT }} />, title: "Amazon + IA de 0 a 60 días", desc: "El sistema que generó $4M+ USD en ventas reales — ahora en 6 módulos que te llevan de 'no sé nada' a tener tu producto lanzado y vendiendo. Validación, Sourcing, Branding, PPC, Optimización e IA. Paso a paso. Sin adivinar.", value: "Valor $1,497" },
-  { icon: <Bot className="h-6 w-6" style={{ color: ACCENT }} />, title: "Gana más en Amazon trabajando menos con Claude", desc: "La ventaja que el 99% de sellers en español todavía no tiene — Claude IA aplicado a Amazon, paso a paso, para que la inteligencia artificial haga el trabajo pesado y tú te enfoques en crecer. Entra el 15 de junio. Hoy va incluida.", value: "Valor $797" },
-  { icon: <Zap className="h-6 w-6" style={{ color: ACCENT }} />, title: "Amazon AI Toolkit", desc: "Para de perder horas buscando productos, escribiendo listings y armando campañas desde cero. Estos 3 Skills de Claude ya saben qué buscar, qué escribir y cómo convertir. Tú solo ejecutas.", value: "Valor $497" },
-  { icon: <FileText className="h-6 w-6" style={{ color: ACCENT }} />, title: "Plantillas y Prompts de IA", desc: "Cada hora que pasas creando desde cero es una hora que no estás vendiendo. Estas plantillas y prompts de IA ya están listos — solo los abres y los usas. Resultados profesionales desde el minuto uno.", value: "Valor $197" },
-  { icon: <Users className="h-6 w-6" style={{ color: ACCENT }} />, title: "El Círculo Amazon IA", desc: "Una duda mal resuelta puede costarte miles. El Círculo Amazon IA te da acceso directo a Gerardo cada mes en vivo + comunidad activa para que cada decisión que tomes esté respaldada. Gratis por 4 meses.", value: "Valor $396" },
-  { icon: <BarChart3 className="h-6 w-6" style={{ color: ACCENT }} />, title: "Amazon Revenue Scan", desc: "Tu cuenta de Amazon tiene dinero escondido que no estás viendo. Claude analiza tus Search Terms, TACOS y ACOS y te muestra dónde está — con un plan listo para ejecutar. Para quienes ya venden en Amazon.", value: "Valor $500" },
+  { icon: <Rocket className="h-6 w-6" style={{ color: ACCENT }} />, title: "Amazon + IA de 0 a 60 días", desc: "El sistema que generó $4M+ USD en ventas reales — ahora en 6 módulos que te llevan de 'no sé nada' a tener tu producto lanzado y vendiendo. Validación, Sourcing, Branding, PPC, Optimización e IA. Paso a paso. Sin adivinar.", value: "Valor $1,497 USD" },
+  { icon: <Bot className="h-6 w-6" style={{ color: ACCENT }} />, title: "Gana más en Amazon trabajando menos con Claude", desc: "La ventaja que el 99% de sellers en español todavía no tiene — Claude IA aplicado a Amazon, paso a paso, para que la inteligencia artificial haga el trabajo pesado y tú te enfoques en crecer. Entra el 15 de junio. Hoy va incluida.", value: "Valor $797 USD" },
+  { icon: <Zap className="h-6 w-6" style={{ color: ACCENT }} />, title: "Amazon AI Toolkit", desc: "Para de perder horas buscando productos, escribiendo listings y armando campañas desde cero. Estos 3 Skills de Claude ya saben qué buscar, qué escribir y cómo convertir. Tú solo ejecutas.", value: "Valor $497 USD" },
+  { icon: <FileText className="h-6 w-6" style={{ color: ACCENT }} />, title: "Plantillas y Prompts de IA", desc: "Cada hora que pasas creando desde cero es una hora que no estás vendiendo. Estas plantillas y prompts de IA ya están listos — solo los abres y los usas. Resultados profesionales desde el minuto uno.", value: "Valor $197 USD" },
+  { icon: <Users className="h-6 w-6" style={{ color: ACCENT }} />, title: "El Círculo Amazon IA", desc: "Una duda mal resuelta puede costarte miles. El Círculo Amazon IA te da acceso directo a Gerardo cada mes en vivo + comunidad activa para que cada decisión que tomes esté respaldada. Gratis por 4 meses.", value: "Valor $396 USD" },
+  { icon: <BarChart3 className="h-6 w-6" style={{ color: ACCENT }} />, title: "Amazon Revenue Scan", desc: "Tu cuenta de Amazon tiene dinero escondido que no estás viendo. Claude analiza tus Search Terms, TACOS y ACOS y te muestra dónde está — con un plan listo para ejecutar. Para quienes ya venden en Amazon.", value: "Valor $500 USD" },
   { icon: <ShieldCheck className="h-6 w-6" style={{ color: ACCENT }} />, title: "Garantía de Primera Venta", desc: "Esta no es la garantía típica de '30 días o te devolvemos el dinero'. Es mejor — trabajamos contigo personalmente hasta que logres tu primera venta. Punto. Sin excusas de nuestra parte.", value: "Incluida" },
 ];
 
@@ -162,20 +162,17 @@ function Checkout() {
               <span>Pago seguro · SSL · Powered by PayPal</span>
             </div>
 
-            {/* Otro método de pago */}
+            {/* Alternative payment CTA */}
             <a
-              href={`https://wa.me/5212223288421?text=${encodeURIComponent("Hola Gerardo, quiero pagar el curso Amazon + IA con OTRO MÉTODO DE PAGO")}`}
+              href={`https://wa.me/5212223288421?text=${encodeURIComponent("Quiero el curso, pero quiero pagar con otro método")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 flex items-center justify-center gap-2 w-full rounded-md py-3 px-4 text-sm font-bold transition hover:opacity-90"
-              style={{ background: "#22c55e", color: "#fff" }}
+              className="mt-5 flex items-center justify-center gap-2 w-full rounded-lg px-4 py-4 text-center font-bold text-sm hover:opacity-95 transition cursor-pointer"
+              style={{ background: DARK, color: "#fff", border: `2px solid ${ACCENT}`, boxShadow: `0 0 20px ${ACCENT}40` }}
             >
-              <MessageCircle className="h-4 w-4" />
-              QUIERO PAGAR CON OTRO MÉTODO
+              <HelpCircle className="h-5 w-5" style={{ color: ACCENT }} />
+              <span>¿Quieres pagar con transferencia o usar otro método de pago? <span style={{ color: ACCENT, textDecoration: "underline" }}>Pica aquí</span></span>
             </a>
-            <p className="text-xs mt-2 text-center" style={{ color: MUTED }}>
-              Transferencia, OXXO, tarjeta MX u otro — te atendemos por WhatsApp.
-            </p>
           </div>
         </div>
 
