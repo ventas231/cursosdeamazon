@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Check, ShieldCheck, ChevronRight, Crown } from "lucide-react";
 import { WhatsAppForm } from "@/components/WhatsAppForm";
-import gerardoPhoto from "@/assets/gerardo.jpg";
+import gerardoPhoto from "@/assets/gerardo.png";
 import logoAmazon from "@/assets/logo-amazon.png";
 import logoClaude from "@/assets/logo-claude.png";
 import logoHelium from "@/assets/logo-helium10.png";
