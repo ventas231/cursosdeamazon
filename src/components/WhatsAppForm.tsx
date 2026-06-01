@@ -32,6 +32,12 @@ export function WhatsAppForm({ heading, subheading, idPrefix }: WhatsAppFormProp
     } catch (err) {
       console.error(err);
     } finally {
+      // Abre el grupo de WhatsApp en nueva pestaña
+      window.open(
+        "https://chat.whatsapp.com/C5W6DF1bp4MKkdwVAQcgII",
+        "_blank",
+        "noopener,noreferrer",
+      );
       navigate({ to: "/acelerador" });
     }
   }
