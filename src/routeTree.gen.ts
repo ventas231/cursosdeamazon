@@ -9,9 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as GraciasRouteImport } from './routes/gracias'
 import { Route as AceleradorRouteImport } from './routes/acelerador'
 import { Route as IndexRouteImport } from './routes/index'
 
+const GraciasRoute = GraciasRouteImport.update({
+  id: '/gracias',
+  path: '/gracias',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AceleradorRoute = AceleradorRouteImport.update({
   id: '/acelerador',
   path: '/acelerador',
@@ -26,31 +32,42 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/acelerador': typeof AceleradorRoute
+  '/gracias': typeof GraciasRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/acelerador': typeof AceleradorRoute
+  '/gracias': typeof GraciasRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/acelerador': typeof AceleradorRoute
+  '/gracias': typeof GraciasRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/acelerador'
+  fullPaths: '/' | '/acelerador' | '/gracias'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/acelerador'
-  id: '__root__' | '/' | '/acelerador'
+  to: '/' | '/acelerador' | '/gracias'
+  id: '__root__' | '/' | '/acelerador' | '/gracias'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AceleradorRoute: typeof AceleradorRoute
+  GraciasRoute: typeof GraciasRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/gracias': {
+      id: '/gracias'
+      path: '/gracias'
+      fullPath: '/gracias'
+      preLoaderRoute: typeof GraciasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/acelerador': {
       id: '/acelerador'
       path: '/acelerador'
@@ -71,7 +88,18 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AceleradorRoute: AceleradorRoute,
+  GraciasRoute: GraciasRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
