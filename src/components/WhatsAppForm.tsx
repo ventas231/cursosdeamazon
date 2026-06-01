@@ -18,7 +18,7 @@ export function WhatsAppForm({ heading, subheading, idPrefix }: WhatsAppFormProp
 
   const inputId = `${idPrefix}-whatsapp`;
 
-  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+  function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const cleaned = value.replace(/[^\d]/g, "");
     if (cleaned.length < 8) {
@@ -27,19 +27,21 @@ export function WhatsAppForm({ heading, subheading, idPrefix }: WhatsAppFormProp
     }
     setError(null);
     setSubmitting(true);
-    try {
-      await subscribe({ data: { whatsapp: value.trim() } });
-    } catch (err) {
-      console.error(err);
-    } finally {
-      // Abre el grupo de WhatsApp en nueva pestaña
-      window.open(
-        "https://chat.whatsapp.com/C5W6DF1bp4MKkdwVAQcgII",
-        "_blank",
-        "noopener,noreferrer",
-      );
-      navigate({ to: "/acelerador" });
-    }
+
+    // 1) Abrir el grupo INMEDIATAMENTE (sincrónico, evita bloqueador de popups)
+    window.open(
+      "https://chat.whatsapp.com/C5W6DF1bp4MKkdwVAQcgII",
+      "_blank",
+      "noopener,noreferrer",
+    );
+
+    // 2) Guardar en Google Sheets en segundo plano (no bloquea la navegación)
+    subscribe({ data: { whatsapp: value.trim() } }).catch((err) => {
+      console.error("[sheets] save failed", err);
+    });
+
+    // 3) Redirigir al acelerador
+    navigate({ to: "/acelerador" });
   }
 
   return (

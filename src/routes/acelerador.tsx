@@ -24,8 +24,8 @@ export const Route = createFileRoute("/acelerador")({
 });
 
 const CHECKOUT_URL = "/checkout";
-const VIMEO_URL =
-  "https://player.vimeo.com/video/76979871?h=8272103f6e&title=0&byline=0&portrait=0";
+const VIDEO_URL =
+  "https://drive.google.com/file/d/1-YLSa0d-6ADdOFvasvJXZq3xUB2xny6n/preview";
 const WHATSAPP_URL = `https://wa.me/522223288421?text=${encodeURIComponent("QUIERO SABER MAS DEL SISTEMA")}`;
 const CALL_URL = "https://calendly.com/cursos-summaproducts/30min";
 
@@ -121,7 +121,7 @@ function Hero() {
 
         <div className="relative aspect-video w-full bg-[#0D0D0D] rounded-xl overflow-hidden border border-border mb-8">
           <iframe
-            src={VIMEO_URL}
+            src={VIDEO_URL}
             className="absolute inset-0 w-full h-full"
             allow="autoplay; fullscreen; picture-in-picture"
             allowFullScreen
