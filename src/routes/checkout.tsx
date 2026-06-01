@@ -158,6 +158,21 @@ function Checkout() {
               <Lock className="h-3.5 w-3.5" />
               <span>Pago seguro · SSL · Powered by PayPal</span>
             </div>
+
+            {/* Otro método de pago */}
+            <a
+              href={`https://wa.me/5212223288421?text=${encodeURIComponent("Hola Gerardo, quiero pagar el curso Amazon + IA con OTRO MÉTODO DE PAGO")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 flex items-center justify-center gap-2 w-full rounded-md py-3 px-4 text-sm font-bold transition hover:opacity-90"
+              style={{ background: "#22c55e", color: "#fff" }}
+            >
+              <MessageCircle className="h-4 w-4" />
+              QUIERO PAGAR CON OTRO MÉTODO
+            </a>
+            <p className="text-xs mt-2 text-center" style={{ color: MUTED }}>
+              Transferencia, OXXO, tarjeta MX u otro — te atendemos por WhatsApp.
+            </p>
           </div>
         </div>
 
