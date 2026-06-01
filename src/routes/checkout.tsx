@@ -238,7 +238,7 @@ function Checkout() {
                   <div className="font-bold">Sesión de Lanzamiento</div>
                   <div style={{ color: "#bbb" }}>Consultoría 1:1 con Gerardo para definir exactamente qué producto lanzar</div>
                 </div>
-                <div className="text-sm font-semibold whitespace-nowrap" style={{ color: GREEN }}>Valor $350</div>
+                <div className="text-sm font-semibold whitespace-nowrap" style={{ color: GREEN }}>Valor $350 USD</div>
               </div>
               <div className="flex gap-3">
                 <Search className="h-5 w-5 shrink-0" style={{ color: ACCENT }} />
@@ -246,12 +246,12 @@ function Checkout() {
                   <div className="font-bold">Listing X-Ray</div>
                   <div style={{ color: "#bbb" }}>Gerardo revisa 2 de tus listings y te dice exactamente qué cambiar para vender más</div>
                 </div>
-                <div className="text-sm font-semibold whitespace-nowrap" style={{ color: GREEN }}>Valor $347</div>
+                <div className="text-sm font-semibold whitespace-nowrap" style={{ color: GREEN }}>Valor $347 USD</div>
               </div>
             </div>
             <div className="mt-4 pt-4 flex justify-between text-sm font-bold" style={{ borderTop: "1px solid #333" }}>
               <span>Total bonus</span>
-              <span style={{ color: GREEN }}>Valor $697</span>
+              <span style={{ color: GREEN }}>Valor $697 USD</span>
             </div>
           </div>
 
