@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
 import gerardoPhoto from "@/assets/gerardo.png";
 
 export const Route = createFileRoute("/acelerador")({
