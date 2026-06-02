@@ -89,6 +89,12 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 }
 
 function Checkout() {
+  useEffect(() => {
+    const w = window as unknown as { fbq?: (...args: unknown[]) => void };
+    if (typeof w.fbq === "function") {
+      w.fbq("track", "InitiateCheckout", { value: 497, currency: "USD" });
+    }
+  }, []);
   return (
     <div style={{ background: PAGE_BG, color: TEXT, fontFamily: "Inter, system-ui, -apple-system, sans-serif", minHeight: "100vh" }}>
       {/* HEADER */}

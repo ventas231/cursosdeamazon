@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
 import gerardoPhoto from "@/assets/gerardo.png";
 
 export const Route = createFileRoute("/acelerador")({
@@ -413,6 +414,11 @@ function Footer() {
 }
 
 function VSLPage() {
+  useEffect(() => {
+    if (typeof window !== "undefined" && typeof window.fbq === "function") {
+      window.fbq("track", "Lead");
+    }
+  }, []);
   return (
     <div className="min-h-screen bg-background text-foreground">
       <UrgencyBar />
