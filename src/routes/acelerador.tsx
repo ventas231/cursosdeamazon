@@ -414,6 +414,11 @@ function Footer() {
 }
 
 function VSLPage() {
+  useEffect(() => {
+    if (typeof window !== "undefined" && typeof window.fbq === "function") {
+      window.fbq("track", "Lead");
+    }
+  }, []);
   return (
     <div className="min-h-screen bg-background text-foreground">
       <UrgencyBar />
