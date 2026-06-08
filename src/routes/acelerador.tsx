@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import gerardoPhoto from "@/assets/gerardo.png";
+import videoAsset from "@/assets/acelerador-video.mp4.asset.json";
 
 export const Route = createFileRoute("/acelerador")({
   head: () => ({
@@ -25,8 +26,7 @@ export const Route = createFileRoute("/acelerador")({
 });
 
 const CHECKOUT_URL = "/checkout";
-const VIDEO_URL =
-  "https://drive.google.com/file/d/1-YLSa0d-6ADdOFvasvJXZq3xUB2xny6n/preview";
+const VIDEO_URL = videoAsset.url;
 const WHATSAPP_URL = `https://wa.me/522223288421?text=${encodeURIComponent("QUIERO SABER MAS DEL SISTEMA")}`;
 const CALL_URL = "https://calendly.com/cursos-summaproducts/30min";
 
@@ -120,25 +120,15 @@ function Hero() {
           </div>
         </div>
 
-        <div className="relative aspect-video w-full bg-[#0D0D0D] rounded-xl overflow-hidden border border-border mb-4">
-          <iframe
+        <div className="relative aspect-video w-full bg-[#0D0D0D] rounded-xl overflow-hidden border border-border mb-8">
+          <video
             src={VIDEO_URL}
             className="absolute inset-0 w-full h-full"
-            allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
-            allowFullScreen
-            referrerPolicy="no-referrer"
+            controls
+            playsInline
+            preload="metadata"
             title="Video exclusivo Gerardo Villa"
           />
-        </div>
-        <div className="text-center mb-8">
-          <a
-            href={VIDEO_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-primary underline underline-offset-4 hover:text-primary/80"
-          >
-            ¿No ves el video? Ábrelo aquí →
-          </a>
         </div>
 
         <PrimaryCTA />
