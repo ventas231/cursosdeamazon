@@ -120,25 +120,15 @@ function Hero() {
           </div>
         </div>
 
-        <div className="relative aspect-video w-full bg-[#0D0D0D] rounded-xl overflow-hidden border border-border mb-4">
-          <iframe
+        <div className="relative aspect-video w-full bg-[#0D0D0D] rounded-xl overflow-hidden border border-border mb-8">
+          <video
             src={VIDEO_URL}
             className="absolute inset-0 w-full h-full"
-            allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
-            allowFullScreen
-            referrerPolicy="no-referrer"
+            controls
+            playsInline
+            preload="metadata"
             title="Video exclusivo Gerardo Villa"
           />
-        </div>
-        <div className="text-center mb-8">
-          <a
-            href={VIDEO_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-primary underline underline-offset-4 hover:text-primary/80"
-          >
-            ¿No ves el video? Ábrelo aquí →
-          </a>
         </div>
 
         <PrimaryCTA />
