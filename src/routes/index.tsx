@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { Check, ChevronRight, ShieldCheck, MessageCircle } from "lucide-react";
+import { Check, ChevronRight, ShieldCheck } from "lucide-react";
 import { WhatsAppForm } from "@/components/WhatsAppForm";
 import { fbqTrack } from "@/lib/fbq";
 import gerardoPhoto from "@/assets/gerardo.png";
@@ -261,18 +261,6 @@ function LandingPage() {
           </p>
         </div>
       </footer>
-      {/* WhatsApp flotante */}
-      <a
-        href="https://wa.me/522213705112?text=Hola%20Gerardo%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20del%20sistema%20de%20Amazon"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-5 right-5 z-50 flex items-center gap-2 px-5 py-3 rounded-full text-white font-bold text-sm shadow-lg hover:opacity-90"
-        style={{ background: "#22c55e", animation: "vbounce 1.6s ease-in-out infinite" }}
-      >
-        <MessageCircle className="h-5 w-5" />
-        Contáctame
-      </a>
-
       <style>{`@keyframes vbounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}`}</style>
     </main>
   );
