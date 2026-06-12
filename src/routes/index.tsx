@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { Check, ChevronRight, ShieldCheck, MessageCircle } from "lucide-react";
+import { Check, ChevronRight, ShieldCheck } from "lucide-react";
 import { WhatsAppForm } from "@/components/WhatsAppForm";
 import { fbqTrack } from "@/lib/fbq";
 import gerardoPhoto from "@/assets/gerardo.png";
