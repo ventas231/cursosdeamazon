@@ -40,12 +40,10 @@ export function WhatsAppForm({ heading, subheading, idPrefix }: WhatsAppFormProp
       "noopener,noreferrer",
     );
 
-    // 2) Guardar en Google Sheets antes de avanzar para poder marcar CHECK OUT después
-    try {
-      await subscribe({ data: { whatsapp: value.trim() } });
-    } catch (err) {
+    // 2) Guardar en Google Sheets en segundo plano
+    subscribe({ data: { whatsapp: value.trim() } }).catch((err) => {
       console.error("[sheets] save failed", err);
-    }
+    });
 
     // 3) Redirigir al acelerador
     navigate({ to: "/acelerador" });
@@ -87,7 +85,7 @@ export function WhatsAppForm({ heading, subheading, idPrefix }: WhatsAppFormProp
           disabled={submitting}
           className="group w-full h-14 rounded-xl bg-brand text-brand-foreground font-black tracking-wide text-base md:text-lg uppercase animate-pulse-glow transition-all duration-200 hover:bg-brand-hover hover:-translate-y-1 hover:shadow-glow-strong disabled:opacity-70 disabled:translate-y-0"
         >
-          {submitting ? "Enviando…" : "Ver el sistema ahora →"}
+          Ver el sistema ahora →
         </button>
 
         <p className="text-center text-xs md:text-sm text-muted-foreground pt-1">
