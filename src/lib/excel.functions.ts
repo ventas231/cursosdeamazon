@@ -31,6 +31,8 @@ function normalizeHeader(value: string) {
   return value.trim().toUpperCase().replace(/\s+/g, " ");
 }
 
+const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
 export const subscribeWhatsapp = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => schema.parse(input))
   .handler(async ({ data }) => {
@@ -89,28 +91,39 @@ export const logCheckoutVisit = createServerFn({ method: "POST" })
     };
 
     try {
-      const sheetRange = `'${SHEET_NAME}'!A:Z`;
-      const rowsRes = await fetch(`${baseUrl}/${sheetRange}`, { headers });
-      if (!rowsRes.ok) {
-        const text = await rowsRes.text();
-        console.error(`[sheets] checkout read gateway ${rowsRes.status}: ${text}`);
-        return { ok: false as const, error: `gateway_${rowsRes.status}` };
-      }
-
-      const rowsPayload = (await rowsRes.json()) as { values?: string[][] };
-      const rows = rowsPayload.values || [];
-      const headersRow = rows[0] || [];
-      const checkoutColumnIndex = headersRow.findIndex((header) => normalizeHeader(header) === "CHECK OUT");
-
-      if (checkoutColumnIndex === -1) {
-        console.error('[sheets] CHECK OUT column not found in Hoja 1');
-        return { ok: false as const, error: "checkout_column_not_found" };
-      }
-
       const targetPhone = normalizePhone(data.whatsapp || "");
-      const targetRowIndex = targetPhone
-        ? rows.findIndex((row, index) => index > 0 && normalizePhone(row[0] || "") === targetPhone)
-        : -1;
+      let rows: string[][] = [];
+      let checkoutColumnIndex = -1;
+      let targetRowIndex = -1;
+
+      for (const delay of [0, 500, 1200]) {
+        if (delay) await wait(delay);
+        const sheetRange = `'${SHEET_NAME}'!A:Z`;
+        const rowsRes = await fetch(`${baseUrl}/${sheetRange}`, { headers });
+        if (!rowsRes.ok) {
+          const text = await rowsRes.text();
+          console.error(`[sheets] checkout read gateway ${rowsRes.status}: ${text}`);
+          return { ok: false as const, error: `gateway_${rowsRes.status}` };
+        }
+
+        const rowsPayload = (await rowsRes.json()) as { values?: string[][] };
+        rows = rowsPayload.values || [];
+        const headersRow = rows[0] || [];
+        checkoutColumnIndex = headersRow.findIndex((header) => normalizeHeader(header) === "CHECK OUT");
+
+        if (checkoutColumnIndex === -1) {
+          console.error('[sheets] CHECK OUT column not found in Hoja 1');
+          return { ok: false as const, error: "checkout_column_not_found" };
+        }
+
+        targetRowIndex = targetPhone
+          ? rows.reduce((latestIndex, row, index) => (
+              index > 0 && normalizePhone(row[0] || "") === targetPhone ? index : latestIndex
+            ), -1)
+          : -1;
+
+        if (targetRowIndex !== -1) break;
+      }
 
       if (targetRowIndex === -1) {
         console.error("[sheets] checkout phone not found in Hoja 1", data.whatsapp);
