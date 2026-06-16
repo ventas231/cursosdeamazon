@@ -12,7 +12,7 @@ const checkoutSchema = z.object({
 
 const SPREADSHEET_ID = "1BwhJE_7gP8-SGdnKdCFcbkWktZLJeZuiY6gb3ToiiZw";
 const RANGE = "'Hoja 1'!A:B";
-const CHECKOUT_RANGE = "'Checkout'!A:C";
+const CHECKOUT_RANGE = "'CHECK OUT'!A:C";
 
 export const subscribeWhatsapp = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => schema.parse(input))
