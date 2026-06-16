@@ -5,8 +5,14 @@ const schema = z.object({
   whatsapp: z.string().min(8).max(20),
 });
 
+const checkoutSchema = z.object({
+  whatsapp: z.string().min(0).max(20).optional().default(""),
+  label: z.string().max(50).optional().default("Llegó a checkout"),
+});
+
 const SPREADSHEET_ID = "1BwhJE_7gP8-SGdnKdCFcbkWktZLJeZuiY6gb3ToiiZw";
 const RANGE = "'Hoja 1'!A:B";
+const CHECKOUT_RANGE = "'Carrito Abandonado'!A:C";
 
 export const subscribeWhatsapp = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => schema.parse(input))
