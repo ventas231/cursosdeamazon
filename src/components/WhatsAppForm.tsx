@@ -28,6 +28,11 @@ export function WhatsAppForm({ heading, subheading, idPrefix }: WhatsAppFormProp
     setError(null);
     setSubmitting(true);
 
+    // Persistir para etiquetar etapas siguientes (checkout, etc.)
+    try {
+      localStorage.setItem("lead_whatsapp", value.trim());
+    } catch {}
+
     // 1) Abrir el grupo INMEDIATAMENTE (sincrónico, evita bloqueador de popups)
     window.open(
       "https://chat.whatsapp.com/C5W6DF1bp4MKkdwVAQcgII",

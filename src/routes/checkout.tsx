@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import { Shield, Lock, Rocket, Bot, Zap, FileText, Users, BarChart3, ShieldCheck, Target, Search, Star, MessageCircle, Calendar, HelpCircle } from "lucide-react";
 import gerardoPhoto from "@/assets/gerardo.png";
+import { logCheckoutVisit } from "@/lib/excel.functions";
 
 const PAYPAL_CLIENT_ID = "BAABdtkl8eNEhFa8UJqHSBT6-sceiny3Pm7tK0MUNU_Q6XYhTqLULJuYc01qoCq2wJArbT4fQ6aV1KhL4M";
 const PAYPAL_BUTTON_ID = "HZH4E3ERVXFXS";
@@ -89,12 +91,21 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 }
 
 function Checkout() {
+  const logVisit = useServerFn(logCheckoutVisit);
   useEffect(() => {
     const w = window as unknown as { fbq?: (...args: unknown[]) => void };
     if (typeof w.fbq === "function") {
       w.fbq("track", "InitiateCheckout", { value: 497, currency: "USD" });
     }
-  }, []);
+    // Etiquetar visita a checkout en Google Sheets (pestaña "Carrito Abandonado")
+    let whatsapp = "";
+    try {
+      whatsapp = localStorage.getItem("lead_whatsapp") || "";
+    } catch {}
+    logVisit({ data: { whatsapp, label: "Llegó a checkout" } }).catch((err) => {
+      console.error("[sheets] checkout log failed", err);
+    });
+  }, [logVisit]);
   return (
     <div style={{ background: PAGE_BG, color: TEXT, fontFamily: "Inter, system-ui, -apple-system, sans-serif", minHeight: "100vh" }}>
       {/* HEADER */}
