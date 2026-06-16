@@ -91,12 +91,21 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 }
 
 function Checkout() {
+  const logVisit = useServerFn(logCheckoutVisit);
   useEffect(() => {
     const w = window as unknown as { fbq?: (...args: unknown[]) => void };
     if (typeof w.fbq === "function") {
       w.fbq("track", "InitiateCheckout", { value: 497, currency: "USD" });
     }
-  }, []);
+    // Etiquetar visita a checkout en Google Sheets (pestaña "Carrito Abandonado")
+    let whatsapp = "";
+    try {
+      whatsapp = localStorage.getItem("lead_whatsapp") || "";
+    } catch {}
+    logVisit({ data: { whatsapp, label: "Llegó a checkout" } }).catch((err) => {
+      console.error("[sheets] checkout log failed", err);
+    });
+  }, [logVisit]);
   return (
     <div style={{ background: PAGE_BG, color: TEXT, fontFamily: "Inter, system-ui, -apple-system, sans-serif", minHeight: "100vh" }}>
       {/* HEADER */}
