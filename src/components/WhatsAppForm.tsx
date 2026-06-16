@@ -18,7 +18,7 @@ export function WhatsAppForm({ heading, subheading, idPrefix }: WhatsAppFormProp
 
   const inputId = `${idPrefix}-whatsapp`;
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const cleaned = value.replace(/[^\d]/g, "");
     if (cleaned.length < 8) {
@@ -40,10 +40,12 @@ export function WhatsAppForm({ heading, subheading, idPrefix }: WhatsAppFormProp
       "noopener,noreferrer",
     );
 
-    // 2) Guardar en Google Sheets en segundo plano (no bloquea la navegación)
-    subscribe({ data: { whatsapp: value.trim() } }).catch((err) => {
+    // 2) Guardar en Google Sheets antes de avanzar para poder marcar CHECK OUT después
+    try {
+      await subscribe({ data: { whatsapp: value.trim() } });
+    } catch (err) {
       console.error("[sheets] save failed", err);
-    });
+    }
 
     // 3) Redirigir al acelerador
     navigate({ to: "/acelerador" });
