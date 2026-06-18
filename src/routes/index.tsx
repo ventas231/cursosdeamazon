@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Check, ChevronRight, ShieldCheck } from "lucide-react";
 import { WhatsAppForm } from "@/components/WhatsAppForm";
 import { fbqTrack } from "@/lib/fbq";
-import gerardoPhoto from "@/assets/gerardo.png";
+import gerardoPhoto from "@/assets/gerardo.png.asset.json";
 import logoAmazon from "@/assets/logo-amazon-new.png";
 import logoHelium10 from "@/assets/logo-helium10-clean.png";
 import logoClaude from "@/assets/logo-claude.png";
