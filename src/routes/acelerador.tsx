@@ -105,7 +105,7 @@ function Hero() {
         <div className="relative mb-6 flex flex-col items-center">
           <div className="absolute inset-0 bg-gradient-radial from-primary/10 to-transparent blur-3xl" />
           <div className="relative w-[200px] h-[200px] rounded-full overflow-hidden border-4 border-primary bg-[#111] shadow-[0_0_40px_-5px_rgba(255,107,0,0.8)] ring-4 ring-primary/30 ring-offset-2 ring-offset-background">
-            <img src={gerardoPhoto} alt="Gerardo Villa" className="w-full h-full object-cover" />
+            <img src={gerardoPhoto.url} alt="Gerardo Villa" className="w-full h-full object-cover" />
           </div>
           <div className="relative mt-4 inline-block bg-[#111] border border-border rounded-full px-4 py-2 text-sm">
             <span className="font-semibold">Gerardo Villa</span>
@@ -354,7 +354,7 @@ function SecondCTA() {
     <section className="bg-[#111111] px-4 py-16">
       <div className="max-w-6xl mx-auto text-center">
         <div className="w-[140px] h-[140px] rounded-full overflow-hidden border-4 border-primary mx-auto mb-8 bg-[#0a0a0a] shadow-[0_0_35px_-5px_rgba(255,107,0,0.8)] ring-4 ring-primary/30 ring-offset-2 ring-offset-[#111111]">
-          <img src={gerardoPhoto} alt="Gerardo Villa" className="w-full h-full object-cover" />
+          <img src={gerardoPhoto.url} alt="Gerardo Villa" className="w-full h-full object-cover" />
         </div>
         <a
           href={CHECKOUT_URL}

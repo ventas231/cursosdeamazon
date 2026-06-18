@@ -86,7 +86,7 @@ function LandingPage() {
             <div className="relative">
               <div className="absolute inset-0 -m-2 rounded-full bg-gradient-to-br from-brand/40 to-brand-soft/20 blur-2xl" />
               <img
-                src={gerardoPhoto}
+                src={gerardoPhoto.url}
                 alt="Gerardo Villa, founder de Summa"
                 width={144}
                 height={144}
