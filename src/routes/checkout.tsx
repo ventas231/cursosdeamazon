@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { Shield, Lock, Rocket, Bot, Zap, FileText, Users, BarChart3, ShieldCheck, Target, Search, Star, MessageCircle, Calendar, HelpCircle } from "lucide-react";
-import gerardoPhoto from "@/assets/gerardo.png";
+import gerardoPhoto from "@/assets/gerardo.png.asset.json";
 import { logCheckoutVisit } from "@/lib/excel.functions";
 
 const PAYPAL_CLIENT_ID = "BAABdtkl8eNEhFa8UJqHSBT6-sceiny3Pm7tK0MUNU_Q6XYhTqLULJuYc01qoCq2wJArbT4fQ6aV1KhL4M";
@@ -200,7 +200,7 @@ function Checkout() {
               className="w-28 h-28 rounded-full overflow-hidden"
               style={{ background: "#fff", border: `4px solid ${ACCENT}`, boxShadow: `0 0 24px ${ACCENT}80` }}
             >
-              <img src={gerardoPhoto} alt="Gerardo Villa" className="w-full h-full object-cover" />
+              <img src={gerardoPhoto.url} alt="Gerardo Villa" className="w-full h-full object-cover" />
             </div>
             <div className="mt-3 font-bold" style={{ color: TEXT }}>Gerardo Villa</div>
             <div className="text-sm" style={{ color: MUTED }}>$4M+ USD en Amazon</div>

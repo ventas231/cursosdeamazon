@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Check, ChevronRight, ShieldCheck } from "lucide-react";
 import { WhatsAppForm } from "@/components/WhatsAppForm";
 import { fbqTrack } from "@/lib/fbq";
-import gerardoPhoto from "@/assets/gerardo.png";
+import gerardoPhoto from "@/assets/gerardo.png.asset.json";
 import logoAmazon from "@/assets/logo-amazon-new.png";
 import logoHelium10 from "@/assets/logo-helium10-clean.png";
 import logoClaude from "@/assets/logo-claude.png";
@@ -86,7 +86,7 @@ function LandingPage() {
             <div className="relative">
               <div className="absolute inset-0 -m-2 rounded-full bg-gradient-to-br from-brand/40 to-brand-soft/20 blur-2xl" />
               <img
-                src={gerardoPhoto}
+                src={gerardoPhoto.url}
                 alt="Gerardo Villa, founder de Summa"
                 width={144}
                 height={144}
