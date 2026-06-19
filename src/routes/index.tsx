@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { Check, ChevronRight, ShieldCheck } from "lucide-react";
 import { WhatsAppForm } from "@/components/WhatsAppForm";
+import { HistoriaExito } from "@/components/HistoriaExito";
 import { fbqTrack } from "@/lib/fbq";
 import gerardoPhoto from "@/assets/gerardo.png.asset.json";
 import logoAmazon from "@/assets/logo-amazon-new.png";
@@ -213,6 +214,8 @@ function LandingPage() {
           />
         </div>
       </section>
+
+      <HistoriaExito />
 
       {/* SECCIÓN 7 — Garantía */}
       <section className="bg-background px-4 py-16 md:py-20">

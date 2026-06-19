@@ -4,6 +4,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { Shield, Lock, Rocket, Bot, Zap, FileText, Users, BarChart3, ShieldCheck, Target, Search, Star, MessageCircle, Calendar, HelpCircle } from "lucide-react";
 import gerardoPhoto from "@/assets/gerardo.png.asset.json";
 import { logCheckoutVisit } from "@/lib/excel.functions";
+import { HistoriaExito } from "@/components/HistoriaExito";
 
 const PAYPAL_CLIENT_ID = "BAABdtkl8eNEhFa8UJqHSBT6-sceiny3Pm7tK0MUNU_Q6XYhTqLULJuYc01qoCq2wJArbT4fQ6aV1KhL4M";
 const PAYPAL_BUTTON_ID = "HZH4E3ERVXFXS";
@@ -296,6 +297,8 @@ function Checkout() {
             </div>
           </a>
         </div>
+
+        <HistoriaExito />
       </main>
 
       <footer style={{ background: "#fff", borderTop: `1px solid ${BORDER}` }}>
