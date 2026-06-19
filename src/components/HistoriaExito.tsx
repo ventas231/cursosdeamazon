@@ -14,7 +14,7 @@ export function HistoriaExito({ light }: HistoriaExitoProps) {
           Historia de éxito
         </span>
         <h2 className={`mt-4 font-black tracking-tight ${light ? "text-[#222222] text-2xl md:text-3xl" : "text-3xl md:text-4xl"}`}>
-          Ella ya lo hizo.{" "}
+          Él ya lo hizo.{" "}
           <span className="text-[#FF6B00]">¿Y tú cuándo vas a empezar?</span>
         </h2>
         <p className={`mt-3 text-base md:text-lg ${light ? "text-[#777777]" : "text-muted-foreground"}`}>
