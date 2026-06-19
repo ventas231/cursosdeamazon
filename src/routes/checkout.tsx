@@ -243,6 +243,7 @@ function Checkout() {
                 ))}
               </div>
             </div>
+            <HistoriaExito light />
           </div>
 
           <div className="rounded-lg p-6 text-white" style={{ background: DARK, border: `2px solid ${ACCENT}` }}>
@@ -297,8 +298,6 @@ function Checkout() {
             </div>
           </a>
         </div>
-
-        <HistoriaExito />
       </main>
 
       <footer style={{ background: "#fff", borderTop: `1px solid ${BORDER}` }}>
