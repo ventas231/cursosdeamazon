@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import gerardoPhoto from "@/assets/gerardo.png.asset.json";
 import videoAsset from "@/assets/acelerador-video.mp4.asset.json";
+import { HistoriaExito } from "@/components/HistoriaExito";
 
 export const Route = createFileRoute("/acelerador")({
   head: () => ({
@@ -432,6 +433,7 @@ function VSLPage() {
       <Guarantee />
       <FAQ />
       <SecondCTA />
+      <HistoriaExito />
       <Footer />
       <FloatingWhatsApp />
       <style>{`@keyframes vbounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}`}</style>
