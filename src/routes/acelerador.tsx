@@ -427,13 +427,9 @@ function VSLPage() {
       <Header />
       <Hero />
       <SocialProof />
+      <HistoriaExito />
       <Testimonials />
       <WhatYouGet />
-      <ForSellers />
-      <Guarantee />
-      <FAQ />
-      <SecondCTA />
-      <HistoriaExito />
       <Footer />
       <FloatingWhatsApp />
       <style>{`@keyframes vbounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}`}</style>
