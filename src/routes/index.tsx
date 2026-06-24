@@ -114,6 +114,8 @@ function LandingPage() {
               idPrefix="hero"
             />
           </div>
+
+          <HistoriaExito />
         </div>
       </section>
 
