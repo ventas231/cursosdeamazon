@@ -196,6 +196,8 @@ function Checkout() {
 
         {/* RIGHT — VALUE STACK */}
         <div className="space-y-6">
+          <HistoriaExito light />
+
           <div className="flex flex-col items-center text-center">
             <div
               className="w-28 h-28 rounded-full overflow-hidden"
@@ -204,7 +206,7 @@ function Checkout() {
               <img src={gerardoPhoto.url} alt="Gerardo Villa" className="w-full h-full object-cover" />
             </div>
             <div className="mt-3 font-bold" style={{ color: TEXT }}>Gerardo Villa</div>
-            <div className="text-sm" style={{ color: MUTED }}>$4M+ USD en Amazon</div>
+            <div className="text-sm" style={{ color: MUTED }}>más de 4.6 millones de dólares en Amazon</div>
           </div>
 
           <div className="rounded-lg p-6" style={{ background: CARD_BG, border: `1px solid ${BORDER}` }}>
