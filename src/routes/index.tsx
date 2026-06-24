@@ -217,8 +217,6 @@ function LandingPage() {
         </div>
       </section>
 
-      <HistoriaExito />
-
       {/* SECCIÓN 7 — Garantía */}
       <section className="bg-background px-4 py-16 md:py-20">
         <div className="mx-auto max-w-xl text-center">
