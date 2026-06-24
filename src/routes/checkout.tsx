@@ -69,7 +69,7 @@ const DARK = "#1a1a1a";
 const GREEN = "#22a06b";
 
 const valueItems = [
-  { icon: <Rocket className="h-6 w-6" style={{ color: ACCENT }} />, title: "Amazon + IA de 0 a 60 días", desc: "El sistema que generó $4M+ USD en ventas reales — ahora en 6 módulos que te llevan de 'no sé nada' a tener tu producto lanzado y vendiendo. Validación, Sourcing, Branding, PPC, Optimización e IA. Paso a paso. Sin adivinar.", value: "Valor $1,497 USD" },
+  { icon: <Rocket className="h-6 w-6" style={{ color: ACCENT }} />, title: "Amazon + IA de 0 a 60 días", desc: "El sistema que generó Más de 4.6 millones de dólares en ventas de Amazon — ahora en 6 módulos que te llevan de 'no sé nada' a tener tu producto lanzado y vendiendo. Validación, Sourcing, Branding, PPC, Optimización e IA. Paso a paso. Sin adivinar.", value: "Valor $1,497 USD" },
   { icon: <Bot className="h-6 w-6" style={{ color: ACCENT }} />, title: "Gana más en Amazon trabajando menos con Claude", desc: "La ventaja que el 99% de sellers en español todavía no tiene — Claude IA aplicado a Amazon, paso a paso, para que la inteligencia artificial haga el trabajo pesado y tú te enfoques en crecer. Entra el 25 de junio. Hoy va incluida.", value: "Valor $797 USD" },
   { icon: <Zap className="h-6 w-6" style={{ color: ACCENT }} />, title: "Amazon AI Toolkit", desc: "Para de perder horas buscando productos, escribiendo listings y armando campañas desde cero. Estos 3 Skills de Claude ya saben qué buscar, qué escribir y cómo convertir. Tú solo ejecutas.", value: "Valor $497 USD" },
   { icon: <FileText className="h-6 w-6" style={{ color: ACCENT }} />, title: "Plantillas y Prompts de IA", desc: "Cada hora que pasas creando desde cero es una hora que no estás vendiendo. Estas plantillas y prompts de IA ya están listos — solo los abres y los usas. Resultados profesionales desde el minuto uno.", value: "Valor $197 USD" },
@@ -204,7 +204,7 @@ function Checkout() {
               <img src={gerardoPhoto.url} alt="Gerardo Villa" className="w-full h-full object-cover" />
             </div>
             <div className="mt-3 font-bold" style={{ color: TEXT }}>Gerardo Villa</div>
-            <div className="text-sm" style={{ color: MUTED }}>más de 4.6 millones de dólares en Amazon</div>
+            <div className="text-sm" style={{ color: MUTED }}>Más de 4.6 millones de dólares en ventas de Amazon</div>
           </div>
 
           <HistoriaExito light />

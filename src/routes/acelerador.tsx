@@ -11,7 +11,7 @@ export const Route = createFileRoute("/acelerador")({
       {
         name: "description",
         content:
-          "Aprende a lanzar tu primer producto en Amazon en 60 días con IA. Curso de Gerardo Villa — $4M+ USD vendidos en Amazon MX & USA.",
+          "Aprende a lanzar tu primer producto en Amazon en 60 días con IA. Curso de Gerardo Villa — Más de 4.6 millones de dólares en ventas de Amazon.",
       },
       { property: "og:title", content: "Amazon + IA de 0 a 60 días — Gerardo Villa" },
       {
@@ -99,7 +99,7 @@ function Hero() {
         </p>
         <h1 className="text-3xl sm:text-5xl font-bold leading-tight mb-10">
           Cómo lancé mi primer producto en Amazon desde cero y llegué a{" "}
-          <span className="text-primary">$4M+ USD</span> — y cómo tú puedes hacerlo en{" "}
+          <span className="text-primary">Más de 4.6 millones de dólares en ventas de Amazon</span> — y cómo tú puedes hacerlo en{" "}
           <span className="text-primary">60 días con IA</span>
         </h1>
 
@@ -111,7 +111,7 @@ function Hero() {
           <div className="relative mt-4 inline-block bg-[#111] border border-border rounded-full px-4 py-2 text-sm">
             <span className="font-semibold">Gerardo Villa</span>
             <span className="text-muted-foreground"> · </span>
-            <span className="text-primary font-semibold">$4M+ USD en Amazon MX & USA</span>
+            <span className="text-primary font-semibold">Más de 4.6 millones de dólares en ventas de Amazon</span>
           </div>
           <div className="relative mt-3 inline-flex items-center gap-2 bg-primary/10 border border-primary/40 rounded-full px-4 py-1.5 text-xs sm:text-sm text-foreground/90 max-w-2xl">
             <span className="text-primary">★</span>
@@ -140,7 +140,7 @@ function Hero() {
 
 function SocialProof() {
   const stats = [
-    { value: "$4M+", label: "USD vendidos Amazon MX & USA" },
+    { value: "Más de $4.6M", label: "USD en ventas de Amazon" },
     { value: "500+", label: "alumnos en el programa" },
     { value: "60 días", label: "de idea a primera venta" },
   ];
@@ -212,7 +212,7 @@ function Testimonials() {
 
 function WhatYouGet() {
   const items = [
-    "El sistema que Gerardo usó para pasar de cero a $4M+ USD en Amazon — 6 módulos probados en cuentas reales: Validación, Sourcing, Branding, PPC, Optimización e IA aplicada.",
+    "El sistema que Gerardo usó para pasar de cero a Más de 4.6 millones de dólares en ventas de Amazon — 6 módulos probados en cuentas reales: Validación, Sourcing, Branding, PPC, Optimización e IA aplicada.",
     "La Masterclass que ningún curso de Amazon ha hecho — cómo usar Claude para validar nichos, escribir listings y ganarle a tu competencia en PPC. Incluida gratis hoy, después sube de precio.",
     "Tres herramientas de Claude que la mayoría de sellers ni sabe que existen — Validador de Nichos, Generador de Listings y Arquitecto PPC, todo con IA. Las enciendes y trabajas.",
     "Las mismas plantillas y prompts que usa el equipo de Gerardo hoy — listas desde el día 1, sin construir nada desde cero.",

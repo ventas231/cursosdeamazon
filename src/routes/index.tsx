@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "El sistema exacto que usa Gerardo Villa en su negocio de $4M+ USD en Amazon. Sistema gratuito.",
+          "El sistema exacto que usa Gerardo Villa en su negocio de Más de 4.6 millones de dólares en ventas de Amazon. Sistema gratuito.",
       },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -64,7 +64,7 @@ function LandingPage() {
       <section className="bg-background px-4 py-[60px] md:py-20">
         <div className="mx-auto max-w-5xl">
           <p className="text-center text-xs font-semibold uppercase tracking-[0.15em] text-brand">
-            Gerardo Villa · $4M+ USD en ventas verificadas en Amazon
+            Gerardo Villa · Más de 4.6 millones de dólares en ventas de Amazon
           </p>
 
           <h1 className="mt-5 text-center text-4xl font-black leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl">
@@ -78,7 +78,7 @@ function LandingPage() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-xl text-center text-base sm:text-lg text-muted-foreground">
-            Descubre el sistema exacto que uso en mi negocio de $4M+ USD y cómo
+            Descubre el sistema exacto que uso en mi negocio de Más de 4.6 millones de dólares en ventas de Amazon y cómo
             tú puedes replicarlo desde cero.
           </p>
 
@@ -121,7 +121,7 @@ function LandingPage() {
       <section className="bg-surface px-4 py-12 md:py-16">
         <div className="mx-auto grid max-w-6xl grid-cols-1 divide-y divide-hairline md:grid-cols-3 md:divide-y-0 md:divide-x">
           {[
-            { num: "$4M+", label: "USD vendidos en Amazon MX & USA" },
+            { num: "Más de $4.6M", label: "USD en ventas de Amazon" },
             { num: "500+", label: "alumnos en el programa" },
             { num: "60 días", label: "para tu primer lanzamiento" },
           ].map((s) => (
