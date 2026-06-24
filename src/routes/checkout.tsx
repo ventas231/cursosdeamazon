@@ -245,7 +245,6 @@ function Checkout() {
                 ))}
               </div>
             </div>
-            <HistoriaExito light />
           </div>
 
           <div className="rounded-lg p-6 text-white" style={{ background: DARK, border: `2px solid ${ACCENT}` }}>
