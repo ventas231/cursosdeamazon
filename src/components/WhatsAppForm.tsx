@@ -33,9 +33,10 @@ export function WhatsAppForm({ heading, subheading, idPrefix }: WhatsAppFormProp
       localStorage.setItem("lead_whatsapp", value.trim());
     } catch {}
 
-    // 1) Abrir el grupo INMEDIATAMENTE (sincrónico, evita bloqueador de popups)
+    // 1) Abrir WhatsApp con mensaje predeterminado al número
+    const waMessage = encodeURIComponent("Quiero ver el sistema");
     window.open(
-      "https://chat.whatsapp.com/C5W6DF1bp4MKkdwVAQcgII",
+      `https://wa.me/522223288421?text=${waMessage}`,
       "_blank",
       "noopener,noreferrer",
     );
