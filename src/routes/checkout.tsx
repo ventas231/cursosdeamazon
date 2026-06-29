@@ -283,7 +283,6 @@ function Checkout() {
           >
             <div className="text-sm line-through opacity-90">Valor total: $4,581 USD</div>
             <div className="text-3xl font-extrabold mt-1">TUYO HOY: $497 USD</div>
-            <div className="text-xs mt-2 opacity-90">Precio sube a $697 el 25 de junio</div>
             <div className="mt-3 inline-block px-4 py-2 rounded-full bg-white text-sm font-bold" style={{ color: ACCENT }}>
               PAGAR AHORA →
             </div>
