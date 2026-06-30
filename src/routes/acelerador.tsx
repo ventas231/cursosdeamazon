@@ -71,7 +71,7 @@ function Header() {
 
 function PrimaryCTA({ id }: { id?: string }) {
   return (
-    <div id={id} className="w-full">
+    <div id={id} className="w-full space-y-3">
       <a
         href={CHECKOUT_URL}
         onClick={() => trackLead("hero_primary_cta")}
@@ -79,6 +79,15 @@ function PrimaryCTA({ id }: { id?: string }) {
         style={{ animation: "vbounce 1.8s ease-in-out infinite" }}
       >
         QUIERO EL SISTEMA AHORA — $497 USD →
+      </a>
+      <a
+        href="https://chat.whatsapp.com/C5W6DF1bp4MKkdwVAQcgII"
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() => trackLead("whatsapp_group_join")}
+        className="block w-full text-center bg-[#25D366] hover:bg-[#1ebe5a] transition-colors text-white font-bold text-base sm:text-lg py-4 px-6 rounded-xl"
+      >
+        Unirme al grupo de WhatsApp →
       </a>
       <p className="text-center text-muted-foreground text-sm mt-3">
         🔒 Pago seguro · Garantía incluida · Acceso inmediato
