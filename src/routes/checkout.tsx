@@ -70,7 +70,7 @@ const GREEN = "#22a06b";
 
 const valueItems = [
   { icon: <Rocket className="h-6 w-6" style={{ color: ACCENT }} />, title: "Amazon + IA de 0 a 60 días", desc: "El sistema que generó Más de 4.6 millones de dólares en ventas de Amazon — ahora en 6 módulos que te llevan de 'no sé nada' a tener tu producto lanzado y vendiendo. Validación, Sourcing, Branding, PPC, Optimización e IA. Paso a paso. Sin adivinar.", value: "Valor $1,497 USD" },
-  { icon: <Bot className="h-6 w-6" style={{ color: ACCENT }} />, title: "Gana más en Amazon trabajando menos con Claude", desc: "La ventaja que el 99% de sellers en español todavía no tiene — Claude IA aplicado a Amazon, paso a paso, para que la inteligencia artificial haga el trabajo pesado y tú te enfoques en crecer. Entra el 25 de junio. Hoy va incluida.", value: "Valor $797 USD" },
+  { icon: <Bot className="h-6 w-6" style={{ color: ACCENT }} />, title: "Gana más en Amazon trabajando menos con Claude", desc: "La ventaja que el 99% de sellers en español todavía no tiene — Claude IA aplicado a Amazon, paso a paso, para que la inteligencia artificial haga el trabajo pesado y tú te enfoques en crecer. Incluida de lanzamiento.", value: "Valor $797 USD" },
   { icon: <Zap className="h-6 w-6" style={{ color: ACCENT }} />, title: "Amazon AI Toolkit", desc: "Para de perder horas buscando productos, escribiendo listings y armando campañas desde cero. Estos 3 Skills de Claude ya saben qué buscar, qué escribir y cómo convertir. Tú solo ejecutas.", value: "Valor $497 USD" },
   { icon: <FileText className="h-6 w-6" style={{ color: ACCENT }} />, title: "Plantillas y Prompts de IA", desc: "Cada hora que pasas creando desde cero es una hora que no estás vendiendo. Estas plantillas y prompts de IA ya están listos — solo los abres y los usas. Resultados profesionales desde el minuto uno.", value: "Valor $197 USD" },
   { icon: <Users className="h-6 w-6" style={{ color: ACCENT }} />, title: "El Círculo Amazon IA", desc: "Una duda mal resuelta puede costarte miles. El Círculo Amazon IA te da acceso directo a Gerardo cada mes en vivo + comunidad activa para que cada decisión que tomes esté respaldada. Gratis por 4 meses.", value: "Valor $396 USD" },
@@ -129,10 +129,10 @@ function Checkout() {
           style={{ background: DARK, borderLeft: `3px solid ${ACCENT}`, borderTopRightRadius: 8, borderBottomRightRadius: 8 }}
         >
           <div className="font-bold text-sm sm:text-base" style={{ color: ACCENT }}>
-            Precio de lanzamiento $497 USD — sube a $697 el 25 de junio
+            Precio de lanzamiento $497 USD
           </div>
           <div className="text-xs sm:text-sm mt-1" style={{ color: "#bbb" }}>
-            El 25 de junio se lanza "Gana más en Amazon trabajando menos con Claude" — y el precio del paquete sube
+            Acceso inmediato al curso completo y a la comunidad privada
           </div>
         </div>
       </div>
