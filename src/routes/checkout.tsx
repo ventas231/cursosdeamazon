@@ -69,12 +69,12 @@ const DARK = "#1a1a1a";
 const GREEN = "#22a06b";
 
 const valueItems = [
-  { icon: <Rocket className="h-6 w-6" style={{ color: ACCENT }} />, title: "Amazon + IA de 0 a 60 días", desc: "El sistema que generó Más de 4.6 millones de dólares en ventas de Amazon — ahora en 6 módulos que te llevan de 'no sé nada' a tener tu producto lanzado y vendiendo. Validación, Sourcing, Branding, PPC, Optimización e IA. Paso a paso. Sin adivinar.", value: "Valor $1,497 USD" },
-  { icon: <Bot className="h-6 w-6" style={{ color: ACCENT }} />, title: "Gana más en Amazon trabajando menos con Claude", desc: "La ventaja que el 99% de sellers en español todavía no tiene — Claude IA aplicado a Amazon, paso a paso, para que la inteligencia artificial haga el trabajo pesado y tú te enfoques en crecer. Incluida de lanzamiento.", value: "Valor $797 USD" },
-  { icon: <Zap className="h-6 w-6" style={{ color: ACCENT }} />, title: "Amazon AI Toolkit", desc: "Para de perder horas buscando productos, escribiendo listings y armando campañas desde cero. Estos 3 Skills de Claude ya saben qué buscar, qué escribir y cómo convertir. Tú solo ejecutas.", value: "Valor $497 USD" },
-  { icon: <FileText className="h-6 w-6" style={{ color: ACCENT }} />, title: "Plantillas y Prompts de IA", desc: "Cada hora que pasas creando desde cero es una hora que no estás vendiendo. Estas plantillas y prompts de IA ya están listos — solo los abres y los usas. Resultados profesionales desde el minuto uno.", value: "Valor $197 USD" },
-  { icon: <Users className="h-6 w-6" style={{ color: ACCENT }} />, title: "El Círculo Amazon IA", desc: "Una duda mal resuelta puede costarte miles. El Círculo Amazon IA te da acceso directo a Gerardo cada mes en vivo + comunidad activa para que cada decisión que tomes esté respaldada. Gratis por 4 meses.", value: "Valor $396 USD" },
-  { icon: <BarChart3 className="h-6 w-6" style={{ color: ACCENT }} />, title: "Amazon Revenue Scan", desc: "Tu cuenta de Amazon tiene dinero escondido que no estás viendo. Claude analiza tus Search Terms, TACOS y ACOS y te muestra dónde está — con un plan listo para ejecutar. Para quienes ya venden en Amazon.", value: "Valor $500 USD" },
+  { icon: <Rocket className="h-6 w-6" style={{ color: ACCENT }} />, title: "Amazon + IA de 0 a 60 días", desc: "El sistema que generó Más de 4.6 millones de dólares en ventas de Amazon — ahora en 6 módulos que te llevan de 'no sé nada' a tener tu producto lanzado y vendiendo. Validación, Sourcing, Branding, PPC, Optimización e IA. Paso a paso. Sin adivinar.", value: "Valor real $1,497 USD" },
+  { icon: <Bot className="h-6 w-6" style={{ color: ACCENT }} />, title: "Gana más en Amazon trabajando menos con Claude", desc: "La ventaja que el 99% de sellers en español todavía no tiene — Claude IA aplicado a Amazon, paso a paso, para que la inteligencia artificial haga el trabajo pesado y tú te enfoques en crecer. Incluida de lanzamiento.", value: "Valor real $797 USD" },
+  { icon: <Zap className="h-6 w-6" style={{ color: ACCENT }} />, title: "Amazon AI Toolkit", desc: "Para de perder horas buscando productos, escribiendo listings y armando campañas desde cero. Estos 3 Skills de Claude ya saben qué buscar, qué escribir y cómo convertir. Tú solo ejecutas.", value: "Valor real $497 USD" },
+  { icon: <FileText className="h-6 w-6" style={{ color: ACCENT }} />, title: "Plantillas y Prompts de IA", desc: "Cada hora que pasas creando desde cero es una hora que no estás vendiendo. Estas plantillas y prompts de IA ya están listos — solo los abres y los usas. Resultados profesionales desde el minuto uno.", value: "Valor real $197 USD" },
+  { icon: <Users className="h-6 w-6" style={{ color: ACCENT }} />, title: "El Círculo Amazon IA", desc: "Una duda mal resuelta puede costarte miles. El Círculo Amazon IA te da acceso directo a Gerardo cada mes en vivo + comunidad activa para que cada decisión que tomes esté respaldada. Gratis por 4 meses.", value: "Valor real $396 USD" },
+  { icon: <BarChart3 className="h-6 w-6" style={{ color: ACCENT }} />, title: "Amazon Revenue Scan", desc: "Tu cuenta de Amazon tiene dinero escondido que no estás viendo. Claude analiza tus Search Terms, TACOS y ACOS y te muestra dónde está — con un plan listo para ejecutar. Para quienes ya venden en Amazon.", value: "Valor real $500 USD" },
   { icon: <ShieldCheck className="h-6 w-6" style={{ color: ACCENT }} />, title: "Garantía de Primera Venta", desc: "Esta no es la garantía típica de '30 días o te devolvemos el dinero'. Es mejor — trabajamos contigo personalmente hasta que logres tu primera venta. Punto. Sin excusas de nuestra parte.", value: "Incluida" },
 ];
 
@@ -258,7 +258,7 @@ function Checkout() {
                   <div className="font-bold">Sesión de Lanzamiento</div>
                   <div style={{ color: "#bbb" }}>Consultoría 1:1 con Gerardo para definir exactamente qué producto lanzar</div>
                 </div>
-                <div className="text-sm font-semibold whitespace-nowrap" style={{ color: GREEN }}>Valor $350 USD</div>
+                <div className="text-sm font-semibold whitespace-nowrap" style={{ color: GREEN }}>Valor real $350 USD</div>
               </div>
               <div className="flex gap-3">
                 <Search className="h-5 w-5 shrink-0" style={{ color: ACCENT }} />
@@ -266,12 +266,12 @@ function Checkout() {
                   <div className="font-bold">Listing X-Ray</div>
                   <div style={{ color: "#bbb" }}>Gerardo revisa 2 de tus listings y te dice exactamente qué cambiar para vender más</div>
                 </div>
-                <div className="text-sm font-semibold whitespace-nowrap" style={{ color: GREEN }}>Valor $347 USD</div>
+                <div className="text-sm font-semibold whitespace-nowrap" style={{ color: GREEN }}>Valor real $347 USD</div>
               </div>
             </div>
             <div className="mt-4 pt-4 flex justify-between text-sm font-bold" style={{ borderTop: "1px solid #333" }}>
               <span>Total bonus</span>
-              <span style={{ color: GREEN }}>Valor $697 USD</span>
+              <span style={{ color: GREEN }}>Valor real $697 USD</span>
             </div>
           </div>
 
@@ -281,7 +281,7 @@ function Checkout() {
             className="w-full rounded-lg p-6 text-center text-white hover:opacity-95 transition cursor-pointer"
             style={{ background: ACCENT, animation: "vbounce 1.6s ease-in-out infinite", boxShadow: `0 0 32px ${ACCENT}99, 0 10px 30px rgba(0,0,0,0.15)` }}
           >
-            <div className="text-sm line-through opacity-90">Valor total: $4,581 USD</div>
+            <div className="text-sm line-through opacity-90">Valor real total: $4,581 USD</div>
             <div className="text-3xl font-extrabold mt-1">TUYO HOY: $497 USD</div>
             <div className="mt-3 inline-block px-4 py-2 rounded-full bg-white text-sm font-bold" style={{ color: ACCENT }}>
               PAGAR AHORA →
