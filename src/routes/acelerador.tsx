@@ -27,8 +27,9 @@ export const Route = createFileRoute("/acelerador")({
 });
 
 const CHECKOUT_URL = "/checkout";
-const VIDEO_URL = videoAsset.url;
+const VIDEO_URL = "https://www.youtube.com/embed/jEpzV7xGpQ0";
 const WHATSAPP_URL = `https://wa.me/522223288421?text=${encodeURIComponent("QUIERO SABER MAS DEL SISTEMA")}`;
+
 const CALL_URL = "https://calendly.com/cursos-summaproducts/30min";
 
 declare global {
