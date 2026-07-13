@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import gerardoPhoto from "@/assets/gerardo.png.asset.json";
-import videoAsset from "@/assets/acelerador-video.mp4.asset.json";
 import { HistoriaExito } from "@/components/HistoriaExito";
+
 
 export const Route = createFileRoute("/acelerador")({
   head: () => ({
@@ -27,8 +27,9 @@ export const Route = createFileRoute("/acelerador")({
 });
 
 const CHECKOUT_URL = "/checkout";
-const VIDEO_URL = videoAsset.url;
+const VIDEO_URL = "https://www.youtube.com/embed/jEpzV7xGpQ0";
 const WHATSAPP_URL = `https://wa.me/522223288421?text=${encodeURIComponent("QUIERO SABER MAS DEL SISTEMA")}`;
+
 const CALL_URL = "https://calendly.com/cursos-summaproducts/30min";
 
 declare global {
@@ -128,15 +129,15 @@ function Hero() {
         </div>
 
         <div className="relative aspect-video w-full bg-[#0D0D0D] rounded-xl overflow-hidden border border-border mb-8">
-          <video
+          <iframe
             src={VIDEO_URL}
             className="absolute inset-0 w-full h-full"
-            controls
-            playsInline
-            preload="metadata"
             title="Video exclusivo Gerardo Villa"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
           />
         </div>
+
 
         <PrimaryCTA />
       </div>
