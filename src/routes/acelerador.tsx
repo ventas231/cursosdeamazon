@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import gerardoPhoto from "@/assets/gerardo.png.asset.json";
-import videoAsset from "@/assets/acelerador-video.mp4.asset.json";
 import { HistoriaExito } from "@/components/HistoriaExito";
+
 
 export const Route = createFileRoute("/acelerador")({
   head: () => ({
