@@ -63,7 +63,7 @@ export function WhatsAppForm({
   const isSide = variant === "side";
 
   return (
-    <div className={cn("w-full", isSide ? "max-w-md" : "max-w-xl mx-auto")}>
+    <div className={cn("w-full", isSide ? "" : "max-w-xl mx-auto")}>
       {heading || supportText || subheading ? (
         <div className={cn("mb-5", isSide ? "text-left" : "text-center")}>
           {heading ? (
