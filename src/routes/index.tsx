@@ -68,12 +68,12 @@ function LandingPage() {
           </p>
 
           <h1 className="mx-auto mt-4 max-w-5xl text-center text-4xl font-black leading-[1.08] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-6xl">
-            Cómo saber qué vender, vender con anuncios y{" "}
-            <span className="text-glow-brand">vender más con IA</span>
-            <span className="block mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-muted-foreground leading-tight">
+            Cómo saber qué vender, colocar tu publicidad y{" "}
+            <span className="text-glow-brand">vender más en Amazon con IA</span>
+            <span className="block mt-3 text-sm sm:text-base md:text-lg font-semibold text-muted-foreground leading-snug">
               Un video directo al grano: el sistema para vender en Amazon con IA.
             </span>
-            <span className="block mt-2 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-brand/90">
+            <span className="block mt-1.5 text-xs sm:text-sm md:text-base font-medium text-brand/90">
               Lo que normalmente te tomaría 2 horas de explicar, está en 27 minutos.
             </span>
           </h1>
@@ -106,7 +106,6 @@ function LandingPage() {
             {/* Formulario */}
             <div className="w-full max-w-lg">
               <WhatsAppForm
-                supportText="Un video directo al grano: el sistema para vender en Amazon con IA, lo que normalmente tomaría 2 horas explicar."
                 idPrefix="hero"
                 variant="side"
               />
