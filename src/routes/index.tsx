@@ -62,48 +62,48 @@ function LandingPage() {
 
       {/* SECCIÓN 2 — HERO */}
       <section className="bg-background px-4 py-[60px] md:py-20">
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto max-w-7xl">
           <p className="text-center text-xs font-semibold uppercase tracking-[0.15em] text-brand">
             Gerardo Villa · Más de 4.6 millones de dólares en ventas de Amazon
           </p>
 
-          <h1 className="mt-5 text-center text-4xl font-black leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl">
+          <h1 className="mx-auto mt-5 max-w-5xl text-center text-4xl font-black leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
             Cómo validar un nicho, ganar en PPC y vender más con{" "}
             <span className="text-brand">IA</span> — Gerardo te lo explica en
             27 minutos, gratis por{" "}
             <span className="text-brand">WhatsApp</span>
-            <span className="block mt-2 text-2xl sm:text-3xl md:text-4xl font-bold text-muted-foreground">
+            <span className="block mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-muted-foreground">
               sin adivinar ni quemar tus ahorros
             </span>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-xl text-center text-base sm:text-lg text-muted-foreground">
+          <p className="mx-auto mt-6 max-w-3xl text-center text-base sm:text-lg md:text-xl text-muted-foreground">
             Descubre el sistema exacto que uso en mi negocio de Más de 4.6 millones de dólares en ventas de Amazon y cómo
             tú puedes replicarlo desde cero.
           </p>
 
           {/* Foto Gerardo + Formulario */}
-          <div className="mt-8 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-10 max-w-4xl mx-auto">
+          <div className="mt-10 flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 lg:gap-24 max-w-6xl mx-auto">
             {/* Foto */}
             <div className="flex flex-col items-center shrink-0">
               <div className="relative">
-                <div className="absolute inset-0 -m-2 rounded-full bg-gradient-to-br from-brand/40 to-brand-soft/20 blur-2xl" />
+                <div className="absolute inset-0 -m-4 rounded-full bg-gradient-to-br from-brand/40 to-brand-soft/20 blur-3xl" />
                 <img
                   src={gerardoPhoto.url}
                   alt="Gerardo Villa, founder de Summa"
-                  width={144}
-                  height={144}
-                  className="relative h-36 w-36 rounded-full object-cover ring-2 ring-brand/50 ring-offset-4 ring-offset-background"
+                  width={208}
+                  height={208}
+                  className="relative h-48 w-48 md:h-52 md:w-52 rounded-full object-cover ring-2 ring-brand/50 ring-offset-4 ring-offset-background"
                 />
               </div>
-              <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-hairline bg-surface px-4 py-1.5 text-xs text-muted-foreground">
+              <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-hairline bg-surface px-4 py-1.5 text-xs md:text-sm text-muted-foreground">
                 <span className="h-1.5 w-1.5 rounded-full bg-brand" />
                 Gerardo Villa · Amazon MX &amp; USA
               </div>
             </div>
 
             {/* Formulario */}
-            <div className="w-full max-w-md">
+            <div className="w-full max-w-lg">
               <WhatsAppForm
                 supportText="Un video directo al grano: el sistema para vender en Amazon con IA, lo que normalmente tomaría 2 horas explicar."
                 idPrefix="hero"
