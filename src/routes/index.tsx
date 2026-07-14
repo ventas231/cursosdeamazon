@@ -110,7 +110,6 @@ function LandingPage() {
           {/* Form */}
           <div className="mt-8">
             <WhatsAppForm
-              heading="Cómo validar un nicho, ganar en PPC y vender más con IA — Gerardo te lo explica en 27 minutos, gratis por WhatsApp."
               supportText="Un video directo al grano: el sistema para vender en Amazon con IA, lo que normalmente tomaría 2 horas explicar."
               idPrefix="hero"
             />

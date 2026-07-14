@@ -4,7 +4,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { subscribeWhatsapp } from "@/lib/excel.functions";
 
 interface WhatsAppFormProps {
-  heading: string;
+  heading?: string;
   subheading?: string;
   supportText?: string;
   idPrefix: string;
@@ -59,21 +59,25 @@ export function WhatsAppForm({
 
   return (
     <div className="w-full max-w-xl mx-auto">
-      <div className="text-center mb-5">
-        <h3 className="text-xl md:text-2xl font-bold text-foreground">
-          {heading}
-        </h3>
-        {supportText ? (
-          <p className="mt-2 text-sm md:text-base text-[#C9CDD1]">
-            {supportText}
-          </p>
-        ) : null}
-        {subheading ? (
-          <p className="mt-2 text-sm md:text-base text-muted-foreground">
-            {subheading}
-          </p>
-        ) : null}
-      </div>
+      {heading || supportText || subheading ? (
+        <div className="text-center mb-5">
+          {heading ? (
+            <h3 className="text-xl md:text-2xl font-bold text-foreground">
+              {heading}
+            </h3>
+          ) : null}
+          {supportText ? (
+            <p className="mt-2 text-sm md:text-base text-[#C9CDD1]">
+              {supportText}
+            </p>
+          ) : null}
+          {subheading ? (
+            <p className="mt-2 text-sm md:text-base text-muted-foreground">
+              {subheading}
+            </p>
+          ) : null}
+        </div>
+      ) : null}
 
       <form onSubmit={onSubmit} className="space-y-3" noValidate>
         {!showInput ? (
