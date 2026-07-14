@@ -2,12 +2,14 @@ import { useState, type FormEvent } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { subscribeWhatsapp } from "@/lib/excel.functions";
+import { cn } from "@/lib/utils";
 
 interface WhatsAppFormProps {
   heading?: string;
   subheading?: string;
   supportText?: string;
   idPrefix: string;
+  variant?: "default" | "side";
 }
 
 export function WhatsAppForm({
@@ -15,6 +17,7 @@ export function WhatsAppForm({
   subheading,
   supportText,
   idPrefix,
+  variant = "default",
 }: WhatsAppFormProps) {
   const [value, setValue] = useState("");
   const [showInput, setShowInput] = useState(false);

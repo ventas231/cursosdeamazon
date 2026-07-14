@@ -82,37 +82,41 @@ function LandingPage() {
             tú puedes replicarlo desde cero.
           </p>
 
-          {/* Foto Gerardo */}
-          <div className="mt-8 flex flex-col items-center">
-            <div className="relative">
-              <div className="absolute inset-0 -m-2 rounded-full bg-gradient-to-br from-brand/40 to-brand-soft/20 blur-2xl" />
-              <img
-                src={gerardoPhoto.url}
-                alt="Gerardo Villa, founder de Summa"
-                width={144}
-                height={144}
-                className="relative h-36 w-36 rounded-full object-cover ring-2 ring-brand/50 ring-offset-4 ring-offset-background"
-              />
-            </div>
-            <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-hairline bg-surface px-4 py-1.5 text-xs text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-              Gerardo Villa · Amazon MX &amp; USA
+          {/* Foto Gerardo + Formulario */}
+          <div className="mt-8 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-10 max-w-4xl mx-auto">
+            {/* Foto */}
+            <div className="flex flex-col items-center shrink-0">
+              <div className="relative">
+                <div className="absolute inset-0 -m-2 rounded-full bg-gradient-to-br from-brand/40 to-brand-soft/20 blur-2xl" />
+                <img
+                  src={gerardoPhoto.url}
+                  alt="Gerardo Villa, founder de Summa"
+                  width={144}
+                  height={144}
+                  className="relative h-36 w-36 rounded-full object-cover ring-2 ring-brand/50 ring-offset-4 ring-offset-background"
+                />
+              </div>
+              <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-hairline bg-surface px-4 py-1.5 text-xs text-muted-foreground">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+                Gerardo Villa · Amazon MX &amp; USA
+              </div>
             </div>
 
-            <div className="mt-5 w-full max-w-3xl mx-auto rounded-xl border-2 border-brand bg-brand/10 px-6 md:px-8 py-5 text-center shadow-[0_0_30px_-8px_rgba(255,107,0,0.45)]">
-              <p className="text-sm md:text-lg font-bold text-brand leading-snug">
-                ⭐ Mencionado por Amazon México como uno de los vendedores
-                exitosos de Amazon Estados Unidos
-              </p>
+            {/* Formulario */}
+            <div className="w-full max-w-md">
+              <WhatsAppForm
+                supportText="Un video directo al grano: el sistema para vender en Amazon con IA, lo que normalmente tomaría 2 horas explicar."
+                idPrefix="hero"
+                variant="side"
+              />
             </div>
           </div>
 
-          {/* Form */}
-          <div className="mt-8">
-            <WhatsAppForm
-              supportText="Un video directo al grano: el sistema para vender en Amazon con IA, lo que normalmente tomaría 2 horas explicar."
-              idPrefix="hero"
-            />
+          <div className="mt-8 w-full max-w-3xl mx-auto rounded-xl border-2 border-brand bg-brand/10 px-6 md:px-8 py-5 text-center shadow-[0_0_30px_-8px_rgba(255,107,0,0.45)]">
+            <p className="text-sm md:text-lg font-bold text-brand leading-snug">
+              ⭐ Mencionado por Amazon México como uno de los vendedores
+              exitosos de Amazon Estados Unidos
+            </p>
           </div>
 
           <HistoriaExito />
