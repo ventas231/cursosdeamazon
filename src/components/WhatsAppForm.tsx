@@ -129,7 +129,7 @@ export function WhatsAppForm({
           </>
         )}
 
-        <p className="text-center text-xs md:text-sm text-muted-foreground pt-1">
+        <p className={cn("text-xs md:text-sm text-muted-foreground pt-1", isSide ? "text-left" : "text-center")}>
           Te llega un solo mensaje con el video. Sin llamadas, sin spam.
         </p>
       </form>
