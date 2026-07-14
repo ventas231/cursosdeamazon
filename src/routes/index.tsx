@@ -63,16 +63,27 @@ function LandingPage() {
       {/* SECCIÓN 2 — HERO */}
       <section className="bg-background px-4 py-[60px] md:py-20">
         <div className="mx-auto max-w-7xl">
-          <p className="text-center text-xs font-semibold uppercase tracking-[0.15em] text-brand">
+          <div className="flex justify-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-brand/40 bg-brand/10 px-4 py-1.5 text-xs font-black uppercase tracking-wider text-brand animate-[badge-bounce_2.2s_ease-in-out_infinite]">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-brand" />
+              </span>
+              🔥 Acceso gratuito por WhatsApp
+            </span>
+          </div>
+
+          <p className="text-center text-xs font-semibold uppercase tracking-[0.15em] text-brand mt-4">
             Gerardo Villa · Más de 4.6 millones de dólares en ventas de Amazon
           </p>
 
-          <h1 className="mx-auto mt-5 max-w-5xl text-center text-4xl font-black leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-            Cómo validar un nicho, ganar en PPC y vender más con{" "}
-            <span className="text-brand">IA</span> — Gerardo te lo explica en
-            27 minutos, gratis por{" "}
-            <span className="text-brand">WhatsApp</span>
-            <span className="block mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-muted-foreground">
+          <h1 className="mx-auto mt-4 max-w-5xl text-center text-4xl font-black leading-[1.08] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-6xl">
+            Cómo validar un nicho, ganar en PPC y{" "}
+            <span className="text-glow-brand">vender más con IA</span>
+            <span className="block mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-muted-foreground leading-tight">
+              — Gerardo te lo explica en 27 minutos, gratis por WhatsApp
+            </span>
+            <span className="block mt-2 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-brand/90">
               sin adivinar ni quemar tus ahorros
             </span>
           </h1>
