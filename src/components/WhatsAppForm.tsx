@@ -60,10 +60,12 @@ export function WhatsAppForm({
     navigate({ to: "/acelerador" });
   }
 
+  const isSide = variant === "side";
+
   return (
-    <div className="w-full max-w-xl mx-auto">
+    <div className={cn("w-full", isSide ? "max-w-md" : "max-w-xl mx-auto")}>
       {heading || supportText || subheading ? (
-        <div className="text-center mb-5">
+        <div className={cn("mb-5", isSide ? "text-left" : "text-center")}>
           {heading ? (
             <h3 className="text-xl md:text-2xl font-bold text-foreground">
               {heading}
