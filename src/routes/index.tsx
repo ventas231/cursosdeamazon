@@ -31,7 +31,7 @@ export const Route = createFileRoute("/")({
 });
 
 const discoverBullets = [
-  "El sistema exacto de validación de productos con Helium 10 e IA que elimina el 90% del riesgo de perder dinero",
+  "El sistema de validación de productos con IA para no lanzar a ciegas",
   "Cómo usar Claude AI para crear listados, fotos de producto y campañas PPC — sin contratar a nadie",
   "Por qué la mayoría de personas fracasa en Amazon (y el error específico que debes evitar)",
   "La estrategia de los 60 días: de idea validada a primera venta, paso a paso",
@@ -110,7 +110,8 @@ function LandingPage() {
           {/* Form */}
           <div className="mt-8">
             <WhatsAppForm
-              heading="Ingresa tu WhatsApp y descubre el secreto de Amazon"
+              heading="Cómo validar un nicho, ganar en PPC y vender más con IA — Gerardo te lo explica en 27 minutos, gratis por WhatsApp."
+              supportText="Un video directo al grano: el sistema para vender en Amazon con IA, lo que normalmente tomaría 2 horas explicar."
               idPrefix="hero"
             />
           </div>
@@ -141,7 +142,7 @@ function LandingPage() {
       <section className="bg-background px-4 py-16 md:py-20">
         <div className="mx-auto max-w-5xl">
           <h2 className="text-center text-3xl md:text-4xl font-black tracking-tight">
-            Descubre el secreto que genera ventas amazon
+            Esto es lo que vas a ver en el video
           </h2>
           <ul className="mt-10 space-y-5">
             {discoverBullets.map((b, i) => (
@@ -210,8 +211,7 @@ function LandingPage() {
       <section className="bg-surface px-4 pb-16 md:pb-20">
         <div id="cta2" className="mx-auto max-w-5xl">
           <WhatsAppForm
-            heading="¿Listo para ver el sistema?"
-            subheading="Miles de personas hispanohablantes ya están usando este sistema. Tú puedes ser el siguiente."
+            heading="Ve el video de 27 minutos gratis"
             idPrefix="cta2"
           />
         </div>
