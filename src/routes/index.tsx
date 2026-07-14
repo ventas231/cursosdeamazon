@@ -63,16 +63,6 @@ function LandingPage() {
       {/* SECCIÓN 2 — HERO */}
       <section className="bg-background px-4 py-[60px] md:py-20">
         <div className="mx-auto max-w-7xl">
-          <div className="flex justify-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-brand/40 bg-brand/10 px-4 py-1.5 text-xs font-black uppercase tracking-wider text-brand animate-[badge-bounce_2.2s_ease-in-out_infinite]">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-brand" />
-              </span>
-              🔥 Acceso gratuito por WhatsApp
-            </span>
-          </div>
-
           <p className="text-center text-xs font-semibold uppercase tracking-[0.15em] text-brand mt-4">
             Gerardo Villa · Más de 4.6 millones de dólares en ventas de Amazon
           </p>
