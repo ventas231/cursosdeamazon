@@ -68,10 +68,10 @@ function LandingPage() {
           </p>
 
           <h1 className="mt-5 text-center text-4xl font-black leading-[1.1] tracking-tight text-foreground sm:text-5xl md:text-6xl">
-            Descubre cómo lanzar tu primer producto en{" "}
-            <span className="text-brand">Amazon</span> con{" "}
-            <span className="text-brand">IA</span> en{" "}
-            <span className="text-brand">60 días</span>
+            Cómo validar un nicho, ganar en PPC y vender más con{" "}
+            <span className="text-brand">IA</span> — Gerardo te lo explica en
+            27 minutos, gratis por{" "}
+            <span className="text-brand">WhatsApp</span>
             <span className="block mt-2 text-2xl sm:text-3xl md:text-4xl font-bold text-muted-foreground">
               sin adivinar ni quemar tus ahorros
             </span>
