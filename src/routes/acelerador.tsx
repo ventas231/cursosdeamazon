@@ -92,9 +92,9 @@ function Hero() {
   return (
     <section className="bg-background px-4 py-12 sm:py-20">
       <div className="max-w-6xl mx-auto text-center">
-        <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-6 text-glow-brand">
-          VENDE EN AMAZON EN 60 DÍAS USANDO IA
-        </h1>
+        <p className="text-primary uppercase text-xs sm:text-sm font-semibold tracking-wider mb-6">
+          CONOCE EL SISTEMA
+        </p>
         <div className="relative aspect-video w-full bg-[#0D0D0D] rounded-xl overflow-hidden border border-border mb-8">
           <iframe
             src={VIDEO_URL}
