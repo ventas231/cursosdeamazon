@@ -95,12 +95,6 @@ function Hero() {
         <p className="text-primary uppercase text-xs sm:text-sm font-semibold tracking-wider mb-6">
           CONOCE EL SISTEMA
         </p>
-        <h1 className="text-3xl sm:text-5xl font-bold leading-tight mb-10">
-          Cómo lancé mi primer producto en Amazon desde cero y llegué a{" "}
-          <span className="text-primary">Más de 4.6 millones de dólares en ventas de Amazon</span> — y cómo tú puedes hacerlo en{" "}
-          <span className="text-primary">60 días con IA</span>
-        </h1>
-
         <div className="relative aspect-video w-full bg-[#0D0D0D] rounded-xl overflow-hidden border border-border mb-8">
           <iframe
             src={VIDEO_URL}
