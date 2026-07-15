@@ -67,16 +67,15 @@ function LandingPage() {
             Gerardo Villa · Más de 4.6 millones de dólares en ventas de Amazon
           </p>
 
-          <h1 className="mx-auto mt-4 max-w-5xl text-center text-4xl font-black leading-[1.08] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-6xl">
-            Cómo saber qué vender, colocar tu publicidad y{" "}
-            <span className="text-glow-brand">vender más en Amazon con IA</span>
-            <span className="block mt-3 text-sm sm:text-base md:text-lg font-semibold text-muted-foreground leading-snug">
-              Un video directo al grano: el sistema para vender en Amazon con IA.
-            </span>
-            <span className="block mt-1.5 text-xs sm:text-sm md:text-base font-medium text-brand/90">
-              Lo que normalmente te tomaría 2 horas de explicar, está en 27 minutos.
-            </span>
+          <h1 className="mx-auto mt-4 max-w-5xl text-center text-4xl font-black leading-[1.08] tracking-tight text-glow-brand sm:text-5xl md:text-6xl lg:text-6xl">
+            VENDE EN AMAZON EN 60 DÍAS USANDO IA
           </h1>
+          <p className="mx-auto mt-3 max-w-3xl text-center text-sm sm:text-base md:text-lg font-semibold text-muted-foreground leading-snug">
+            Un video directo al grano: el sistema para vender en Amazon con IA.
+          </p>
+          <p className="mx-auto mt-1.5 max-w-3xl text-center text-xs sm:text-sm md:text-base font-medium text-brand/90">
+            Lo que normalmente te tomaría 2 horas de explicar, está en 27 minutos.
+          </p>
 
           <p className="mx-auto mt-6 max-w-3xl text-center text-base sm:text-lg md:text-xl text-muted-foreground">
             Descubre el sistema exacto que uso en mi negocio de Más de 4.6 millones de dólares en ventas de Amazon y cómo
