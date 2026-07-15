@@ -101,24 +101,6 @@ function Hero() {
           <span className="text-primary">60 días con IA</span>
         </h1>
 
-        <div className="relative mb-6 flex flex-col items-center">
-          <div className="absolute inset-0 bg-gradient-radial from-primary/10 to-transparent blur-3xl" />
-          <div className="relative w-[200px] h-[200px] rounded-full overflow-hidden border-4 border-primary bg-[#111] shadow-[0_0_40px_-5px_rgba(255,107,0,0.8)] ring-4 ring-primary/30 ring-offset-2 ring-offset-background">
-            <img src={gerardoPhoto.url} alt="Gerardo Villa" className="w-full h-full object-cover" />
-          </div>
-          <div className="relative mt-4 inline-block bg-[#111] border border-border rounded-full px-4 py-2 text-sm">
-            <span className="font-semibold">Gerardo Villa</span>
-            <span className="text-muted-foreground"> · </span>
-            <span className="text-primary font-semibold">Más de 4.6 millones de dólares en ventas de Amazon</span>
-          </div>
-          <div className="relative mt-3 inline-flex items-center gap-2 bg-primary/10 border border-primary/40 rounded-full px-4 py-1.5 text-xs sm:text-sm text-foreground/90 max-w-2xl">
-            <span className="text-primary">★</span>
-            <span>
-              Reconocido por <span className="font-semibold text-primary">Amazon México</span> como uno de los vendedores exitosos de Amazon Estados Unidos
-            </span>
-          </div>
-        </div>
-
         <div className="relative aspect-video w-full bg-[#0D0D0D] rounded-xl overflow-hidden border border-border mb-8">
           <iframe
             src={VIDEO_URL}
