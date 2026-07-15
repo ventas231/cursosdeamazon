@@ -84,7 +84,7 @@ function LandingPage() {
           </p>
 
           {/* Foto Gerardo + Formulario */}
-          <div className="mt-10 flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 lg:gap-24 max-w-6xl mx-auto">
+          <div className="mt-10 flex flex-col-reverse md:flex-row items-center justify-center gap-10 md:gap-16 lg:gap-24 max-w-6xl mx-auto">
             {/* Foto */}
             <div className="flex flex-col items-center shrink-0">
               <div className="relative">
