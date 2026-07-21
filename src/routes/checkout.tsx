@@ -278,14 +278,20 @@ function Checkout() {
           <button
             type="button"
             onClick={() => document.getElementById("pago")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-            className="w-full rounded-lg p-6 text-center text-white hover:opacity-95 transition cursor-pointer"
-            style={{ background: ACCENT, animation: "vbounce 1.6s ease-in-out infinite", boxShadow: `0 0 32px ${ACCENT}99, 0 10px 30px rgba(0,0,0,0.15)` }}
+            className="group relative w-full overflow-hidden rounded-lg p-6 text-center bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] text-black font-black transition-all duration-200 hover:shadow-[0_0_65px_-6px_rgba(255,140,0,0.95)] hover:-translate-y-0.5"
+            style={{ animation: "vbounce 2.2s ease-in-out infinite", boxShadow: "0 0 45px -8px rgba(255,153,0,0.7)" }}
           >
-            <div className="text-sm line-through opacity-90">Valor real total: $4,581 USD</div>
-            <div className="text-3xl font-extrabold mt-1">TUYO HOY: $497 USD</div>
-            <div className="mt-3 inline-block px-4 py-2 rounded-full bg-white text-sm font-bold" style={{ color: ACCENT }}>
-              PAGAR AHORA →
-            </div>
+            <span className="relative z-10 block">
+              <span className="block text-sm line-through opacity-75">Valor real total: $4,581 USD</span>
+              <span className="block text-3xl mt-1">TUYO HOY: $497 USD</span>
+              <span className="mt-3 inline-block px-4 py-2 rounded-full bg-white text-sm font-bold" style={{ color: ACCENT }}>
+                PAGAR AHORA →
+              </span>
+            </span>
+            <span
+              className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/35 to-transparent animate-shine"
+              aria-hidden="true"
+            />
           </button>
 
           <a href="/garantia.html" target="_blank" rel="noopener noreferrer" className="rounded-lg p-5 flex items-center gap-4 hover:opacity-90 transition" style={{ background: "#FAFAFA", border: `1px solid ${BORDER}` }}>
@@ -328,7 +334,7 @@ function Checkout() {
         <Calendar className="h-5 w-5" />
         Agenda una llamada
       </a>
-      <style>{`@keyframes vbounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}`}</style>
+      <style>{`@keyframes vbounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}} @keyframes shine {0%{transform:translateX(-100%)}100%{transform:translateX(100%)}} .animate-shine { animation: shine 2.2s ease-in-out infinite }`}</style>
     </div>
   );
 }
