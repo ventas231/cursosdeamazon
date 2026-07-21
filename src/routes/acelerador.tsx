@@ -76,10 +76,14 @@ function PrimaryCTA({ id }: { id?: string }) {
       <a
         href={CHECKOUT_URL}
         onClick={() => trackLead("hero_primary_cta")}
-        className="block w-full text-center bg-primary hover:bg-primary/90 transition-colors text-primary-foreground font-bold text-lg sm:text-xl py-5 px-6 rounded-xl"
-        style={{ animation: "vbounce 1.8s ease-in-out infinite" }}
+        className="group relative block w-full overflow-hidden text-center bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] text-black font-black text-lg sm:text-xl py-5 px-6 rounded-xl shadow-[0_0_45px_-8px_rgba(255,153,0,0.7)] transition-all duration-200 hover:shadow-[0_0_65px_-6px_rgba(255,140,0,0.95)] hover:-translate-y-0.5"
+        style={{ animation: "vbounce 2.2s ease-in-out infinite" }}
       >
-        QUIERO EL SISTEMA AHORA — $497 USD →
+        <span className="relative z-10">QUIERO EL SISTEMA AHORA — $497 USD →</span>
+        <span
+          className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/35 to-transparent animate-shine"
+          aria-hidden="true"
+        />
       </a>
       <p className="text-center text-muted-foreground text-sm mt-3">
         🔒 Pago seguro · Garantía incluida · Acceso inmediato
@@ -405,7 +409,7 @@ function VSLPage() {
       <WhatYouGet />
       <Footer />
       <FloatingWhatsApp />
-      <style>{`@keyframes vbounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}`}</style>
+      <style>{`@keyframes vbounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}} @keyframes shine {0%{transform:translateX(-100%)}100%{transform:translateX(100%)}} .animate-shine { animation: shine 2.2s ease-in-out infinite }`}</style>
     </div>
   );
 }
