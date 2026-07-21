@@ -282,8 +282,8 @@ function Checkout() {
           <button
             type="button"
             onClick={() => document.getElementById("pago")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-            className="group relative w-full overflow-hidden rounded-lg p-6 text-center bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] text-black font-black transition-all duration-200 hover:shadow-[0_0_65px_-6px_rgba(255,140,0,0.95)] hover:-translate-y-0.5"
-            style={{ animation: "vbounce 2.2s ease-in-out infinite", boxShadow: "0 0 45px -8px rgba(255,153,0,0.7)" }}
+            className="group relative w-full overflow-hidden rounded-lg p-6 text-center bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] text-black font-black transition-all duration-200 hover:-translate-y-0.5"
+            style={{ animation: "vbounce 2.2s ease-in-out infinite, glow-pulse 1.8s ease-in-out infinite", boxShadow: "0 0 55px -4px rgba(255,153,0,0.9), 0 0 90px -20px rgba(255,107,0,0.6)" }}
           >
             <span className="relative z-10 block">
               <span className="block text-sm line-through opacity-75">Valor real total: $4,581 USD</span>
@@ -293,7 +293,7 @@ function Checkout() {
               </span>
             </span>
             <span
-              className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/35 to-transparent animate-shine"
+              className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-shine"
               aria-hidden="true"
             />
           </button>
