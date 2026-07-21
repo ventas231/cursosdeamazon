@@ -338,7 +338,7 @@ function Checkout() {
         <Calendar className="h-5 w-5" />
         Agenda una llamada
       </a>
-      <style>{`@keyframes vbounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}} @keyframes shine {0%{transform:translateX(-100%)}100%{transform:translateX(100%)}} .animate-shine { animation: shine 2.2s ease-in-out infinite }`}</style>
+      <style>{`@keyframes vbounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}} @keyframes shine {0%{transform:translateX(-100%)}100%{transform:translateX(100%)}} @keyframes glow-pulse {0%,100%{box-shadow:0 0 45px -4px rgba(255,153,0,0.85),0 0 75px -20px rgba(255,107,0,0.5)}50%{box-shadow:0 0 70px -2px rgba(255,153,0,1),0 0 110px -16px rgba(255,107,0,0.75)}} .animate-shine { animation: shine 2.2s ease-in-out infinite }`}</style>
     </div>
   );
 }
