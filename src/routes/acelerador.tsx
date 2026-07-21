@@ -219,11 +219,17 @@ function WhatYouGet() {
         <a
           href={CHECKOUT_URL}
           onClick={() => trackLead("price_box_497")}
-          className="block bg-primary text-primary-foreground rounded-lg p-6 text-center hover:bg-primary/90 transition-colors"
-          style={{ animation: "vbounce 1.8s ease-in-out infinite" }}
+          className="group relative block w-full overflow-hidden text-center bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] text-black font-black text-lg sm:text-xl py-5 px-6 rounded-xl shadow-[0_0_45px_-8px_rgba(255,153,0,0.7)] transition-all duration-200 hover:shadow-[0_0_65px_-6px_rgba(255,140,0,0.95)] hover:-translate-y-0.5"
+          style={{ animation: "vbounce 2.2s ease-in-out infinite" }}
         >
-          <p className="text-sm line-through opacity-80">Valor total: $4,581 USD</p>
-          <p className="text-3xl sm:text-4xl font-bold my-2">TUYO HOY: $497 USD →</p>
+          <span className="relative z-10 block">
+            <span className="block text-sm line-through opacity-75">Valor total: $4,581 USD</span>
+            <span className="block text-3xl sm:text-4xl mt-1">TUYO HOY: $497 USD →</span>
+          </span>
+          <span
+            className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/35 to-transparent animate-shine"
+            aria-hidden="true"
+          />
         </a>
       </div>
     </section>
