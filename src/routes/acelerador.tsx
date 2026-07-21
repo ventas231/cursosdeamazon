@@ -96,9 +96,14 @@ function Hero() {
   return (
     <section className="bg-background px-4 py-12 sm:py-20">
       <div className="max-w-6xl mx-auto text-center">
-        <p className="text-primary uppercase text-xs sm:text-sm font-semibold tracking-wider mb-6">
-          CONOCE EL SISTEMA
-        </p>
+        <div className="mb-6">
+          <p className="text-primary uppercase text-base sm:text-xl font-black tracking-widest animate-[text-glow-pulse_1.2s_ease-in-out_infinite]">
+            CONOCE EL SISTEMA
+          </p>
+          <p className="text-muted-foreground text-xs sm:text-sm font-medium uppercase tracking-wider mt-2">
+            Reproduce el video
+          </p>
+        </div>
         <div className="relative aspect-video w-full bg-[#0D0D0D] rounded-xl overflow-hidden border border-border mb-8">
           <iframe
             src={VIDEO_URL}
