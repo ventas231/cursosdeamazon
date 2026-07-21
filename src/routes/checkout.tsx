@@ -171,7 +171,7 @@ function Checkout() {
               Asegúrate de llenar tus datos arriba antes de pagar. Al aprobar el pago en PayPal serás redirigido automáticamente a tu acceso al curso.
             </p>
 
-            <div className="mt-2">
+            <div className="mt-2 p-1 paypal-glow rounded-lg">
               <PayPalHostedButton />
             </div>
 
@@ -185,11 +185,15 @@ function Checkout() {
               href={`https://wa.me/5212223288421?text=${encodeURIComponent("Quiero el curso, pero quiero pagar con otro método")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 flex items-center justify-center gap-2 w-full rounded-lg px-4 py-4 text-center font-bold text-sm hover:opacity-95 transition cursor-pointer"
-              style={{ background: DARK, color: "#fff", border: `2px solid ${ACCENT}`, boxShadow: `0 0 20px ${ACCENT}40` }}
+              className="group relative mt-5 flex items-center justify-center gap-2 w-full rounded-lg px-4 py-4 text-center font-bold text-sm hover:opacity-95 transition cursor-pointer overflow-hidden"
+              style={{ background: DARK, color: "#fff", border: `2px solid ${ACCENT}`, boxShadow: `0 0 25px ${ACCENT}50`, animation: "vbounce 2.2s ease-in-out infinite" }}
             >
-              <HelpCircle className="h-5 w-5" style={{ color: ACCENT }} />
-              <span>¿Quieres pagar con transferencia o usar otro método de pago? <span style={{ color: ACCENT, textDecoration: "underline" }}>Pica aquí</span></span>
+              <HelpCircle className="h-5 w-5 relative z-10" style={{ color: ACCENT }} />
+              <span className="relative z-10">¿Quieres pagar con transferencia o usar otro método de pago? <span style={{ color: ACCENT, textDecoration: "underline" }}>Pica aquí</span></span>
+              <span
+                className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-yellow-300/30 to-transparent animate-shine"
+                aria-hidden="true"
+              />
             </a>
           </div>
         </div>
