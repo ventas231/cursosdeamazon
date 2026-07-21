@@ -128,18 +128,6 @@
   50% { transform: translateY(-4px) rotate(1deg); }
 }
 
-@keyframes paypal-glow {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(0, 112, 186, 0.35), 0 0 30px -6px rgba(0, 112, 186, 0.25);
-  }
-  50% {
-    box-shadow: 0 0 0 10px rgba(0, 112, 186, 0), 0 0 45px -6px rgba(255, 153, 0, 0.45);
-  }
-}
-
-.paypal-glow {
-  animation: paypal-glow 2.4s ease-in-out infinite;
-}
 
 @layer base {
   * {

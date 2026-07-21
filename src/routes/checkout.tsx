@@ -171,7 +171,7 @@ function Checkout() {
               Asegúrate de llenar tus datos arriba antes de pagar. Al aprobar el pago en PayPal serás redirigido automáticamente a tu acceso al curso.
             </p>
 
-            <div className="mt-2 p-1 paypal-glow rounded-lg">
+            <div className="mt-2 p-1 rounded-lg">
               <PayPalHostedButton />
             </div>
 
