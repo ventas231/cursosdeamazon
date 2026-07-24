@@ -283,7 +283,7 @@ function WhatYouGet() {
                   {item.text}
                 </span>
                 <span className="flex-shrink-0 self-start sm:self-center inline-flex items-center gap-2 rounded-full border border-[#FF9900]/40 bg-black/40 px-3 py-1.5 text-sm font-bold text-[#FFCC00]">
-                  <span className="text-muted-foreground text-xs uppercase tracking-wider">Valor real</span>
+                  <span className="text-muted-foreground text-xs tracking-wider">Valor real</span>
                   {item.value}
                 </span>
               </div>
