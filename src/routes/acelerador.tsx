@@ -178,7 +178,7 @@ function ReviewsCarousel() {
 
   useEffect(() => {
     if (paused) return;
-    const id = setInterval(() => setIndex((i) => (i + 1) % slides.length), 5500);
+    const id = setInterval(() => setIndex((i) => (i + 1) % slides.length), 3500);
     return () => clearInterval(id);
   }, [paused, slides.length]);
 
@@ -259,7 +259,7 @@ function WhatYouGet() {
       <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#FF6B00] to-transparent" />
       <div className="relative max-w-6xl mx-auto">
         <h2
-          className="text-4xl sm:text-5xl md:text-6xl text-center mb-12 uppercase tracking-wide"
+          className="text-4xl sm:text-5xl md:text-6xl text-center mb-12 tracking-tight"
           style={{ fontFamily: "var(--font-display)" }}
         >
           <span className="bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] bg-clip-text text-transparent">
@@ -277,13 +277,13 @@ function WhatYouGet() {
               </span>
               <div className="flex-1 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                 <span
-                  className="text-foreground text-xl sm:text-2xl leading-snug uppercase tracking-wide"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, letterSpacing: "0.01em" }}
+                  className="text-foreground text-xl sm:text-2xl leading-snug"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                 >
                   {item.text}
                 </span>
                 <span className="flex-shrink-0 self-start sm:self-center inline-flex items-center gap-2 rounded-full border border-[#FF9900]/40 bg-black/40 px-3 py-1.5 text-sm font-bold text-[#FFCC00]">
-                  <span className="text-muted-foreground text-xs uppercase tracking-wider">Valor real</span>
+                  <span className="text-muted-foreground text-xs tracking-wider">Valor real</span>
                   {item.value}
                 </span>
               </div>
