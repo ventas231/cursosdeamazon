@@ -195,24 +195,36 @@ function Testimonials() {
 
 function WhatYouGet() {
   const items = [
-    "El sistema que Gerardo usó para pasar de cero a Más de 4.6 millones de dólares en ventas de Amazon — 6 módulos probados en cuentas reales: Validación, Sourcing, Branding, PPC, Optimización e IA aplicada.",
-    "La Masterclass que ningún curso de Amazon ha hecho — cómo usar Claude para validar nichos, escribir listings y ganarle a tu competencia en PPC. Incluida gratis hoy, después sube de precio.",
-    "Tres herramientas de Claude que la mayoría de sellers ni sabe que existen — Validador de Nichos, Generador de Listings y Arquitecto PPC, todo con IA. Las enciendes y trabajas.",
-    "Las mismas plantillas y prompts que usa el equipo de Gerardo hoy — listas desde el día 1, sin construir nada desde cero.",
-    "Los mejores negocios no se construyen solos — El Círculo Amazon IA: comunidad privada + sesiones mensuales en vivo con Gerardo, gratis durante 4 meses.",
+    "El sistema que Gerardo usó para pasar de cero a más de 4.6 millones de dólares en ventas de Amazon.",
+    "Seis módulos probados en cuentas reales: validación, sourcing, branding, PPC, optimización e IA aplicada.",
+    "La masterclass que ningún curso de Amazon ha hecho con Claude.",
+    "Tres herramientas de Claude que la mayoría de sellers ni sabe que existe.",
+    "Plantillas y prompts que usa el equipo de Gerardo hoy.",
+    "Comunidad privada + sesiones mensuales en vivo con Gerardo, gratis durante cuatro meses.",
     "Para sellers activos: Claude entra a tus números, analiza tus Search Terms, TACOS y ACOS, y te entrega un plan de acción concreto. Sin adivinar, sin perder tiempo.",
   ];
   return (
-    <section className="bg-[#111111] px-4 py-16">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-          Lo que obtienes al inscribirte hoy:
+    <section className="relative overflow-hidden px-4 py-16">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#FF9900]/10 via-[#FF6B00]/5 to-[#FFCC00]/10" />
+      <div className="absolute inset-0 bg-[#111111]/90" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#FF9900] to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#FF6B00] to-transparent" />
+      <div className="relative max-w-6xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-12 uppercase tracking-tight">
+          <span className="bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] bg-clip-text text-transparent">
+            Lo que obtienes al inscribirte hoy:
+          </span>
         </h2>
-        <ul className="space-y-5 mb-10">
+        <ul className="space-y-6 mb-10">
           {items.map((item, i) => (
-            <li key={i} className="flex gap-4">
-              <span className="text-primary font-bold text-xl flex-shrink-0 leading-tight">✓</span>
-              <span className="text-foreground/90 leading-relaxed">{item}</span>
+            <li
+              key={i}
+              className="flex items-start gap-4 p-4 rounded-xl bg-gradient-to-r from-[#FF9900]/10 via-transparent to-[#FF6B00]/10 border border-[#FF9900]/20"
+            >
+              <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-[#FFCC00] to-[#FF6B00] text-black font-black text-sm flex items-center justify-center leading-none">
+                ✓
+              </span>
+              <span className="text-foreground text-lg sm:text-xl font-bold leading-snug">{item}</span>
             </li>
           ))}
         </ul>
