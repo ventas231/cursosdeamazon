@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import gerardoPhoto from "@/assets/gerardo.png.asset.json";
 import { HistoriaExito } from "@/components/HistoriaExito";
 
