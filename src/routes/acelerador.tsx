@@ -178,7 +178,7 @@ function ReviewsCarousel() {
 
   useEffect(() => {
     if (paused) return;
-    const id = setInterval(() => setIndex((i) => (i + 1) % slides.length), 5500);
+    const id = setInterval(() => setIndex((i) => (i + 1) % slides.length), 3500);
     return () => clearInterval(id);
   }, [paused, slides.length]);
 
