@@ -277,8 +277,8 @@ function WhatYouGet() {
               </span>
               <div className="flex-1 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                 <span
-                  className="text-foreground text-xl sm:text-2xl leading-snug uppercase tracking-wide"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, letterSpacing: "0.01em" }}
+                  className="text-foreground text-xl sm:text-2xl leading-snug"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                 >
                   {item.text}
                 </span>
