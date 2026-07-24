@@ -510,8 +510,7 @@ function VSLPage() {
       <Header />
       <Hero />
       <SocialProof />
-      <HistoriaExito />
-      <Testimonials />
+      <ReviewsCarousel />
       <WhatYouGet />
       <Footer />
       <FloatingWhatsApp />
