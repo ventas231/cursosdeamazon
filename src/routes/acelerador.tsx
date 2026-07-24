@@ -259,7 +259,7 @@ function WhatYouGet() {
       <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#FF6B00] to-transparent" />
       <div className="relative max-w-6xl mx-auto">
         <h2
-          className="text-4xl sm:text-5xl md:text-6xl text-center mb-12 uppercase tracking-wide"
+          className="text-4xl sm:text-5xl md:text-6xl text-center mb-12 tracking-tight"
           style={{ fontFamily: "var(--font-display)" }}
         >
           <span className="bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] bg-clip-text text-transparent">
