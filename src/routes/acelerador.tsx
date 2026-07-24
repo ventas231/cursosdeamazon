@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import gerardoPhoto from "@/assets/gerardo.png.asset.json";
 import { HistoriaExito } from "@/components/HistoriaExito";
 
@@ -144,8 +144,8 @@ function SocialProof() {
   );
 }
 
-function Testimonials() {
-  const items = [
+function ReviewsCarousel() {
+  const testimonials = [
     {
       name: "F. D.",
       city: "España & Portugal",
@@ -167,25 +167,73 @@ function Testimonials() {
       text: "Gerardo, nos fue excelente en el Black Friday.",
     },
   ];
+
+  const slides: Array<{ type: "video" } | { type: "text"; name: string; city: string; text: string }> = [
+    { type: "video" },
+    ...testimonials.map((t) => ({ type: "text" as const, ...t })),
+  ];
+
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(() => setIndex((i) => (i + 1) % slides.length), 5500);
+    return () => clearInterval(id);
+  }, [paused, slides.length]);
+
   return (
     <section className="bg-background px-4 py-16">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-          Lo que dicen nuestros alumnos:
+      <div className="max-w-5xl mx-auto">
+        <h2
+          className="text-3xl sm:text-5xl text-center mb-12 uppercase tracking-wide"
+          style={{ fontFamily: "var(--font-display)" }}
+        >
+          Lo que dicen nuestros alumnos
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {items.map((t) => (
-            <div
-              key={t.name}
-              className="relative bg-gradient-to-br from-[#1a1a1a] via-[#141414] to-[#0f0f0f] border border-primary/30 rounded-xl p-6 shadow-[0_0_25px_-5px_rgba(255,107,0,0.35)] hover:shadow-[0_0_40px_-5px_rgba(255,107,0,0.6)] hover:border-primary/60 hover:-translate-y-1 transition-all duration-300"
-            >
-              <div className="mb-4">
-                <div className="font-bold">{t.name}</div>
-                <div className="text-muted-foreground text-sm">{t.city}</div>
+        <div
+          className="relative overflow-hidden rounded-2xl"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          onTouchStart={() => setPaused(true)}
+          onTouchEnd={() => setPaused(false)}
+        >
+          <div
+            className="flex transition-transform duration-700 ease-out"
+            style={{ transform: `translateX(-${index * 100}%)` }}
+          >
+            {slides.map((slide, i) => (
+              <div key={i} className="w-full flex-shrink-0 px-2">
+                {slide.type === "video" ? (
+                  <div className="mx-auto max-w-2xl">
+                    <HistoriaExito />
+                  </div>
+                ) : (
+                  <div className="mx-auto max-w-2xl min-h-[280px] bg-gradient-to-br from-[#1a1a1a] via-[#141414] to-[#0f0f0f] border border-primary/30 rounded-xl p-8 shadow-[0_0_25px_-5px_rgba(255,107,0,0.35)] flex flex-col justify-center">
+                    <div className="mb-4">
+                      <div className="font-bold text-lg">{slide.name}</div>
+                      <div className="text-muted-foreground text-sm">{slide.city}</div>
+                    </div>
+                    <p className="text-foreground/90 leading-relaxed mb-4 text-lg">
+                      "{slide.text}"
+                    </p>
+                    <div className="text-primary text-xl">★★★★★</div>
+                  </div>
+                )}
               </div>
-              <p className="text-foreground/90 leading-relaxed mb-4">{t.text}</p>
-              <div className="text-primary">★★★★★</div>
-            </div>
+            ))}
+          </div>
+        </div>
+        <div className="flex justify-center gap-2 mt-6">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              aria-label={`Ir a reseña ${i + 1}`}
+              className={`h-2 rounded-full transition-all ${
+                i === index ? "w-8 bg-primary" : "w-2 bg-muted-foreground/40 hover:bg-muted-foreground/70"
+              }`}
+            />
           ))}
         </div>
       </div>
@@ -195,13 +243,13 @@ function Testimonials() {
 
 function WhatYouGet() {
   const items = [
-    "El sistema que Gerardo usó para pasar de cero a más de 4.6 millones de dólares en ventas de Amazon.",
-    "Seis módulos probados en cuentas reales: validación, sourcing, branding, PPC, optimización e IA aplicada.",
-    "La masterclass que ningún curso de Amazon ha hecho con Claude.",
-    "Tres herramientas de Claude que la mayoría de sellers ni sabe que existe.",
-    "Plantillas y prompts que usa el equipo de Gerardo hoy.",
-    "Comunidad privada + sesiones mensuales en vivo con Gerardo, gratis durante cuatro meses.",
-    "Para sellers activos: Claude entra a tus números, analiza tus Search Terms, TACOS y ACOS, y te entrega un plan de acción concreto. Sin adivinar, sin perder tiempo.",
+    { text: "El sistema que Gerardo usó para pasar de cero a más de 4.6 millones de dólares en ventas de Amazon.", value: "$1,997 USD" },
+    { text: "Seis módulos probados en cuentas reales: validación, sourcing, branding, PPC, optimización e IA aplicada.", value: "$997 USD" },
+    { text: "La masterclass que ningún curso de Amazon ha hecho con Claude.", value: "$497 USD" },
+    { text: "Tres herramientas de Claude que la mayoría de sellers ni sabe que existe.", value: "$297 USD" },
+    { text: "Plantillas y prompts que usa el equipo de Gerardo hoy.", value: "$397 USD" },
+    { text: "Comunidad privada + sesiones mensuales en vivo con Gerardo, gratis durante cuatro meses.", value: "$197 USD" },
+    { text: "Para sellers activos: Claude entra a tus números, analiza tus Search Terms, TACOS y ACOS, y te entrega un plan de acción concreto. Sin adivinar, sin perder tiempo.", value: "$199 USD" },
   ];
   return (
     <section className="relative overflow-hidden px-4 py-16">
@@ -210,32 +258,67 @@ function WhatYouGet() {
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#FF9900] to-transparent" />
       <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#FF6B00] to-transparent" />
       <div className="relative max-w-6xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-center mb-12 uppercase tracking-tight">
+        <h2
+          className="text-4xl sm:text-5xl md:text-6xl text-center mb-12 uppercase tracking-wide"
+          style={{ fontFamily: "var(--font-display)" }}
+        >
           <span className="bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] bg-clip-text text-transparent">
-            Lo que obtienes al inscribirte hoy:
+            Lo que obtienes al inscribirte hoy
           </span>
         </h2>
-        <ul className="space-y-6 mb-10">
+        <ul className="space-y-5 mb-10">
           {items.map((item, i) => (
             <li
               key={i}
-              className="flex items-start gap-4 p-4 rounded-xl bg-gradient-to-r from-[#FF9900]/10 via-transparent to-[#FF6B00]/10 border border-[#FF9900]/20"
+              className="flex items-start gap-4 p-5 rounded-xl bg-gradient-to-r from-[#FF9900]/10 via-transparent to-[#FF6B00]/10 border border-[#FF9900]/25"
             >
-              <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-[#FFCC00] to-[#FF6B00] text-black font-black text-sm flex items-center justify-center leading-none">
+              <span className="flex-shrink-0 w-9 h-9 rounded-full bg-gradient-to-br from-[#FFCC00] to-[#FF6B00] text-black font-black text-base flex items-center justify-center leading-none">
                 ✓
               </span>
-              <span className="text-foreground text-lg sm:text-xl font-bold leading-snug">{item}</span>
+              <div className="flex-1 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                <span
+                  className="text-foreground text-xl sm:text-2xl leading-snug uppercase tracking-wide"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, letterSpacing: "0.01em" }}
+                >
+                  {item.text}
+                </span>
+                <span className="flex-shrink-0 self-start sm:self-center inline-flex items-center gap-2 rounded-full border border-[#FF9900]/40 bg-black/40 px-3 py-1.5 text-sm font-bold text-[#FFCC00]">
+                  <span className="text-muted-foreground text-xs uppercase tracking-wider">Valor real</span>
+                  {item.value}
+                </span>
+              </div>
             </li>
           ))}
         </ul>
+
+        <div className="mx-auto max-w-2xl mb-8 rounded-2xl border-2 border-[#FF9900]/40 bg-black/50 p-6 text-center">
+          <div className="text-muted-foreground text-sm uppercase tracking-widest">Valor real total</div>
+          <div
+            className="text-4xl sm:text-5xl line-through text-muted-foreground/70 mt-1"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            $4,581 USD
+          </div>
+          <div className="mt-4 text-[#FFCC00] text-sm uppercase tracking-widest font-bold">Tuyo hoy por</div>
+          <div
+            className="text-6xl sm:text-7xl mt-1 bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] bg-clip-text text-transparent"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            $497 USD
+          </div>
+          <div className="text-foreground/80 mt-2 text-sm">
+            Ahorras <span className="text-[#FFCC00] font-bold">$4,084 USD</span> si entras hoy
+          </div>
+        </div>
+
         <a
           href={CHECKOUT_URL}
           onClick={() => trackLead("price_box_497")}
           className="group relative block w-full overflow-hidden text-center bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] text-black font-black text-lg sm:text-xl py-5 px-6 rounded-xl shadow-[0_0_45px_-8px_rgba(255,153,0,0.7)] transition-all duration-200 hover:shadow-[0_0_65px_-6px_rgba(255,140,0,0.95)] hover:-translate-y-0.5"
           style={{ animation: "vbounce 2.2s ease-in-out infinite" }}
         >
-          <span className="relative z-10 block">
-            <span className="block text-sm line-through opacity-75">Valor total: $4,581 USD</span>
+          <span className="relative z-10 block" style={{ fontFamily: "var(--font-display)", letterSpacing: "0.02em" }}>
+            <span className="block text-sm line-through opacity-75">Valor real total: $4,581 USD</span>
             <span className="block text-3xl sm:text-4xl mt-1">TUYO HOY: $497 USD →</span>
           </span>
           <span
@@ -427,8 +510,7 @@ function VSLPage() {
       <Header />
       <Hero />
       <SocialProof />
-      <HistoriaExito />
-      <Testimonials />
+      <ReviewsCarousel />
       <WhatYouGet />
       <Footer />
       <FloatingWhatsApp />
