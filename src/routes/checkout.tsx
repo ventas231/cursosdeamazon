@@ -200,66 +200,6 @@ function Checkout() {
           <HistoriaExito light />
         </div>
 
-        {/* LEFT — FORM + SUCCESS STORY */}
-        <div className="space-y-6">
-          <div id="pago" className="rounded-lg p-6" style={{ background: CARD_BG, border: `1px solid ${BORDER}` }}>
-            <SectionTitle>— PAGO CON PAYPAL —</SectionTitle>
-
-            <div className="pb-4" style={{ borderBottom: `1px solid ${BORDER}` }}>
-              <div className="flex justify-between text-sm py-1" style={{ color: TEXT }}>
-                <span>Amazon + IA de 0 a 60 días</span>
-                <span>$497 USD</span>
-              </div>
-              <div className="flex justify-between text-base font-bold py-2 mt-1" style={{ color: TEXT, borderTop: `1px solid ${BORDER}` }}>
-                <span>Total</span>
-                <span>$497 USD</span>
-              </div>
-              <div className="text-[11px] text-right mt-1" style={{ color: MUTED }}>
-                * Todos los precios están en DÓLARES AMERICANOS (USD)
-              </div>
-            </div>
-
-            <label className="flex items-start gap-2 mt-5 text-sm" style={{ color: TEXT }}>
-              <input type="checkbox" required className="mt-0.5" defaultChecked />
-              <span>
-                He leído y acepto la{" "}
-                <a href="/garantia.html" target="_blank" rel="noopener noreferrer" style={{ color: ACCENT }} className="underline">Garantía</a>{" "}
-                de este sitio.
-              </span>
-            </label>
-
-            <p className="text-xs mt-4 mb-3 text-center" style={{ color: MUTED }}>
-              Asegúrate de llenar tus datos arriba antes de pagar. Al aprobar el pago en PayPal serás redirigido automáticamente a tu acceso al curso.
-            </p>
-
-            <div className="mt-2 p-1 rounded-lg">
-              <PayPalHostedButton />
-            </div>
-
-            <div className="flex items-center justify-center gap-2 mt-4 text-xs" style={{ color: MUTED }}>
-              <Lock className="h-3.5 w-3.5" />
-              <span>Pago seguro · SSL · Powered by PayPal</span>
-            </div>
-
-            {/* Alternative payment CTA */}
-            <a
-              href={`https://wa.me/5212223288421?text=${encodeURIComponent("Quiero el curso, pero quiero pagar con otro método")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative mt-5 flex items-center justify-center gap-2 w-full rounded-lg px-4 py-4 text-center font-bold text-sm hover:opacity-95 transition cursor-pointer overflow-hidden"
-              style={{ background: DARK, color: "#fff", border: `2px solid ${ACCENT}`, boxShadow: `0 0 25px ${ACCENT}50`, animation: "vbounce 2.2s ease-in-out infinite" }}
-            >
-              <HelpCircle className="h-5 w-5 relative z-10" style={{ color: ACCENT }} />
-              <span className="relative z-10">¿Quieres pagar con transferencia o usar otro método de pago? <span style={{ color: ACCENT, textDecoration: "underline" }}>Pica aquí</span></span>
-              <span
-                className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-yellow-300/30 to-transparent animate-shine"
-                aria-hidden="true"
-              />
-            </a>
-          </div>
-
-          <HistoriaExito light />
-        </div>
 
         {/* RIGHT — VALUE STACK */}
         <div className="space-y-6">
