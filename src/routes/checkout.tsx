@@ -139,7 +139,7 @@ function Checkout() {
 
       {/* MAIN GRID */}
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* LEFT — FORM */}
+        {/* LEFT — FORM + SUCCESS STORY */}
         <div className="space-y-6">
           <div id="pago" className="rounded-lg p-6" style={{ background: CARD_BG, border: `1px solid ${BORDER}` }}>
             <SectionTitle>— PAGO CON PAYPAL —</SectionTitle>
@@ -196,7 +196,10 @@ function Checkout() {
               />
             </a>
           </div>
+
+          <HistoriaExito light />
         </div>
+
 
         {/* RIGHT — VALUE STACK */}
         <div className="space-y-6">
@@ -210,8 +213,6 @@ function Checkout() {
             <div className="mt-3 font-bold" style={{ color: TEXT }}>Gerardo Villa</div>
             <div className="text-sm" style={{ color: MUTED }}>Más de 4.6 millones de dólares en ventas de Amazon</div>
           </div>
-
-          <HistoriaExito light />
 
           <div className="rounded-lg p-6" style={{ background: CARD_BG, border: `1px solid ${BORDER}` }}>
             <SectionTitle>— LO QUE INCLUYE TU CURSO —</SectionTitle>
