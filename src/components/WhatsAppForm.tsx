@@ -44,7 +44,7 @@ export function WhatsAppForm({
     } catch {}
 
     // 1) Abrir WhatsApp con mensaje predeterminado al número
-    const waMessage = encodeURIComponent("Quiero ver el sistema");
+    const waMessage = encodeURIComponent("Mándame el video");
     window.open(
       `https://wa.me/522223288421?text=${waMessage}`,
       "_blank",

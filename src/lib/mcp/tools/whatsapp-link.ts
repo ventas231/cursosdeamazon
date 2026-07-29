@@ -11,7 +11,7 @@ export default defineTool({
       .string()
       .min(1)
       .max(500)
-      .default("Quiero ver el sistema")
+      .default("Mándame el video")
       .describe("Prefilled WhatsApp message text."),
   },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
