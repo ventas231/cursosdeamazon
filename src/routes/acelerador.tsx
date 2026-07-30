@@ -557,6 +557,8 @@ function VSLPage() {
       <ReviewsCarousel />
       <WhatYouGet />
       <Footer />
+      <StickyBuyCTA />
+
       <FloatingWhatsApp />
       <style>{`@keyframes vbounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}} @keyframes shine {0%{transform:translateX(-100%)}100%{transform:translateX(100%)}} .animate-shine { animation: shine 2.2s ease-in-out infinite }`}</style>
     </div>
