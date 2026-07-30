@@ -85,9 +85,20 @@ function PrimaryCTA({ id }: { id?: string }) {
           aria-hidden="true"
         />
       </a>
+      <a
+        href={WHATSAPP_URL}
+        onClick={() => trackLead("whatsapp_dudas_cta")}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center gap-2 w-full text-center bg-[#0D0D0D] border-2 border-[#25D366] text-[#25D366] font-bold text-base sm:text-lg py-4 px-6 rounded-xl transition-all duration-200 hover:bg-[#25D366]/10 hover:-translate-y-0.5"
+      >
+        <span className="text-xl">💬</span>
+        TENGO DUDAS — MANDAR MENSAJE A WHATSAPP
+      </a>
       <p className="text-center text-muted-foreground text-sm mt-3">
         🔒 Pago seguro · Garantía incluida · Acceso inmediato
       </p>
+
     </div>
   );
 }
