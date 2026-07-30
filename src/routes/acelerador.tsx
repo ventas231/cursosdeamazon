@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import gerardoPhoto from "@/assets/gerardo.png.asset.json";
 import { HistoriaExito } from "@/components/HistoriaExito";
+import { useReducedMotion } from "@/hooks/use-reduced-motion";
+import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 
 
 export const Route = createFileRoute("/acelerador")({
