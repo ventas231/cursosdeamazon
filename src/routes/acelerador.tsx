@@ -467,9 +467,42 @@ function SecondCTA() {
   );
 }
 
+function StickyBuyCTA() {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShow(window.scrollY > 420);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  if (!show) return null;
+
+  return (
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[#1a1a1a] bg-[#0a0a0a]/90 px-4 py-3 backdrop-blur-md">
+      <div className="mx-auto max-w-3xl">
+        <a
+          href={CHECKOUT_URL}
+          onClick={() => trackLead("sticky_cta_quiero_sistema")}
+          className="group relative block w-full overflow-hidden text-center bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] text-black font-black text-base sm:text-xl py-4 sm:py-5 px-6 rounded-xl shadow-[0_0_45px_-8px_rgba(255,153,0,0.7)] transition-all duration-200 hover:shadow-[0_0_65px_-6px_rgba(255,140,0,0.95)] hover:-translate-y-0.5"
+          style={{ animation: "vbounce 2.2s ease-in-out infinite" }}
+        >
+          <span className="relative z-10">QUIERO EL SISTEMA AHORA — $497 USD →</span>
+          <span
+            className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/35 to-transparent animate-shine"
+            aria-hidden="true"
+          />
+        </a>
+      </div>
+    </div>
+  );
+}
+
 function FloatingWhatsApp() {
   return (
-    <div className="fixed right-4 bottom-4 z-50 flex flex-col gap-3 items-end">
+    <div className="fixed right-4 bottom-24 z-50 flex flex-col gap-3 items-end">
+
       <a
         href={CALL_URL}
         onClick={() => trackLead("call_calendly")}
