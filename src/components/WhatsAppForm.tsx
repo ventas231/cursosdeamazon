@@ -50,9 +50,9 @@ export function WhatsAppForm({
       console.error("[sheets] save failed", err);
     }
 
-
-    // 3) Redirigir al acelerador
+    // Redirigir al acelerador (video)
     navigate({ to: "/acelerador" });
+
   }
 
   const isSide = variant === "side";
