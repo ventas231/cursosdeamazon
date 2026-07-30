@@ -292,14 +292,16 @@ function LandingPage() {
       </section>
 
       {/* SECCIÓN 8 — Footer */}
-      <footer className="bg-[#060606] px-4 py-8 border-t border-hairline">
+      <footer className="bg-[#060606] px-4 py-8 pb-28 border-t border-hairline">
         <div className="mx-auto max-w-6xl text-center">
           <p className="text-xs text-muted-foreground">
             © 2026 Gerardo Villa · Summa · Todos los derechos reservados
           </p>
         </div>
       </footer>
+      <StickyVideoCTA />
       <style>{`@keyframes vbounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}`}</style>
+
     </main>
   );
 }
