@@ -186,18 +186,27 @@ function ReviewsCarousel() {
 
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const reducedMotion = useReducedMotion();
+  const autoplay = !paused && !reducedMotion;
 
   useEffect(() => {
-    if (paused) return;
+    if (!autoplay) return;
     const delay = slides[index].type === "video" ? 5000 : 2000;
     const id = setTimeout(() => setIndex((i) => (i + 1) % slides.length), delay);
     return () => clearTimeout(id);
-  }, [paused, index, slides]);
+  }, [autoplay, index, slides]);
+
+  const go = (dir: number) =>
+    setIndex((i) => (i + dir + slides.length) % slides.length);
+
+  const focusRing =
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
   return (
-    <section className="bg-background px-4 py-16">
+    <section className="bg-background px-4 py-16" aria-labelledby="resenas-title">
       <div className="max-w-5xl mx-auto">
         <h2
+          id="resenas-title"
           className="text-3xl sm:text-5xl text-center mb-12 uppercase tracking-wide"
           style={{ fontFamily: "var(--font-display)" }}
         >
@@ -205,17 +214,36 @@ function ReviewsCarousel() {
         </h2>
         <div
           className="relative overflow-hidden rounded-2xl"
+          role="group"
+          aria-roledescription="carrusel"
+          aria-label="Reseñas de alumnos"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
           onTouchStart={() => setPaused(true)}
           onTouchEnd={() => setPaused(false)}
+          onFocusCapture={() => setPaused(true)}
+          onBlurCapture={() => setPaused(false)}
         >
           <div
-            className="flex transition-transform duration-700 ease-out"
+            aria-live={autoplay ? "off" : "polite"}
+            aria-atomic="true"
+            className={
+              reducedMotion
+                ? "flex"
+                : "flex transition-transform duration-700 ease-out"
+            }
             style={{ transform: `translateX(-${index * 100}%)` }}
           >
             {slides.map((slide, i) => (
-              <div key={i} className="w-full flex-shrink-0 px-2">
+              <div
+                key={i}
+                className="w-full flex-shrink-0 px-2"
+                role="group"
+                aria-roledescription="diapositiva"
+                aria-label={`${i + 1} de ${slides.length}`}
+                aria-hidden={i !== index}
+                {...(i !== index ? { inert: "" as unknown as boolean } : {})}
+              >
                 {slide.type === "video" ? (
                   <div className="mx-auto max-w-2xl">
                     <HistoriaExito />
@@ -229,25 +257,72 @@ function ReviewsCarousel() {
                     <p className="text-foreground/90 leading-relaxed mb-4 text-lg">
                       "{slide.text}"
                     </p>
-                    <div className="text-primary text-xl">★★★★★</div>
+                    <div className="text-primary text-xl" aria-label="Calificación: 5 de 5 estrellas">
+                      <span aria-hidden="true">★★★★★</span>
+                    </div>
                   </div>
                 )}
               </div>
             ))}
           </div>
         </div>
-        <div className="flex justify-center gap-2 mt-6">
-          {slides.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setIndex(i)}
-              aria-label={`Ir a reseña ${i + 1}`}
-              className={`h-2 rounded-full transition-all ${
-                i === index ? "w-8 bg-primary" : "w-2 bg-muted-foreground/40 hover:bg-muted-foreground/70"
-              }`}
-            />
-          ))}
+        <div className="flex items-center justify-center gap-3 mt-6">
+          <button
+            type="button"
+            onClick={() => go(-1)}
+            aria-label="Reseña anterior"
+            className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-primary/40 text-primary hover:bg-primary/10 transition ${focusRing}`}
+          >
+            <ChevronLeft className="h-5 w-5" aria-hidden="true" />
+          </button>
+
+          <div className="flex justify-center gap-2" role="tablist" aria-label="Elegir reseña">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                role="tab"
+                onClick={() => setIndex(i)}
+                aria-selected={i === index}
+                aria-label={`Ir a reseña ${i + 1} de ${slides.length}`}
+                className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-full ${focusRing}`}
+              >
+                <span
+                  aria-hidden="true"
+                  className={`h-2 rounded-full transition-all block ${
+                    i === index ? "w-8 bg-primary" : "w-2 bg-muted-foreground/40 hover:bg-muted-foreground/70"
+                  }`}
+                />
+              </button>
+            ))}
+          </div>
+
+          <button
+            type="button"
+            onClick={() => go(1)}
+            aria-label="Siguiente reseña"
+            className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-primary/40 text-primary hover:bg-primary/10 transition ${focusRing}`}
+          >
+            <ChevronRight className="h-5 w-5" aria-hidden="true" />
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setPaused((p) => !p)}
+            aria-pressed={paused}
+            aria-label={paused ? "Reanudar rotación automática de reseñas" : "Pausar rotación automática de reseñas"}
+            className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-primary/40 text-primary hover:bg-primary/10 transition ${focusRing}`}
+          >
+            {paused || reducedMotion ? (
+              <Play className="h-4 w-4" aria-hidden="true" />
+            ) : (
+              <Pause className="h-4 w-4" aria-hidden="true" />
+            )}
+          </button>
         </div>
+        <p className="sr-only" aria-live="polite">
+          {`Reseña ${index + 1} de ${slides.length}`}
+        </p>
       </div>
     </section>
   );
