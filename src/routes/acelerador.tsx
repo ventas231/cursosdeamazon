@@ -531,7 +531,7 @@ function FloatingWhatsApp() {
 
 function Footer() {
   return (
-    <footer className="bg-[#060606] px-4 py-10 border-t border-[#1a1a1a]">
+    <footer className="bg-[#060606] px-4 py-10 pb-28 border-t border-[#1a1a1a]">
       <div className="max-w-6xl mx-auto text-center space-y-3 text-xs text-muted-foreground">
         <p>© 2026 Gerardo Villa · Summa · Todos los derechos reservados</p>
         <p className="leading-relaxed">
