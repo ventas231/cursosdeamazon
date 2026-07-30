@@ -272,7 +272,7 @@ function WhatYouGet() {
       <div className="relative max-w-6xl mx-auto">
         <h2
           className="text-4xl sm:text-5xl md:text-6xl text-center mb-12 tracking-tight"
-          style={{ fontFamily: "var(--font-display)" }}
+          style={{ fontFamily: "var(--font-abril)" }}
         >
           <span className="bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] bg-clip-text text-transparent">
             Lo que obtienes al inscribirte hoy
