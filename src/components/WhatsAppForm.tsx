@@ -43,18 +43,13 @@ export function WhatsAppForm({
       localStorage.setItem("lead_whatsapp", value.trim());
     } catch {}
 
-    // 1) Abrir WhatsApp con mensaje predeterminado al número
-    const waMessage = encodeURIComponent("Mándame el video");
-    window.open(
-      `https://wa.me/522223288421?text=${waMessage}`,
-      "_blank",
-      "noopener,noreferrer",
-    );
-
-    // 2) Guardar en Google Sheets en segundo plano
-    subscribe({ data: { whatsapp: value.trim() } }).catch((err) => {
+    // Guardar en Google Sheets (esperamos para asegurar el registro)
+    try {
+      await subscribe({ data: { whatsapp: value.trim() } });
+    } catch (err) {
       console.error("[sheets] save failed", err);
-    });
+    }
+
 
     // 3) Redirigir al acelerador
     navigate({ to: "/acelerador" });
