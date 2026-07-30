@@ -2,11 +2,11 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
 const schema = z.object({
-  whatsapp: z.string().min(8).max(20),
+  email: z.string().trim().email().max(255),
 });
 
 const checkoutSchema = z.object({
-  whatsapp: z.string().min(0).max(20).optional().default(""),
+  email: z.string().trim().max(255).optional().default(""),
   label: z.string().max(50).optional().default("Llegó a checkout"),
 });
 
@@ -15,7 +15,7 @@ const RANGE = "'Hoja 1'!A:B";
 const SHEET_NAME = "Hoja 1";
 const CHECKOUT_MARK = "✓";
 
-const normalizePhone = (value: string) => value.replace(/\D/g, "");
+const normalizeEmail = (value: string) => value.trim().toLowerCase();
 
 function columnToLetter(column: number) {
   let letter = "";
@@ -33,7 +33,7 @@ function normalizeHeader(value: string) {
 
 const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-export const subscribeWhatsapp = createServerFn({ method: "POST" })
+export const subscribeEmail = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => schema.parse(input))
   .handler(async ({ data }) => {
     const apiKey = process.env.LOVABLE_API_KEY;
@@ -55,7 +55,7 @@ export const subscribeWhatsapp = createServerFn({ method: "POST" })
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          values: [[data.whatsapp, new Date().toISOString()]],
+          values: [[normalizeEmail(data.email), new Date().toISOString()]],
         }),
       });
 
@@ -91,7 +91,7 @@ export const logCheckoutVisit = createServerFn({ method: "POST" })
     };
 
     try {
-      const targetPhone = normalizePhone(data.whatsapp || "");
+      const targetEmail = normalizeEmail(data.email || "");
       let rows: string[][] = [];
       let checkoutColumnIndex = -1;
       let targetRowIndex = -1;
@@ -116,9 +116,9 @@ export const logCheckoutVisit = createServerFn({ method: "POST" })
           return { ok: false as const, error: "checkout_column_not_found" };
         }
 
-        targetRowIndex = targetPhone
+        targetRowIndex = targetEmail
           ? rows.reduce((latestIndex, row, index) => (
-              index > 0 && normalizePhone(row[0] || "") === targetPhone ? index : latestIndex
+              index > 0 && normalizeEmail(row[0] || "") === targetEmail ? index : latestIndex
             ), -1)
           : -1;
 
@@ -126,8 +126,8 @@ export const logCheckoutVisit = createServerFn({ method: "POST" })
       }
 
       if (targetRowIndex === -1) {
-        console.error("[sheets] checkout phone not found in Hoja 1", data.whatsapp);
-        return { ok: false as const, error: "phone_not_found" };
+        console.error("[sheets] checkout email not found in Hoja 1", data.email);
+        return { ok: false as const, error: "email_not_found" };
       }
 
       const checkoutCell = `${columnToLetter(checkoutColumnIndex + 1)}${targetRowIndex + 1}`;
