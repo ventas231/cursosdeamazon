@@ -46,10 +46,43 @@ const sellerBullets = [
   "Automatiza reportes de Seller Central y toma decisiones con datos, no con intuición",
 ];
 
+function StickyVideoCTA() {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShow(window.scrollY > 420);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  if (!show) return null;
+
+  return (
+    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-hairline bg-background/90 px-4 py-3 backdrop-blur-md">
+      <div className="mx-auto max-w-3xl">
+        <button
+          type="button"
+          onClick={() => {
+            const form = document.getElementById("cta2");
+            const reveal = document.getElementById("cta2-reveal") as HTMLButtonElement | null;
+            form?.scrollIntoView({ behavior: "smooth", block: "center" });
+            reveal?.click();
+          }}
+          className="w-full h-14 rounded-xl bg-[#FF9900] text-black font-black tracking-wide text-base md:text-lg uppercase animate-pulse-glow transition-all duration-200 hover:bg-[#E68A00] hover:-translate-y-1 hover:shadow-glow-strong"
+        >
+          Sí, quiero el video gratis
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function LandingPage() {
   useEffect(() => {
     fbqTrack("PageView");
   }, []);
+
 
   return (
     <main className="min-h-screen bg-background text-foreground">
