@@ -64,11 +64,10 @@ function StickyVideoCTA() {
         <button
           type="button"
           onClick={() => {
-            const form = document.getElementById("cta2");
             const reveal = document.getElementById("cta2-reveal") as HTMLButtonElement | null;
-            form?.scrollIntoView({ behavior: "smooth", block: "center" });
             reveal?.click();
           }}
+
           className="w-full h-14 rounded-xl bg-[#FF9900] text-black font-black tracking-wide text-base md:text-lg uppercase animate-pulse-glow transition-all duration-200 hover:bg-[#E68A00] hover:-translate-y-1 hover:shadow-glow-strong"
         >
           Sí, quiero el video gratis
@@ -262,9 +261,10 @@ function LandingPage() {
             Este sistema es 100% gratuito
           </h2>
           <p className="mt-3 text-base text-muted-foreground">
-            No te vamos a pedir tarjeta de crédito. Solo tu WhatsApp para
-            mandarte el acceso directo al sistema.
+            No te vamos a pedir tarjeta de crédito ni datos. Das clic y ves el
+            video al instante.
           </p>
+
 
           <div className="mt-10">
             <div className="flex flex-wrap items-center justify-center gap-10 md:gap-14">
