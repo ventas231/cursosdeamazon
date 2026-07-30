@@ -189,9 +189,10 @@ function ReviewsCarousel() {
 
   useEffect(() => {
     if (paused) return;
-    const id = setInterval(() => setIndex((i) => (i + 1) % slides.length), 3500);
-    return () => clearInterval(id);
-  }, [paused, slides.length]);
+    const delay = slides[index].type === "video" ? 5000 : 2000;
+    const id = setTimeout(() => setIndex((i) => (i + 1) % slides.length), delay);
+    return () => clearTimeout(id);
+  }, [paused, index, slides]);
 
   return (
     <section className="bg-background px-4 py-16">
