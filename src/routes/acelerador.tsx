@@ -79,7 +79,7 @@ function PrimaryCTA({ id }: { id?: string }) {
         href={CHECKOUT_URL}
         onClick={() => trackLead("hero_primary_cta")}
         className="group relative block w-full overflow-hidden text-center bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] text-black font-black text-lg sm:text-xl py-5 px-6 rounded-xl shadow-[0_0_45px_-8px_rgba(255,153,0,0.7)] transition-all duration-200 hover:shadow-[0_0_65px_-6px_rgba(255,140,0,0.95)] hover:-translate-y-0.5"
-        style={{ animation: "vbounce 2.2s ease-in-out infinite" }}
+        style={{ animation: "vbounce 1.5s ease-in-out infinite" }}
       >
         <span className="relative z-10">QUIERO EL SISTEMA AHORA — $497 USD →</span>
         <span
@@ -405,7 +405,7 @@ function WhatYouGet() {
           href={CHECKOUT_URL}
           onClick={() => trackLead("price_box_497")}
           className="group relative block w-full overflow-hidden text-center bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] text-black font-black text-lg sm:text-xl py-5 px-6 rounded-xl shadow-[0_0_45px_-8px_rgba(255,153,0,0.7)] transition-all duration-200 hover:shadow-[0_0_65px_-6px_rgba(255,140,0,0.95)] hover:-translate-y-0.5"
-          style={{ animation: "vbounce 2.2s ease-in-out infinite" }}
+          style={{ animation: "vbounce 1.5s ease-in-out infinite" }}
         >
           <span className="relative z-10 block" style={{ fontFamily: "var(--font-display)", letterSpacing: "0.02em" }}>
             <span className="block text-sm line-through opacity-75">Valor real total: $4,581 USD</span>
@@ -534,7 +534,7 @@ function SecondCTA() {
           href={CHECKOUT_URL}
           onClick={() => trackLead("second_cta_inscribirme")}
           className="block w-full text-center bg-primary hover:bg-primary/90 transition-colors text-primary-foreground font-bold text-lg sm:text-xl py-5 px-6 rounded-xl"
-          style={{ animation: "vbounce 1.8s ease-in-out infinite" }}
+          style={{ animation: "vbounce 1.5s ease-in-out infinite" }}
         >
           INSCRIBIRME AHORA — $497 USD →
         </a>
@@ -565,7 +565,7 @@ function StickyBuyCTA() {
           href={CHECKOUT_URL}
           onClick={() => trackLead("sticky_cta_quiero_sistema")}
           className="group relative block w-full overflow-hidden text-center bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] text-black font-black text-base sm:text-xl py-4 sm:py-5 px-6 rounded-xl shadow-[0_0_45px_-8px_rgba(255,153,0,0.7)] transition-all duration-200 hover:shadow-[0_0_65px_-6px_rgba(255,140,0,0.95)] hover:-translate-y-0.5"
-          style={{ animation: "vbounce 2.2s ease-in-out infinite" }}
+          style={{ animation: "vbounce 1.5s ease-in-out infinite" }}
         >
           <span className="relative z-10">QUIERO EL SISTEMA AHORA — $497 USD →</span>
           <span
@@ -639,7 +639,7 @@ function VSLPage() {
       <StickyBuyCTA />
 
       <FloatingWhatsApp />
-      <style>{`@keyframes vbounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}} @keyframes shine {0%{transform:translateX(-100%)}100%{transform:translateX(100%)}} .animate-shine { animation: shine 2.2s ease-in-out infinite }`}</style>
+      <style>{`@keyframes vbounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}} @keyframes shine {0%{transform:translateX(-100%)}100%{transform:translateX(100%)}} .animate-shine { animation: shine 2.2s ease-in-out infinite }`}</style>
     </div>
   );
 }
