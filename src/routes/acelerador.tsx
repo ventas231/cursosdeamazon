@@ -79,7 +79,7 @@ function PrimaryCTA({ id }: { id?: string }) {
         href={CHECKOUT_URL}
         onClick={() => trackLead("hero_primary_cta")}
         className="group relative block w-full overflow-hidden text-center bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] text-black font-black text-lg sm:text-xl py-5 px-6 rounded-xl shadow-[0_0_45px_-8px_rgba(255,153,0,0.7)] transition-all duration-200 hover:shadow-[0_0_65px_-6px_rgba(255,140,0,0.95)] hover:-translate-y-0.5"
-        style={{ animation: "vbounce 2.2s ease-in-out infinite" }}
+        style={{ animation: "vbounce 1.5s ease-in-out infinite" }}
       >
         <span className="relative z-10">QUIERO EL SISTEMA AHORA — $497 USD →</span>
         <span
@@ -205,11 +205,11 @@ function ReviewsCarousel() {
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
   return (
-    <section className="bg-background px-4 py-16" aria-labelledby="resenas-title">
+    <section className="bg-background px-4 py-12 sm:py-16" aria-labelledby="resenas-title">
       <div className="max-w-5xl mx-auto">
         <h2
           id="resenas-title"
-          className="text-3xl sm:text-5xl text-center mb-12 uppercase tracking-wide"
+          className="text-2xl sm:text-4xl md:text-5xl text-center mb-8 sm:mb-10 uppercase tracking-wide"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Lo que dicen nuestros alumnos
@@ -231,15 +231,15 @@ function ReviewsCarousel() {
             aria-atomic="true"
             className={
               reducedMotion
-                ? "flex"
-                : "flex transition-transform duration-700 ease-out"
+                ? "flex items-center"
+                : "flex items-center transition-transform duration-700 ease-out"
             }
             style={{ transform: `translateX(-${index * 100}%)` }}
           >
             {slides.map((slide, i) => (
               <div
                 key={i}
-                className="w-full flex-shrink-0 px-2"
+                className="w-full flex-shrink-0 px-1 sm:px-2 flex items-center justify-center"
                 role="group"
                 aria-roledescription="diapositiva"
                 aria-label={`${i + 1} de ${slides.length}`}
@@ -247,19 +247,19 @@ function ReviewsCarousel() {
                 {...(i !== index ? { inert: "" as unknown as boolean } : {})}
               >
                 {slide.type === "video" ? (
-                  <div className="mx-auto max-w-2xl">
-                    <HistoriaExito />
+                  <div className="mx-auto w-full max-w-2xl">
+                    <HistoriaExito compact />
                   </div>
                 ) : (
-                  <div className="mx-auto max-w-2xl min-h-[280px] bg-gradient-to-br from-[#1a1a1a] via-[#141414] to-[#0f0f0f] border border-primary/30 rounded-xl p-8 shadow-[0_0_25px_-5px_rgba(255,107,0,0.35)] flex flex-col justify-center">
-                    <div className="mb-4">
-                      <div className="font-bold text-lg">{slide.name}</div>
-                      <div className="text-muted-foreground text-sm">{slide.city}</div>
+                  <div className="mx-auto w-full max-w-2xl bg-gradient-to-br from-[#1a1a1a] via-[#141414] to-[#0f0f0f] border border-primary/30 rounded-xl p-5 sm:p-8 shadow-[0_0_25px_-5px_rgba(255,107,0,0.35)] flex flex-col justify-center">
+                    <div className="mb-3 min-w-0">
+                      <div className="font-bold text-base sm:text-lg truncate">{slide.name}</div>
+                      <div className="text-muted-foreground text-xs sm:text-sm truncate">{slide.city}</div>
                     </div>
-                    <p className="text-foreground/90 leading-relaxed mb-4 text-lg">
+                    <p className="text-foreground/90 leading-relaxed mb-4 text-sm sm:text-base md:text-lg">
                       "{slide.text}"
                     </p>
-                    <div className="text-primary text-xl" aria-label="Calificación: 5 de 5 estrellas">
+                    <div className="text-primary text-lg sm:text-xl" aria-label="Calificación: 5 de 5 estrellas">
                       <span aria-hidden="true">★★★★★</span>
                     </div>
                   </div>
@@ -268,6 +268,7 @@ function ReviewsCarousel() {
             ))}
           </div>
         </div>
+
         <div className="flex items-center justify-center gap-3 mt-6">
           <button
             type="button"
@@ -404,7 +405,7 @@ function WhatYouGet() {
           href={CHECKOUT_URL}
           onClick={() => trackLead("price_box_497")}
           className="group relative block w-full overflow-hidden text-center bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] text-black font-black text-lg sm:text-xl py-5 px-6 rounded-xl shadow-[0_0_45px_-8px_rgba(255,153,0,0.7)] transition-all duration-200 hover:shadow-[0_0_65px_-6px_rgba(255,140,0,0.95)] hover:-translate-y-0.5"
-          style={{ animation: "vbounce 2.2s ease-in-out infinite" }}
+          style={{ animation: "vbounce 1.5s ease-in-out infinite" }}
         >
           <span className="relative z-10 block" style={{ fontFamily: "var(--font-display)", letterSpacing: "0.02em" }}>
             <span className="block text-sm line-through opacity-75">Valor real total: $4,581 USD</span>
@@ -533,7 +534,7 @@ function SecondCTA() {
           href={CHECKOUT_URL}
           onClick={() => trackLead("second_cta_inscribirme")}
           className="block w-full text-center bg-primary hover:bg-primary/90 transition-colors text-primary-foreground font-bold text-lg sm:text-xl py-5 px-6 rounded-xl"
-          style={{ animation: "vbounce 1.8s ease-in-out infinite" }}
+          style={{ animation: "vbounce 1.5s ease-in-out infinite" }}
         >
           INSCRIBIRME AHORA — $497 USD →
         </a>
@@ -564,7 +565,7 @@ function StickyBuyCTA() {
           href={CHECKOUT_URL}
           onClick={() => trackLead("sticky_cta_quiero_sistema")}
           className="group relative block w-full overflow-hidden text-center bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] text-black font-black text-base sm:text-xl py-4 sm:py-5 px-6 rounded-xl shadow-[0_0_45px_-8px_rgba(255,153,0,0.7)] transition-all duration-200 hover:shadow-[0_0_65px_-6px_rgba(255,140,0,0.95)] hover:-translate-y-0.5"
-          style={{ animation: "vbounce 2.2s ease-in-out infinite" }}
+          style={{ animation: "vbounce 1.5s ease-in-out infinite" }}
         >
           <span className="relative z-10">QUIERO EL SISTEMA AHORA — $497 USD →</span>
           <span
@@ -638,7 +639,7 @@ function VSLPage() {
       <StickyBuyCTA />
 
       <FloatingWhatsApp />
-      <style>{`@keyframes vbounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}} @keyframes shine {0%{transform:translateX(-100%)}100%{transform:translateX(100%)}} .animate-shine { animation: shine 2.2s ease-in-out infinite }`}</style>
+      <style>{`@keyframes vbounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}} @keyframes shine {0%{transform:translateX(-100%)}100%{transform:translateX(100%)}} .animate-shine { animation: shine 2.2s ease-in-out infinite }`}</style>
     </div>
   );
 }
