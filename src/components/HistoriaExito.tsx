@@ -31,8 +31,13 @@ export function HistoriaExito({ light }: HistoriaExitoProps) {
               controls
               preload="metadata"
               playsInline
-              className="w-full h-auto block bg-black"
-            />
+              aria-label="Video: historia de éxito de un alumno vendiendo en Amazon"
+              title="Historia de éxito de un alumno vendiendo en Amazon"
+              className="w-full h-auto block bg-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B00] focus-visible:ring-offset-2"
+            >
+              Tu navegador no soporta video HTML5. Puedes{" "}
+              <a href={videoAsset.url}>descargar el video</a> para verlo.
+            </video>
           </div>
         </div>
       </div>
