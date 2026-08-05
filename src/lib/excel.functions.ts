@@ -15,7 +15,8 @@ const RANGE = "'Hoja 1'!A:B";
 const SHEET_NAME = "Hoja 1";
 const CHECKOUT_MARK = "✓";
 
-const normalizePhone = (value: string) => value.replace(/\D/g, "");
+const normalizePhone = (value: string) =>
+  value.includes("@") ? value.trim().toLowerCase() : value.replace(/\D/g, "");
 
 function columnToLetter(column: number) {
   let letter = "";
