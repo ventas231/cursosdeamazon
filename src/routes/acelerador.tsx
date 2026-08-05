@@ -653,6 +653,9 @@ function VSLPage() {
       <Hero />
       <SocialProof />
       <ReviewsCarousel />
+      <ValueReminder />
+      <ForWhom />
+      <Objections />
       <WhatYouGet />
       <Footer />
       <StickyBuyCTA />
