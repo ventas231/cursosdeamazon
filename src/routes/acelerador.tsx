@@ -96,6 +96,9 @@ function PrimaryCTA({ id }: { id?: string }) {
         TENGO DUDAS — MANDAR MENSAJE A WHATSAPP
       </a>
       <p className="text-center text-muted-foreground text-sm mt-3">
+        Verás el resumen de tu compra antes de pagar — no se te cobra nada todavía.
+      </p>
+      <p className="text-center text-muted-foreground text-sm">
         🔒 Pago seguro · Garantía incluida · Acceso inmediato
       </p>
 
