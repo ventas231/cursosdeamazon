@@ -112,10 +112,10 @@ function Hero() {
       <div className="max-w-6xl mx-auto text-center">
         <div className="mb-6">
           <p className="text-primary uppercase text-base sm:text-xl font-black tracking-widest animate-[text-glow-pulse_1.2s_ease-in-out_infinite]">
-            CONOCE EL SISTEMA
+            De cero a tu primera venta en Amazon en 60 días — así es como lo hace la IA
           </p>
-          <p className="text-muted-foreground text-xs sm:text-sm font-medium uppercase tracking-wider mt-2">
-            Reproduce el video
+          <p className="text-muted-foreground text-xs sm:text-sm font-medium uppercase tracking-wider mt-2 max-w-3xl mx-auto">
+            Antes de ver el precio, mira exactamente qué vas a hacer con Claude para lanzar tu producto.
           </p>
         </div>
         <div className="relative aspect-video w-full bg-[#0D0D0D] rounded-xl overflow-hidden border border-border mb-8">
