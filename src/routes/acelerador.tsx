@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import gerardoPhoto from "@/assets/gerardo.png.asset.json";
 import { HistoriaExito } from "@/components/HistoriaExito";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
@@ -523,151 +522,9 @@ function FAQ() {
   );
 }
 
-function ValueReminder() {
-  return (
-    <section className="bg-background px-4 py-12">
-      <div className="mx-auto max-w-3xl rounded-2xl border border-primary/40 bg-[#111] p-6 sm:p-8 text-center">
-        <p className="text-lg sm:text-xl leading-relaxed text-foreground/90">
-          Todo esto — el sistema completo, los 6 módulos, las plantillas y la comunidad — vale{" "}
-          <span className="line-through opacity-70">$4,581 USD</span>. Hoy lo tienes en{" "}
-          <span className="font-black text-primary">$497 USD</span>.
-        </p>
-      </div>
-    </section>
-  );
-}
-
-function Objections() {
-  const items = [
-    {
-      q: "¿Y si no tengo experiencia?",
-      a: "No la necesitas. El sistema está hecho para empezar desde cero, con IA haciendo el trabajo pesado.",
-    },
-    {
-      q: "¿Y si no tengo tiempo?",
-      a: "Por eso está comprimido: lo que a otros les toma semanas, aquí lo haces en horas.",
-    },
-    {
-      q: "¿Y si ya vendo en Amazon?",
-      a: "Te sirve igual: te ayuda a proteger tu cuenta con marca propia y a escalar sin más trabajo manual.",
-    },
-    {
-      q: "¿Hay garantía?",
-      a: "Sí: garantía de primera venta. Si haces los ejercicios del curso, trabajamos contigo sin costo adicional hasta que logres tu primera venta.",
-    },
-  ];
-  return (
-    <section className="bg-[#0d0d0d] px-4 py-16">
-      <div className="mx-auto max-w-3xl">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8">
-          Antes de decidir, resolvamos esto
-        </h2>
-        <div className="space-y-4">
-          {items.map((item, i) => (
-            <div key={i} className="rounded-xl border border-border bg-[#111] p-5 sm:p-6">
-              <h3 className="font-bold text-base sm:text-lg mb-2 text-primary">{item.q}</h3>
-              <p className="text-foreground/90 leading-relaxed">{item.a}</p>
-            </div>
-          ))}
-        </div>
-        <p className="mt-8 text-center text-sm sm:text-base text-muted-foreground leading-relaxed">
-          Esto no es para ti si buscas dinero mañana sin poner trabajo, o si solo quieres revender
-          productos de otros sin marca propia.
-        </p>
-      </div>
-    </section>
-  );
-}
-
-function SecondCTA() {
-
-  return (
-    <section className="bg-[#111111] px-4 py-16">
-      <div className="max-w-6xl mx-auto text-center">
-        <div className="w-[140px] h-[140px] rounded-full overflow-hidden border-4 border-primary mx-auto mb-8 bg-[#0a0a0a] shadow-[0_0_35px_-5px_rgba(255,107,0,0.8)] ring-4 ring-primary/30 ring-offset-2 ring-offset-[#111111]">
-          <img src={gerardoPhoto.url} alt="Gerardo Villa" className="w-full h-full object-cover" />
-        </div>
-        <a
-          href={CHECKOUT_URL}
-          onClick={() => trackLead("second_cta_inscribirme")}
-          className="block w-full text-center bg-primary hover:bg-primary/90 transition-colors text-primary-foreground font-bold text-lg sm:text-xl py-5 px-6 rounded-xl"
-          style={{ animation: "vbounce 1.5s ease-in-out infinite" }}
-        >
-          INSCRIBIRME AHORA — $497 USD →
-        </a>
-        <p className="text-muted-foreground text-sm mt-4">
-          Acceso inmediato · Garantía de primera venta incluida
-        </p>
-      </div>
-    </section>
-  );
-}
-
-function StickyBuyCTA() {
-  const [show, setShow] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setShow(window.scrollY > 420);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  if (!show) return null;
-
-  return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[#1a1a1a] bg-[#0a0a0a]/90 px-4 py-3 backdrop-blur-md">
-      <div className="mx-auto max-w-3xl">
-        <a
-          href={CHECKOUT_URL}
-          onClick={() => trackLead("sticky_cta_quiero_sistema")}
-          className="group relative block w-full overflow-hidden text-center bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] text-black font-black text-base sm:text-xl py-4 sm:py-5 px-6 rounded-xl shadow-[0_0_45px_-8px_rgba(255,153,0,0.7)] transition-all duration-200 hover:shadow-[0_0_65px_-6px_rgba(255,140,0,0.95)] hover:-translate-y-0.5"
-          style={{ animation: "vbounce 1.5s ease-in-out infinite" }}
-        >
-          <span className="relative z-10">QUIERO EL SISTEMA AHORA — $497 USD →</span>
-          <span
-            className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/35 to-transparent animate-shine"
-            aria-hidden="true"
-          />
-        </a>
-      </div>
-    </div>
-  );
-}
-
-function FloatingWhatsApp() {
-  return (
-    <div className="fixed right-4 bottom-24 z-50 flex flex-col gap-3 items-end">
-
-      <a
-        href={CALL_URL}
-        onClick={() => trackLead("call_calendly")}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Agendar una llamada"
-        className="group flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5a] text-white text-sm font-bold pl-3 pr-4 py-2.5 rounded-full shadow-lg shadow-black/40 hover:-translate-y-1 transition-transform duration-200"
-      >
-        <span className="text-lg group-hover:animate-bounce">📞</span>
-        <span className="hidden sm:inline">Quiero una llamada</span>
-      </a>
-      <a
-        href={WHATSAPP_URL}
-        onClick={() => trackLead("whatsapp_dudas")}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Tengo dudas por WhatsApp"
-        className="group flex items-center gap-2 bg-[#0D0D0D]/90 backdrop-blur border border-[#25D366] hover:bg-[#25D366]/10 text-[#25D366] text-sm font-bold pl-3 pr-4 py-2.5 rounded-full shadow-lg shadow-black/40 hover:-translate-y-1 transition-transform duration-200"
-      >
-        <span className="text-lg group-hover:animate-bounce">💬</span>
-        <span className="hidden sm:inline">Tengo dudas</span>
-      </a>
-    </div>
-  );
-}
-
 function Footer() {
   return (
-    <footer className="bg-[#060606] px-4 py-10 pb-28 border-t border-[#1a1a1a]">
+    <footer className="bg-[#060606] px-4 py-10 border-t border-[#1a1a1a]">
       <div className="max-w-6xl mx-auto text-center space-y-3 text-xs text-muted-foreground">
         <p>© 2026 Gerardo Villa · Summa · Todos los derechos reservados</p>
         <p className="leading-relaxed">
@@ -691,15 +548,8 @@ function VSLPage() {
       <Hero />
       <SocialProof />
       <ReviewsCarousel />
-      <ValueReminder />
       <WhatYouGet />
-      <Objections />
-      <SecondCTA />
       <Footer />
-
-      <StickyBuyCTA />
-
-      <FloatingWhatsApp />
       <style>{`@keyframes vbounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}} @keyframes shine {0%{transform:translateX(-100%)}100%{transform:translateX(100%)}} .animate-shine { animation: shine 2.2s ease-in-out infinite }`}</style>
     </div>
   );
