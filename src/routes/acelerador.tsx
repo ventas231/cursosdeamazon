@@ -523,7 +523,64 @@ function FAQ() {
   );
 }
 
+function ValueReminder() {
+  return (
+    <section className="bg-background px-4 py-12">
+      <div className="mx-auto max-w-3xl rounded-2xl border border-primary/40 bg-[#111] p-6 sm:p-8 text-center">
+        <p className="text-lg sm:text-xl leading-relaxed text-foreground/90">
+          Todo esto — el sistema completo, los 6 módulos, las plantillas y la comunidad — vale{" "}
+          <span className="line-through opacity-70">$4,581 USD</span>. Hoy lo tienes en{" "}
+          <span className="font-black text-primary">$497 USD</span>.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function Objections() {
+  const items = [
+    {
+      q: "¿Y si no tengo experiencia?",
+      a: "No la necesitas. El sistema está hecho para empezar desde cero, con IA haciendo el trabajo pesado.",
+    },
+    {
+      q: "¿Y si no tengo tiempo?",
+      a: "Por eso está comprimido: lo que a otros les toma semanas, aquí lo haces en horas.",
+    },
+    {
+      q: "¿Y si ya vendo en Amazon?",
+      a: "Te sirve igual: te ayuda a proteger tu cuenta con marca propia y a escalar sin más trabajo manual.",
+    },
+    {
+      q: "¿Hay garantía?",
+      a: "Sí: garantía de primera venta. Si haces los ejercicios del curso, trabajamos contigo sin costo adicional hasta que logres tu primera venta.",
+    },
+  ];
+  return (
+    <section className="bg-[#0d0d0d] px-4 py-16">
+      <div className="mx-auto max-w-3xl">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8">
+          Antes de decidir, resolvamos esto
+        </h2>
+        <div className="space-y-4">
+          {items.map((item, i) => (
+            <div key={i} className="rounded-xl border border-border bg-[#111] p-5 sm:p-6">
+              <h3 className="font-bold text-base sm:text-lg mb-2 text-primary">{item.q}</h3>
+              <p className="text-foreground/90 leading-relaxed">{item.a}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-8 text-center text-sm sm:text-base text-muted-foreground leading-relaxed">
+          Esto no es para ti si buscas dinero mañana sin poner trabajo, o si solo quieres revender
+          productos de otros sin marca propia.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function SecondCTA() {
+
   return (
     <section className="bg-[#111111] px-4 py-16">
       <div className="max-w-6xl mx-auto text-center">
