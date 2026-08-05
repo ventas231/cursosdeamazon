@@ -96,6 +96,9 @@ function PrimaryCTA({ id }: { id?: string }) {
         TENGO DUDAS — MANDAR MENSAJE A WHATSAPP
       </a>
       <p className="text-center text-muted-foreground text-sm mt-3">
+        Verás el resumen de tu compra antes de pagar — no se te cobra nada todavía.
+      </p>
+      <p className="text-center text-muted-foreground text-sm">
         🔒 Pago seguro · Garantía incluida · Acceso inmediato
       </p>
 
@@ -338,6 +341,103 @@ function WhatYouGet() {
             aria-hidden="true"
           />
         </a>
+        <p className="mt-3 text-center text-sm text-muted-foreground">
+          Verás el resumen de tu compra antes de pagar — no se te cobra nada todavía.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function ValueReminder() {
+  return (
+    <section className="bg-[#0D0D0D] px-4 py-14">
+      <div className="mx-auto max-w-3xl rounded-2xl border-2 border-[#FF9900]/40 bg-black/50 p-8 text-center">
+        <p className="text-lg sm:text-2xl leading-relaxed text-foreground/90">
+          Todo esto — el sistema completo, los 6 módulos, las plantillas y la comunidad — vale{" "}
+          <span className="line-through text-muted-foreground">$4,581 USD</span>.
+        </p>
+        <p className="mt-3 text-2xl sm:text-4xl font-black bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] bg-clip-text text-transparent">
+          Hoy lo tienes en $497 USD.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function ForWhom() {
+  const yes = [
+    "Quieres construir tu marca propia en Amazon.",
+    "Empiezas desde cero y quieres un camino claro.",
+    "Ya estás vendiendo y quieres escalar con IA.",
+  ];
+  const no = [
+    "Buscas hacerte rico de la noche a la mañana sin poner trabajo.",
+    "Solo quieres revender productos de otros sin marca propia.",
+  ];
+  return (
+    <section className="bg-background px-4 py-16">
+      <div className="max-w-5xl mx-auto grid gap-6 md:grid-cols-2">
+        <div className="rounded-2xl border border-[#25D366]/40 bg-[#0F1A12] p-7">
+          <h3 className="text-2xl font-bold mb-5 text-[#25D366]">Esto es para ti si:</h3>
+          <ul className="space-y-4">
+            {yes.map((t) => (
+              <li key={t} className="flex gap-3 text-foreground/90 leading-relaxed">
+                <span className="text-[#25D366] font-black">✓</span>
+                {t}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="rounded-2xl border border-destructive/40 bg-[#1A0F0F] p-7">
+          <h3 className="text-2xl font-bold mb-5 text-destructive">Esto NO es para ti si:</h3>
+          <ul className="space-y-4">
+            {no.map((t) => (
+              <li key={t} className="flex gap-3 text-foreground/90 leading-relaxed">
+                <span className="text-destructive font-black">✕</span>
+                {t}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Objections() {
+  const items = [
+    {
+      q: "¿Y si no tengo experiencia?",
+      a: "No la necesitas. El sistema está hecho para empezar desde cero, con IA haciendo el trabajo pesado.",
+    },
+    {
+      q: "¿Y si no tengo tiempo?",
+      a: "Por eso está comprimido: lo que a otros les toma semanas, aquí lo haces en horas.",
+    },
+    {
+      q: "¿Y si ya vendo en Amazon?",
+      a: "Te sirve igual: te ayuda a proteger tu cuenta con marca propia y a escalar sin más trabajo manual.",
+    },
+    {
+      q: "¿Hay garantía?",
+      a: "Sí: garantía de primera venta. Si haces los ejercicios y no vendes, el equipo trabaja contigo sin costo extra hasta que lo logres.",
+    },
+  ];
+  return (
+    <section className="bg-[#111111] px-4 py-16">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10">
+          Antes de decidir
+        </h2>
+        <div className="space-y-5">
+          {items.map((item) => (
+            <div key={item.q} className="rounded-xl border border-[#FF9900]/25 bg-black/40 p-6">
+              <h3 className="font-bold text-lg mb-2 text-[#FFCC00]">{item.q}</h3>
+              <p className="text-foreground/90 leading-relaxed">{item.a}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -524,7 +624,7 @@ function FloatingWhatsApp() {
         className="group flex items-center gap-2 bg-[#0D0D0D]/90 backdrop-blur border border-[#25D366] hover:bg-[#25D366]/10 text-[#25D366] text-sm font-bold pl-3 pr-4 py-2.5 rounded-full shadow-lg shadow-black/40 hover:-translate-y-1 transition-transform duration-200"
       >
         <span className="text-lg group-hover:animate-bounce">💬</span>
-        <span className="hidden sm:inline">Tengo dudas</span>
+        <span>Tengo dudas</span>
       </a>
     </div>
   );
@@ -556,6 +656,9 @@ function VSLPage() {
       <Hero />
       <SocialProof />
       <ReviewsCarousel />
+      <ValueReminder />
+      <ForWhom />
+      <Objections />
       <WhatYouGet />
       <Footer />
       <StickyBuyCTA />
