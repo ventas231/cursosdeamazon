@@ -691,8 +691,12 @@ function VSLPage() {
       <Hero />
       <SocialProof />
       <ReviewsCarousel />
+      <ValueReminder />
       <WhatYouGet />
+      <Objections />
+      <SecondCTA />
       <Footer />
+
       <StickyBuyCTA />
 
       <FloatingWhatsApp />
