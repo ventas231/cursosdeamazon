@@ -2,11 +2,11 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
 const schema = z.object({
-  whatsapp: z.string().min(8).max(20),
+  whatsapp: z.string().trim().email().max(255),
 });
 
 const checkoutSchema = z.object({
-  whatsapp: z.string().min(0).max(20).optional().default(""),
+  whatsapp: z.string().min(0).max(255).optional().default(""),
   label: z.string().max(50).optional().default("Llegó a checkout"),
 });
 
@@ -15,7 +15,8 @@ const RANGE = "'Hoja 1'!A:B";
 const SHEET_NAME = "Hoja 1";
 const CHECKOUT_MARK = "✓";
 
-const normalizePhone = (value: string) => value.replace(/\D/g, "");
+const normalizePhone = (value: string) =>
+  value.includes("@") ? value.trim().toLowerCase() : value.replace(/\D/g, "");
 
 function columnToLetter(column: number) {
   let letter = "";
