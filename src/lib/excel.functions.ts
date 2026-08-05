@@ -6,7 +6,7 @@ const schema = z.object({
 });
 
 const checkoutSchema = z.object({
-  whatsapp: z.string().min(0).max(20).optional().default(""),
+  whatsapp: z.string().min(0).max(255).optional().default(""),
   label: z.string().max(50).optional().default("Llegó a checkout"),
 });
 
