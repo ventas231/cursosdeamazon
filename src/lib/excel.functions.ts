@@ -2,7 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
 const schema = z.object({
-  whatsapp: z.string().min(8).max(20),
+  whatsapp: z.string().trim().email().max(255),
 });
 
 const checkoutSchema = z.object({

@@ -21,7 +21,7 @@ export function WhatsAppForm({
   const navigate = useNavigate();
   const isSide = variant === "side";
   const [revealed, setRevealed] = useState(false);
-  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -33,16 +33,16 @@ export function WhatsAppForm({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const digits = phone.replace(/\D/g, "");
-    if (digits.length < 8) {
-      setError("Escribe tu número completo (10 dígitos).");
+    const value = email.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value) || value.length > 255) {
+      setError("Escribe un correo válido.");
       return;
     }
     setError(null);
     setLoading(true);
     try {
-      localStorage.setItem("lead_whatsapp", digits);
-      await subscribeWhatsapp({ data: { whatsapp: digits } });
+      localStorage.setItem("lead_whatsapp", value);
+      await subscribeWhatsapp({ data: { whatsapp: value } });
     } catch {
       // seguimos aunque falle el registro
     }
@@ -95,24 +95,24 @@ export function WhatsAppForm({
         ) : (
           <form onSubmit={handleSubmit} className="space-y-3">
             <label
-              htmlFor={`${idPrefix}-phone`}
+              htmlFor={`${idPrefix}-email`}
               className={cn(
                 "block text-sm md:text-base font-semibold text-foreground",
                 isSide ? "text-left" : "text-center",
               )}
             >
-              Escribe tu número y te paso el video directo
+              Escribe tu correo y te paso el video directo
             </label>
             <input
               ref={inputRef}
-              id={`${idPrefix}-phone`}
-              type="tel"
-              inputMode="numeric"
-              autoComplete="tel"
+              id={`${idPrefix}-email`}
+              type="email"
+              inputMode="email"
+              autoComplete="email"
               required
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              placeholder="10 dígitos"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="tucorreo@gmail.com"
               className="w-full h-14 rounded-xl border border-hairline bg-surface px-4 text-base text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#FF9900]"
             />
             {error ? (
