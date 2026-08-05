@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import gerardoPhoto from "@/assets/gerardo.png.asset.json";
 import { HistoriaExito } from "@/components/HistoriaExito";
-import { useReducedMotion } from "@/hooks/use-reduced-motion";
-import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 
 
 export const Route = createFileRoute("/acelerador")({
@@ -78,7 +77,7 @@ function PrimaryCTA({ id }: { id?: string }) {
         href={CHECKOUT_URL}
         onClick={() => trackLead("hero_primary_cta")}
         className="group relative block w-full overflow-hidden text-center bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] text-black font-black text-lg sm:text-xl py-5 px-6 rounded-xl shadow-[0_0_45px_-8px_rgba(255,153,0,0.7)] transition-all duration-200 hover:shadow-[0_0_65px_-6px_rgba(255,140,0,0.95)] hover:-translate-y-0.5"
-        style={{ animation: "vbounce 1.5s ease-in-out infinite" }}
+        style={{ animation: "vbounce 2.2s ease-in-out infinite" }}
       >
         <span className="relative z-10">QUIERO EL SISTEMA AHORA — $497 USD →</span>
         <span
@@ -187,144 +186,68 @@ function ReviewsCarousel() {
 
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-  const reducedMotion = useReducedMotion();
-  const autoplay = !paused && !reducedMotion;
 
   useEffect(() => {
-    if (!autoplay) return;
+    if (paused) return;
     const delay = slides[index].type === "video" ? 5000 : 2000;
     const id = setTimeout(() => setIndex((i) => (i + 1) % slides.length), delay);
     return () => clearTimeout(id);
-  }, [autoplay, index, slides]);
-
-  const go = (dir: number) =>
-    setIndex((i) => (i + dir + slides.length) % slides.length);
-
-  const focusRing =
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+  }, [paused, index, slides]);
 
   return (
-    <section className="bg-background px-4 py-12 sm:py-16" aria-labelledby="resenas-title">
+    <section className="bg-background px-4 py-16">
       <div className="max-w-5xl mx-auto">
         <h2
-          id="resenas-title"
-          className="text-2xl sm:text-4xl md:text-5xl text-center mb-8 sm:mb-10 uppercase tracking-wide"
+          className="text-3xl sm:text-5xl text-center mb-12 uppercase tracking-wide"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Lo que dicen nuestros alumnos
         </h2>
         <div
           className="relative overflow-hidden rounded-2xl"
-          role="group"
-          aria-roledescription="carrusel"
-          aria-label="Reseñas de alumnos"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
           onTouchStart={() => setPaused(true)}
           onTouchEnd={() => setPaused(false)}
-          onFocusCapture={() => setPaused(true)}
-          onBlurCapture={() => setPaused(false)}
         >
           <div
-            aria-live={autoplay ? "off" : "polite"}
-            aria-atomic="true"
-            className={
-              reducedMotion
-                ? "flex items-center"
-                : "flex items-center transition-transform duration-700 ease-out"
-            }
+            className="flex transition-transform duration-700 ease-out"
             style={{ transform: `translateX(-${index * 100}%)` }}
           >
             {slides.map((slide, i) => (
-              <div
-                key={i}
-                className="w-full flex-shrink-0 px-1 sm:px-2 flex items-center justify-center"
-                role="group"
-                aria-roledescription="diapositiva"
-                aria-label={`${i + 1} de ${slides.length}`}
-                aria-hidden={i !== index}
-                {...(i !== index ? { inert: "" as unknown as boolean } : {})}
-              >
+              <div key={i} className="w-full flex-shrink-0 px-2">
                 {slide.type === "video" ? (
-                  <div className="mx-auto w-full max-w-2xl">
-                    <HistoriaExito compact />
+                  <div className="mx-auto max-w-2xl">
+                    <HistoriaExito />
                   </div>
                 ) : (
-                  <div className="mx-auto w-full max-w-2xl bg-gradient-to-br from-[#1a1a1a] via-[#141414] to-[#0f0f0f] border border-primary/30 rounded-xl p-5 sm:p-8 shadow-[0_0_25px_-5px_rgba(255,107,0,0.35)] flex flex-col justify-center">
-                    <div className="mb-3 min-w-0">
-                      <div className="font-bold text-base sm:text-lg truncate">{slide.name}</div>
-                      <div className="text-muted-foreground text-xs sm:text-sm truncate">{slide.city}</div>
+                  <div className="mx-auto max-w-2xl min-h-[280px] bg-gradient-to-br from-[#1a1a1a] via-[#141414] to-[#0f0f0f] border border-primary/30 rounded-xl p-8 shadow-[0_0_25px_-5px_rgba(255,107,0,0.35)] flex flex-col justify-center">
+                    <div className="mb-4">
+                      <div className="font-bold text-lg">{slide.name}</div>
+                      <div className="text-muted-foreground text-sm">{slide.city}</div>
                     </div>
-                    <p className="text-foreground/90 leading-relaxed mb-4 text-sm sm:text-base md:text-lg">
+                    <p className="text-foreground/90 leading-relaxed mb-4 text-lg">
                       "{slide.text}"
                     </p>
-                    <div className="text-primary text-lg sm:text-xl" aria-label="Calificación: 5 de 5 estrellas">
-                      <span aria-hidden="true">★★★★★</span>
-                    </div>
+                    <div className="text-primary text-xl">★★★★★</div>
                   </div>
                 )}
               </div>
             ))}
           </div>
         </div>
-
-        <div className="flex items-center justify-center gap-3 mt-6">
-          <button
-            type="button"
-            onClick={() => go(-1)}
-            aria-label="Reseña anterior"
-            className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-primary/40 text-primary hover:bg-primary/10 transition ${focusRing}`}
-          >
-            <ChevronLeft className="h-5 w-5" aria-hidden="true" />
-          </button>
-
-          <div className="flex justify-center gap-2" role="tablist" aria-label="Elegir reseña">
-            {slides.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                role="tab"
-                onClick={() => setIndex(i)}
-                aria-selected={i === index}
-                aria-label={`Ir a reseña ${i + 1} de ${slides.length}`}
-                className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-full ${focusRing}`}
-              >
-                <span
-                  aria-hidden="true"
-                  className={`h-2 rounded-full transition-all block ${
-                    i === index ? "w-8 bg-primary" : "w-2 bg-muted-foreground/40 hover:bg-muted-foreground/70"
-                  }`}
-                />
-              </button>
-            ))}
-          </div>
-
-          <button
-            type="button"
-            onClick={() => go(1)}
-            aria-label="Siguiente reseña"
-            className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-primary/40 text-primary hover:bg-primary/10 transition ${focusRing}`}
-          >
-            <ChevronRight className="h-5 w-5" aria-hidden="true" />
-          </button>
-
-          <button
-            type="button"
-            onClick={() => setPaused((p) => !p)}
-            aria-pressed={paused}
-            aria-label={paused ? "Reanudar rotación automática de reseñas" : "Pausar rotación automática de reseñas"}
-            className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-primary/40 text-primary hover:bg-primary/10 transition ${focusRing}`}
-          >
-            {paused || reducedMotion ? (
-              <Play className="h-4 w-4" aria-hidden="true" />
-            ) : (
-              <Pause className="h-4 w-4" aria-hidden="true" />
-            )}
-          </button>
+        <div className="flex justify-center gap-2 mt-6">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              aria-label={`Ir a reseña ${i + 1}`}
+              className={`h-2 rounded-full transition-all ${
+                i === index ? "w-8 bg-primary" : "w-2 bg-muted-foreground/40 hover:bg-muted-foreground/70"
+              }`}
+            />
+          ))}
         </div>
-        <p className="sr-only" aria-live="polite">
-          {`Reseña ${index + 1} de ${slides.length}`}
-        </p>
       </div>
     </section>
   );
@@ -404,7 +327,7 @@ function WhatYouGet() {
           href={CHECKOUT_URL}
           onClick={() => trackLead("price_box_497")}
           className="group relative block w-full overflow-hidden text-center bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] text-black font-black text-lg sm:text-xl py-5 px-6 rounded-xl shadow-[0_0_45px_-8px_rgba(255,153,0,0.7)] transition-all duration-200 hover:shadow-[0_0_65px_-6px_rgba(255,140,0,0.95)] hover:-translate-y-0.5"
-          style={{ animation: "vbounce 1.5s ease-in-out infinite" }}
+          style={{ animation: "vbounce 2.2s ease-in-out infinite" }}
         >
           <span className="relative z-10 block" style={{ fontFamily: "var(--font-display)", letterSpacing: "0.02em" }}>
             <span className="block text-sm line-through opacity-75">Valor real total: $4,581 USD</span>
@@ -522,9 +445,94 @@ function FAQ() {
   );
 }
 
+function SecondCTA() {
+  return (
+    <section className="bg-[#111111] px-4 py-16">
+      <div className="max-w-6xl mx-auto text-center">
+        <div className="w-[140px] h-[140px] rounded-full overflow-hidden border-4 border-primary mx-auto mb-8 bg-[#0a0a0a] shadow-[0_0_35px_-5px_rgba(255,107,0,0.8)] ring-4 ring-primary/30 ring-offset-2 ring-offset-[#111111]">
+          <img src={gerardoPhoto.url} alt="Gerardo Villa" className="w-full h-full object-cover" />
+        </div>
+        <a
+          href={CHECKOUT_URL}
+          onClick={() => trackLead("second_cta_inscribirme")}
+          className="block w-full text-center bg-primary hover:bg-primary/90 transition-colors text-primary-foreground font-bold text-lg sm:text-xl py-5 px-6 rounded-xl"
+          style={{ animation: "vbounce 1.8s ease-in-out infinite" }}
+        >
+          INSCRIBIRME AHORA — $497 USD →
+        </a>
+        <p className="text-muted-foreground text-sm mt-4">
+          Acceso inmediato · Garantía de primera venta incluida
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function StickyBuyCTA() {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShow(window.scrollY > 420);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  if (!show) return null;
+
+  return (
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[#1a1a1a] bg-[#0a0a0a]/90 px-4 py-3 backdrop-blur-md">
+      <div className="mx-auto max-w-3xl">
+        <a
+          href={CHECKOUT_URL}
+          onClick={() => trackLead("sticky_cta_quiero_sistema")}
+          className="group relative block w-full overflow-hidden text-center bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] text-black font-black text-base sm:text-xl py-4 sm:py-5 px-6 rounded-xl shadow-[0_0_45px_-8px_rgba(255,153,0,0.7)] transition-all duration-200 hover:shadow-[0_0_65px_-6px_rgba(255,140,0,0.95)] hover:-translate-y-0.5"
+          style={{ animation: "vbounce 2.2s ease-in-out infinite" }}
+        >
+          <span className="relative z-10">QUIERO EL SISTEMA AHORA — $497 USD →</span>
+          <span
+            className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/35 to-transparent animate-shine"
+            aria-hidden="true"
+          />
+        </a>
+      </div>
+    </div>
+  );
+}
+
+function FloatingWhatsApp() {
+  return (
+    <div className="fixed right-4 bottom-24 z-50 flex flex-col gap-3 items-end">
+
+      <a
+        href={CALL_URL}
+        onClick={() => trackLead("call_calendly")}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Agendar una llamada"
+        className="group flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5a] text-white text-sm font-bold pl-3 pr-4 py-2.5 rounded-full shadow-lg shadow-black/40 hover:-translate-y-1 transition-transform duration-200"
+      >
+        <span className="text-lg group-hover:animate-bounce">📞</span>
+        <span className="hidden sm:inline">Quiero una llamada</span>
+      </a>
+      <a
+        href={WHATSAPP_URL}
+        onClick={() => trackLead("whatsapp_dudas")}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Tengo dudas por WhatsApp"
+        className="group flex items-center gap-2 bg-[#0D0D0D]/90 backdrop-blur border border-[#25D366] hover:bg-[#25D366]/10 text-[#25D366] text-sm font-bold pl-3 pr-4 py-2.5 rounded-full shadow-lg shadow-black/40 hover:-translate-y-1 transition-transform duration-200"
+      >
+        <span className="text-lg group-hover:animate-bounce">💬</span>
+        <span className="hidden sm:inline">Tengo dudas</span>
+      </a>
+    </div>
+  );
+}
+
 function Footer() {
   return (
-    <footer className="bg-[#060606] px-4 py-10 border-t border-[#1a1a1a]">
+    <footer className="bg-[#060606] px-4 py-10 pb-28 border-t border-[#1a1a1a]">
       <div className="max-w-6xl mx-auto text-center space-y-3 text-xs text-muted-foreground">
         <p>© 2026 Gerardo Villa · Summa · Todos los derechos reservados</p>
         <p className="leading-relaxed">
@@ -550,7 +558,10 @@ function VSLPage() {
       <ReviewsCarousel />
       <WhatYouGet />
       <Footer />
-      <style>{`@keyframes vbounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}} @keyframes shine {0%{transform:translateX(-100%)}100%{transform:translateX(100%)}} .animate-shine { animation: shine 2.2s ease-in-out infinite }`}</style>
+      <StickyBuyCTA />
+
+      <FloatingWhatsApp />
+      <style>{`@keyframes vbounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}} @keyframes shine {0%{transform:translateX(-100%)}100%{transform:translateX(100%)}} .animate-shine { animation: shine 2.2s ease-in-out infinite }`}</style>
     </div>
   );
 }

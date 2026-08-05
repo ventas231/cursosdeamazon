@@ -99,11 +99,11 @@ function Checkout() {
       w.fbq("track", "InitiateCheckout", { value: 497, currency: "USD" });
     }
     // Etiquetar visita a checkout en Google Sheets (pestaña "Carrito Abandonado")
-    let email = "";
+    let whatsapp = "";
     try {
-      email = localStorage.getItem("lead_email") || "";
+      whatsapp = localStorage.getItem("lead_whatsapp") || "";
     } catch {}
-    logVisit({ data: { email, label: "Llegó a checkout" } }).catch((err) => {
+    logVisit({ data: { whatsapp, label: "Llegó a checkout" } }).catch((err) => {
       console.error("[sheets] checkout log failed", err);
     });
   }, [logVisit]);

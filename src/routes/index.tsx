@@ -92,7 +92,7 @@ function LandingPage() {
         </div>
       </div>
 
-      {/* SECCIÓN 2 — TITULAR + PROMESA */}
+      {/* SECCIÓN 2 — HERO */}
       <section className="bg-background px-4 py-[60px] md:py-20">
         <div className="mx-auto max-w-7xl">
           <p className="text-center text-xs font-semibold uppercase tracking-[0.15em] text-brand mt-4">
@@ -109,22 +109,71 @@ function LandingPage() {
             Lo que normalmente te tomaría 2 horas de explicar, está en 27 minutos.
           </p>
 
-          {/* Bloque +$4.6M USD */}
+          <p className="mx-auto mt-6 max-w-3xl text-center text-base sm:text-lg md:text-xl text-muted-foreground">
+            Descubre el sistema exacto que uso en mi negocio de Más de 4.6 millones de dólares en ventas de Amazon y cómo
+            tú puedes replicarlo desde cero.
+          </p>
+
+          {/* Foto Gerardo + Formulario */}
+          <div className="mt-10 flex flex-col-reverse md:flex-row items-center justify-center gap-10 md:gap-16 lg:gap-24 max-w-6xl mx-auto">
+            {/* Foto */}
+            <div className="flex flex-col items-center shrink-0">
+              <div className="relative">
+                <div className="absolute inset-0 -m-4 rounded-full bg-gradient-to-br from-brand/40 to-brand-soft/20 blur-3xl" />
+                <img
+                  src={gerardoPhoto.url}
+                  alt="Gerardo Villa, founder de Summa"
+                  width={208}
+                  height={208}
+                  className="relative h-48 w-48 md:h-52 md:w-52 rounded-full object-cover ring-2 ring-brand/50 ring-offset-4 ring-offset-background"
+                />
+              </div>
+              <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-hairline bg-surface px-4 py-1.5 text-xs md:text-sm text-muted-foreground">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+                Gerardo Villa · Amazon MX &amp; USA
+              </div>
+            </div>
+
+            {/* Formulario */}
+            <div className="w-full max-w-lg">
+              <WhatsAppForm
+                idPrefix="hero"
+                variant="side"
+              />
+            </div>
+          </div>
+
           <div className="mt-8 w-full max-w-3xl mx-auto rounded-xl border-2 border-brand bg-brand/10 px-6 md:px-8 py-5 text-center shadow-[0_0_30px_-8px_rgba(255,107,0,0.45)]">
-            <p className="text-2xl md:text-4xl font-black text-brand">
-              Más de $4.6M USD en ventas de Amazon
+            <p className="text-sm md:text-lg font-bold text-brand leading-snug">
+              ⭐ Mencionado por Amazon México como uno de los vendedores
+              exitosos de Amazon Estados Unidos
             </p>
           </div>
 
-          {/* CTA principal */}
-          <div className="mt-10 w-full max-w-lg mx-auto">
-            <WhatsAppForm idPrefix="hero" />
-          </div>
+          <HistoriaExito />
         </div>
       </section>
 
-      {/* SECCIÓN 3 — Contenido del video */}
-      <section className="bg-surface px-4 py-16 md:py-20">
+      {/* SECCIÓN 3 — Prueba Social */}
+      <section className="bg-surface px-4 py-12 md:py-16">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 divide-y divide-hairline md:grid-cols-3 md:divide-y-0 md:divide-x">
+          {[
+            { num: "Más de $4.6M", label: "USD en ventas de Amazon" },
+            { num: "500+", label: "alumnos en el programa" },
+            { num: "60 días", label: "para tu primer lanzamiento" },
+          ].map((s) => (
+            <div key={s.num} className="px-6 py-6 text-center md:py-2">
+              <p className="text-4xl md:text-5xl font-black text-brand">
+                {s.num}
+              </p>
+              <p className="mt-2 text-sm text-muted-foreground">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SECCIÓN 4 — Qué vas a descubrir */}
+      <section className="bg-background px-4 py-16 md:py-20">
         <div className="mx-auto max-w-5xl">
           <h2 className="text-center text-3xl md:text-4xl font-black tracking-tight">
             Esto es lo que vas a ver en el video
@@ -141,57 +190,6 @@ function LandingPage() {
               </li>
             ))}
           </ul>
-        </div>
-      </section>
-
-      {/* SECCIÓN 4 — Prueba social */}
-      <section className="bg-background px-4 py-16 md:py-20">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex flex-col items-center">
-            <div className="relative">
-              <div className="absolute inset-0 -m-4 rounded-full bg-gradient-to-br from-brand/40 to-brand-soft/20 blur-3xl" />
-              <img
-                src={gerardoPhoto.url}
-                alt="Gerardo Villa, founder de Summa"
-                width={208}
-                height={208}
-                className="relative h-48 w-48 md:h-52 md:w-52 rounded-full object-cover ring-2 ring-brand/50 ring-offset-4 ring-offset-background"
-              />
-            </div>
-            <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-hairline bg-surface px-4 py-1.5 text-xs md:text-sm text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-              Gerardo Villa · Amazon MX &amp; USA
-            </div>
-          </div>
-
-          <div className="mt-10 grid max-w-3xl mx-auto grid-cols-1 divide-y divide-hairline md:grid-cols-2 md:divide-y-0 md:divide-x">
-            {[
-              { num: "500+", label: "alumnos en el programa" },
-              { num: "60 días", label: "para tu primer lanzamiento" },
-            ].map((s) => (
-              <div key={s.num} className="px-6 py-6 text-center md:py-2">
-                <p className="text-4xl md:text-5xl font-black text-brand">
-                  {s.num}
-                </p>
-                <p className="mt-2 text-sm text-muted-foreground">{s.label}</p>
-              </div>
-            ))}
-          </div>
-
-          <HistoriaExito />
-
-          <div className="mx-auto mt-10 max-w-xl text-center">
-            <div className="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-full bg-brand/15 text-brand">
-              <ShieldCheck className="h-9 w-9" strokeWidth={2.2} />
-            </div>
-            <h2 className="mt-5 text-2xl md:text-3xl font-black">
-              Este sistema es 100% gratuito
-            </h2>
-            <p className="mt-3 text-base text-muted-foreground">
-              No te vamos a pedir tarjeta de crédito ni datos. Das clic y ves el
-              video al instante.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -221,6 +219,25 @@ function LandingPage() {
               </li>
             ))}
           </ul>
+
+          <div className="mt-10">
+            <a
+              href="https://calendly.com/cursos-summaproducts/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-between gap-4 rounded-xl border-2 border-brand bg-gradient-to-br from-brand/25 via-brand/10 to-transparent p-5 shadow-[0_0_40px_-10px_var(--brand)] transition-all hover:scale-[1.02] hover:shadow-[0_0_60px_-10px_var(--brand)]"
+            >
+              <div className="flex-1">
+                <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-brand/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-brand">
+                  <span>👑</span> Servicio premium
+                </span>
+                <p className="text-base md:text-lg font-bold text-foreground">
+                  ¿Quieres que mi equipo lo haga por ti?
+                </p>
+              </div>
+              <ChevronRight className="h-7 w-7 shrink-0 text-brand transition-transform group-hover:translate-x-1" />
+            </a>
+          </div>
         </div>
       </section>
 
@@ -234,54 +251,45 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* SECCIÓN 7 — Oferta premium */}
+      {/* SECCIÓN 7 — Garantía */}
       <section className="bg-background px-4 py-16 md:py-20">
-        <div className="mx-auto max-w-5xl">
-          <a
-            href="https://calendly.com/cursos-summaproducts/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center justify-between gap-4 rounded-xl border-2 border-brand bg-gradient-to-br from-brand/25 via-brand/10 to-transparent p-5 shadow-[0_0_40px_-10px_var(--brand)] transition-all hover:scale-[1.02] hover:shadow-[0_0_60px_-10px_var(--brand)]"
-          >
-            <div className="flex-1">
-              <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-brand/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-brand">
-                <span>👑</span> Servicio premium
-              </span>
-              <p className="text-base md:text-lg font-bold text-foreground">
-                ¿Quieres que mi equipo lo haga por ti?
-              </p>
-            </div>
-            <ChevronRight className="h-7 w-7 shrink-0 text-brand transition-transform group-hover:translate-x-1" />
-          </a>
-        </div>
-      </section>
-
-      {/* SECCIÓN 8 — Stack de herramientas */}
-      <section className="bg-surface px-4 py-14 md:py-16">
         <div className="mx-auto max-w-xl text-center">
-          <div className="flex flex-wrap items-center justify-center gap-10 md:gap-14">
-            <img
-              src={logoAmazon}
-              alt="Amazon"
-              className="h-16 md:h-20 w-auto object-contain"
-            />
-            <img
-              src={logoClaude}
-              alt="Claude"
-              className="h-16 md:h-20 w-auto object-contain"
-            />
-            <img
-              src={logoHelium10}
-              alt="Helium 10"
-              className="h-16 md:h-20 w-auto object-contain"
-            />
+          <div className="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-full bg-brand/15 text-brand">
+            <ShieldCheck className="h-9 w-9" strokeWidth={2.2} />
           </div>
-          <p className="mt-3 text-xs text-muted-foreground">
-            Las herramientas que usamos en el curso
+          <h2 className="mt-5 text-2xl md:text-3xl font-black">
+            Este sistema es 100% gratuito
+          </h2>
+          <p className="mt-3 text-base text-muted-foreground">
+            No te vamos a pedir tarjeta de crédito ni datos. Das clic y ves el
+            video al instante.
           </p>
+
+
+          <div className="mt-10">
+            <div className="flex flex-wrap items-center justify-center gap-10 md:gap-14">
+              <img
+                src={logoAmazon}
+                alt="Amazon"
+                className="h-16 md:h-20 w-auto object-contain"
+              />
+              <img
+                src={logoClaude}
+                alt="Claude"
+                className="h-16 md:h-20 w-auto object-contain"
+              />
+              <img
+                src={logoHelium10}
+                alt="Helium 10"
+                className="h-16 md:h-20 w-auto object-contain"
+              />
+            </div>
+            <p className="mt-3 text-xs text-muted-foreground">
+              Las herramientas que usamos en el curso
+            </p>
+          </div>
         </div>
       </section>
-
 
       {/* SECCIÓN 8 — Footer */}
       <footer className="bg-[#060606] px-4 py-8 pb-28 border-t border-hairline">
