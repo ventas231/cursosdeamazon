@@ -341,6 +341,9 @@ function WhatYouGet() {
             aria-hidden="true"
           />
         </a>
+        <p className="mt-3 text-center text-sm text-muted-foreground">
+          Verás el resumen de tu compra antes de pagar — no se te cobra nada todavía.
+        </p>
       </div>
     </section>
   );
