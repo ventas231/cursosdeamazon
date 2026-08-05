@@ -624,7 +624,7 @@ function FloatingWhatsApp() {
         className="group flex items-center gap-2 bg-[#0D0D0D]/90 backdrop-blur border border-[#25D366] hover:bg-[#25D366]/10 text-[#25D366] text-sm font-bold pl-3 pr-4 py-2.5 rounded-full shadow-lg shadow-black/40 hover:-translate-y-1 transition-transform duration-200"
       >
         <span className="text-lg group-hover:animate-bounce">💬</span>
-        <span className="hidden sm:inline">Tengo dudas</span>
+        <span>Tengo dudas</span>
       </a>
     </div>
   );
