@@ -289,7 +289,7 @@ function WhatYouGet() {
     { text: "Para sellers activos: Claude entra a tus números, analiza tus Search Terms, TACOS y ACOS, y te entrega un plan de acción concreto. Sin adivinar, sin perder tiempo.", value: "$199 USD" },
   ];
   return (
-    <section className="relative overflow-hidden px-4 py-16">
+    <section id="ofertas" className="relative overflow-hidden px-4 py-16">
       <div className="absolute inset-0 bg-gradient-to-br from-[#FF9900]/10 via-[#FF6B00]/5 to-[#FFCC00]/10" />
       <div className="absolute inset-0 bg-[#111111]/90" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#FF9900] to-transparent" />
