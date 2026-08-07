@@ -638,19 +638,19 @@ function FloatingScrollCTA() {
   };
 
   return (
-    <div className="fixed left-4 bottom-24 z-50 hidden sm:flex flex-col items-start">
+    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] hidden sm:flex flex-col items-center">
       <a
         href="#ofertas"
         onClick={scrollToOfertas}
         aria-label="Conoce qué ofrece el sistema"
-        className="group relative flex items-center gap-2 overflow-hidden bg-gradient-to-r from-[#FF2D2D] via-[#FF1A1A] to-[#E60000] text-white font-black text-base sm:text-lg pl-5 pr-6 py-3.5 rounded-full shadow-[0_0_45px_-2px_rgba(255,30,30,0.85)] ring-[5px] ring-[#FF1A1A]/50 animate-[pulse-ring_1.4s_ease-in-out_infinite] hover:shadow-[0_0_70px_-2px_rgba(255,20,20,1)] hover:-translate-y-1 hover:scale-105 transition-all duration-200"
+        className="group relative flex items-center gap-2 overflow-hidden bg-[#FF9900] text-black font-black text-base sm:text-lg pl-6 pr-7 py-4 rounded-full shadow-[0_0_55px_-2px_rgba(255,153,0,0.9)] ring-[6px] ring-[#FF9900]/40 animate-[pulse-ring_1.2s_ease-in-out_infinite] hover:shadow-[0_0_80px_-2px_rgba(255,153,0,1)] hover:-translate-y-1 hover:scale-105 transition-all duration-200"
       >
-        <span className="relative z-10 flex items-center gap-2 drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
+        <span className="relative z-10 flex items-center gap-2">
           CONOCE QUÉ OFRECE
           <span className="inline-block animate-bounce text-lg">↓</span>
         </span>
         <span
-          className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/35 to-transparent animate-shine"
+          className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/45 to-transparent animate-shine"
           aria-hidden="true"
         />
       </a>
