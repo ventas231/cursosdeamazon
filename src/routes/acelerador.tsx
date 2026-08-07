@@ -71,11 +71,6 @@ function Header() {
 }
 
 function PrimaryCTA({ id }: { id?: string }) {
-  const scrollToOfertas = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    document.getElementById("ofertas")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <div id={id} className="w-full space-y-3">
       <a
@@ -87,22 +82,6 @@ function PrimaryCTA({ id }: { id?: string }) {
         <span className="relative z-10">QUIERO EL SISTEMA AHORA — $497 USD →</span>
         <span
           className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/35 to-transparent animate-shine"
-          aria-hidden="true"
-        />
-      </a>
-
-      <a
-        href="#ofertas"
-        onClick={scrollToOfertas}
-        className="group relative block w-full overflow-hidden text-center bg-[#0D0D0D] border-2 border-[#FF9900] text-[#FF9900] font-black text-base sm:text-lg py-4 px-6 rounded-xl shadow-[0_0_35px_-6px_rgba(255,153,0,0.55)] transition-all duration-200 hover:bg-[#FF9900]/10 hover:shadow-[0_0_55px_-6px_rgba(255,153,0,0.85)] hover:-translate-y-0.5"
-        style={{ animation: "vbounce 2s ease-in-out infinite" }}
-      >
-        <span className="relative z-10 flex items-center justify-center gap-2">
-          CONOCE QUÉ OFRECE
-          <span className="inline-block animate-bounce">↓</span>
-        </span>
-        <span
-          className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shine"
           aria-hidden="true"
         />
       </a>
