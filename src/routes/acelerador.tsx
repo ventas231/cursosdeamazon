@@ -638,12 +638,12 @@ function FloatingScrollCTA() {
   };
 
   return (
-    <div className="fixed bottom-40 left-1/2 -translate-x-1/2 z-[60] hidden sm:flex flex-col items-center">
+    <div className="fixed bottom-[13rem] right-4 z-[60] flex flex-col items-end">
       <a
         href="#ofertas"
         onClick={scrollToOfertas}
         aria-label="Conoce qué ofrece el sistema"
-        className="group relative flex items-center gap-2 overflow-hidden bg-gradient-to-r from-[#FF9900] via-[#FFB84D] to-[#FF9900] text-black font-black text-sm sm:text-base pl-5 pr-6 py-3.5 rounded-full shadow-[0_0_55px_-2px_rgba(255,153,0,0.95)] ring-[5px] ring-[#FF9900]/50 animate-[pulse-ring_1s_ease-in-out_infinite] hover:shadow-[0_0_80px_-2px_rgba(255,153,0,1)] hover:-translate-y-1 hover:scale-105 transition-all duration-200"
+        className="group relative flex items-center gap-2 overflow-hidden bg-gradient-to-r from-[#FF1A1A] via-[#FF0000] to-[#FF1A1A] text-white font-black text-sm sm:text-base pl-4 pr-5 py-3 rounded-full shadow-[0_0_55px_-2px_rgba(255,0,0,0.95)] ring-[5px] ring-[#FF0000]/50 animate-[pulse-ring_1s_ease-in-out_infinite] hover:shadow-[0_0_80px_-2px_rgba(255,0,0,1)] hover:-translate-y-1 hover:scale-105 transition-all duration-200"
       >
         <span className="relative z-10 flex items-center gap-2">
           CONOCE QUÉ OFRECE
