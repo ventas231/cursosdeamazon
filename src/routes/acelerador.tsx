@@ -631,6 +631,33 @@ function FloatingWhatsApp() {
   );
 }
 
+function FloatingScrollCTA() {
+  const scrollToOfertas = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    document.getElementById("ofertas")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <div className="fixed left-4 bottom-24 z-50 hidden sm:flex flex-col items-start">
+      <a
+        href="#ofertas"
+        onClick={scrollToOfertas}
+        aria-label="Conoce qué ofrece el sistema"
+        className="group relative flex items-center gap-2 overflow-hidden bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] text-black font-black text-sm pl-4 pr-5 py-3 rounded-full shadow-[0_0_35px_-4px_rgba(255,153,0,0.75)] ring-4 ring-[#FF9900]/40 animate-[pulse-ring_1.6s_ease-in-out_infinite] hover:shadow-[0_0_55px_-4px_rgba(255,140,0,1)] hover:-translate-y-1 transition-all duration-200"
+      >
+        <span className="relative z-10 flex items-center gap-2">
+          CONOCE QUÉ OFRECE
+          <span className="inline-block animate-bounce">↓</span>
+        </span>
+        <span
+          className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-shine"
+          aria-hidden="true"
+        />
+      </a>
+    </div>
+  );
+}
+
 function Footer() {
   return (
     <footer className="bg-[#060606] px-4 py-10 pb-28 border-t border-[#1a1a1a]">
