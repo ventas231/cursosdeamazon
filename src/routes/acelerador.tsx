@@ -693,7 +693,7 @@ function VSLPage() {
 
       <FloatingWhatsApp />
       <FloatingScrollCTA />
-      <style>{`@keyframes vbounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}} @keyframes shine {0%{transform:translateX(-100%)}100%{transform:translateX(100%)}} .animate-shine { animation: shine 2.2s ease-in-out infinite } @keyframes pulse-ring {0%,100%{box-shadow:0 0 35px -4px rgba(255,153,0,0.75); transform:scale(1)}50%{box-shadow:0 0 55px -2px rgba(255,153,0,1); transform:scale(1.03)}}`}</style>
+      <style>{`@keyframes vbounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}} @keyframes shine {0%{transform:translateX(-100%)}100%{transform:translateX(100%)}} .animate-shine { animation: shine 2.2s ease-in-out infinite } @keyframes pulse-ring {0%,100%{box-shadow:0 0 35px -4px rgba(0,255,136,0.75); transform:scale(1)}50%{box-shadow:0 0 55px -2px rgba(0,255,136,1); transform:scale(1.03)}}`}</style>
     </div>
   );
 }
