@@ -643,14 +643,14 @@ function FloatingScrollCTA() {
         href="#ofertas"
         onClick={scrollToOfertas}
         aria-label="Conoce qué ofrece el sistema"
-        className="group relative flex items-center gap-2 overflow-hidden bg-gradient-to-r from-[#00FF88] via-[#00D4FF] to-[#00FF88] text-black font-black text-sm sm:text-base pl-4 pr-5 py-3 rounded-full shadow-[0_0_55px_-2px_rgba(0,255,136,0.95)] ring-[5px] ring-[#00FF88]/50 animate-[pulse-ring_1s_ease-in-out_infinite] hover:shadow-[0_0_80px_-2px_rgba(0,255,136,1)] hover:-translate-y-1 hover:scale-105 transition-all duration-200"
+        className="group relative flex items-center gap-2 overflow-hidden bg-gradient-to-r from-[#FF1A1A] via-[#FF0000] to-[#FF1A1A] text-white font-black text-sm sm:text-base pl-4 pr-5 py-3 rounded-full shadow-[0_0_55px_-2px_rgba(255,0,0,0.95)] ring-[5px] ring-[#FF0000]/50 animate-[pulse-ring_1s_ease-in-out_infinite] hover:shadow-[0_0_80px_-2px_rgba(255,0,0,1)] hover:-translate-y-1 hover:scale-105 transition-all duration-200"
       >
         <span className="relative z-10 flex items-center gap-2">
           CONOCE QUÉ OFRECE
           <span className="inline-block animate-bounce text-base">↓</span>
         </span>
         <span
-          className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent animate-shine"
+          className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-shine"
           aria-hidden="true"
         />
       </a>
