@@ -112,7 +112,7 @@ function Hero() {
     <section className="bg-background px-4 py-12 sm:py-20">
       <div className="max-w-6xl mx-auto text-center">
         <div className="mb-6">
-          <h1 className="mx-auto max-w-5xl text-center text-4xl font-black leading-[1.08] tracking-tight text-glow-brand sm:text-5xl md:text-6xl lg:text-6xl uppercase">
+          <h1 className="mx-auto max-w-5xl text-center text-3xl font-black leading-[1.1] tracking-tight text-glow-brand sm:text-4xl md:text-5xl lg:text-5xl uppercase">
             De cero a tu primera venta en Amazon en 60 días — así es como lo hace la IA
           </h1>
           <p className="text-muted-foreground text-xs sm:text-sm font-medium uppercase tracking-wider mt-3 max-w-3xl mx-auto">
@@ -638,12 +638,12 @@ function FloatingScrollCTA() {
   };
 
   return (
-    <div className="fixed top-28 left-4 z-[60] hidden sm:flex flex-col items-start">
+    <div className="fixed top-28 right-4 z-[60] hidden sm:flex flex-col items-end">
       <a
         href="#ofertas"
         onClick={scrollToOfertas}
         aria-label="Conoce qué ofrece el sistema"
-        className="group relative flex items-center gap-2 overflow-hidden bg-gradient-to-r from-[#FF9900] via-[#FFAD33] to-[#FF9900] text-black font-black text-sm sm:text-base pl-4 pr-5 py-3 rounded-full shadow-[0_0_50px_-2px_rgba(255,153,0,0.95)] ring-[5px] ring-[#FF9900]/50 animate-[pulse-ring_1s_ease-in-out_infinite] hover:shadow-[0_0_75px_-2px_rgba(255,153,0,1)] hover:-translate-y-1 hover:scale-105 transition-all duration-200"
+        className="group relative flex items-center gap-2 overflow-hidden bg-gradient-to-r from-[#00FF88] via-[#00D4FF] to-[#00FF88] text-black font-black text-sm sm:text-base pl-4 pr-5 py-3 rounded-full shadow-[0_0_55px_-2px_rgba(0,255,136,0.95)] ring-[5px] ring-[#00FF88]/50 animate-[pulse-ring_1s_ease-in-out_infinite] hover:shadow-[0_0_80px_-2px_rgba(0,255,136,1)] hover:-translate-y-1 hover:scale-105 transition-all duration-200"
       >
         <span className="relative z-10 flex items-center gap-2">
           CONOCE QUÉ OFRECE
@@ -693,7 +693,7 @@ function VSLPage() {
 
       <FloatingWhatsApp />
       <FloatingScrollCTA />
-      <style>{`@keyframes vbounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}} @keyframes shine {0%{transform:translateX(-100%)}100%{transform:translateX(100%)}} .animate-shine { animation: shine 2.2s ease-in-out infinite } @keyframes pulse-ring {0%,100%{box-shadow:0 0 35px -4px rgba(255,153,0,0.75); transform:scale(1)}50%{box-shadow:0 0 55px -2px rgba(255,153,0,1); transform:scale(1.03)}}`}</style>
+      <style>{`@keyframes vbounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}} @keyframes shine {0%{transform:translateX(-100%)}100%{transform:translateX(100%)}} .animate-shine { animation: shine 2.2s ease-in-out infinite } @keyframes pulse-ring {0%,100%{box-shadow:0 0 35px -4px rgba(0,255,136,0.75); transform:scale(1)}50%{box-shadow:0 0 55px -2px rgba(0,255,136,1); transform:scale(1.03)}}`}</style>
     </div>
   );
 }
