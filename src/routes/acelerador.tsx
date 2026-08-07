@@ -112,7 +112,7 @@ function Hero() {
     <section className="bg-background px-4 py-12 sm:py-20">
       <div className="max-w-6xl mx-auto text-center">
         <div className="mb-6">
-          <h1 className="mx-auto max-w-5xl text-center text-4xl font-black leading-[1.08] tracking-tight text-glow-brand sm:text-5xl md:text-6xl lg:text-6xl uppercase">
+          <h1 className="mx-auto max-w-5xl text-center text-3xl font-black leading-[1.1] tracking-tight text-glow-brand sm:text-4xl md:text-5xl lg:text-5xl uppercase">
             De cero a tu primera venta en Amazon en 60 días — así es como lo hace la IA
           </h1>
           <p className="text-muted-foreground text-xs sm:text-sm font-medium uppercase tracking-wider mt-3 max-w-3xl mx-auto">
