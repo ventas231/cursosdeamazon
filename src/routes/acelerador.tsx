@@ -71,6 +71,11 @@ function Header() {
 }
 
 function PrimaryCTA({ id }: { id?: string }) {
+  const scrollToOfertas = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    document.getElementById("ofertas")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div id={id} className="w-full space-y-3">
       <a
@@ -85,6 +90,23 @@ function PrimaryCTA({ id }: { id?: string }) {
           aria-hidden="true"
         />
       </a>
+
+      <a
+        href="#ofertas"
+        onClick={scrollToOfertas}
+        className="group relative block w-full overflow-hidden text-center bg-[#0D0D0D] border-2 border-[#FF9900] text-[#FF9900] font-black text-base sm:text-lg py-4 px-6 rounded-xl shadow-[0_0_35px_-6px_rgba(255,153,0,0.55)] transition-all duration-200 hover:bg-[#FF9900]/10 hover:shadow-[0_0_55px_-6px_rgba(255,153,0,0.85)] hover:-translate-y-0.5"
+        style={{ animation: "vbounce 2s ease-in-out infinite" }}
+      >
+        <span className="relative z-10 flex items-center justify-center gap-2">
+          CONOCE QUÉ OFRECE
+          <span className="inline-block animate-bounce">↓</span>
+        </span>
+        <span
+          className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shine"
+          aria-hidden="true"
+        />
+      </a>
+
       <a
         href={WHATSAPP_URL}
         onClick={() => trackLead("whatsapp_dudas_cta")}
@@ -267,7 +289,7 @@ function WhatYouGet() {
     { text: "Para sellers activos: Claude entra a tus números, analiza tus Search Terms, TACOS y ACOS, y te entrega un plan de acción concreto. Sin adivinar, sin perder tiempo.", value: "$199 USD" },
   ];
   return (
-    <section className="relative overflow-hidden px-4 py-16">
+    <section id="ofertas" className="relative overflow-hidden px-4 py-16">
       <div className="absolute inset-0 bg-gradient-to-br from-[#FF9900]/10 via-[#FF6B00]/5 to-[#FFCC00]/10" />
       <div className="absolute inset-0 bg-[#111111]/90" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#FF9900] to-transparent" />
