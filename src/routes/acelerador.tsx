@@ -17,7 +17,7 @@ export const Route = createFileRoute("/acelerador")({
       {
         property: "og:description",
         content:
-          "Lanza tu primer producto en Amazon en 60 días usando IA. Precio de lanzamiento $797 USD.",
+          "Lanza tu primer producto en Amazon en 60 días usando IA. Precio actual $797 USD.",
       },
       { property: "og:type", content: "website" },
       { name: "robots", content: "noindex" },
@@ -48,7 +48,7 @@ function UrgencyBar() {
   return (
     <div className="bg-primary text-primary-foreground text-center px-4 py-3">
       <p className="font-bold text-sm sm:text-base">
-        ⏰ Precio de lanzamiento: $797 USD
+        ⏰ Precio actual: $797 USD
       </p>
       <p className="text-xs sm:text-sm opacity-90 mt-1">
         Acceso inmediato al curso completo y a la comunidad privada
