@@ -52,7 +52,7 @@ export const Route = createFileRoute("/checkout")({
   head: () => ({
     meta: [
       { title: "Checkout — Amazon + IA de 0 a 60 días | Gerardo Villa" },
-      { name: "description", content: "Inscríbete al curso Amazon + IA de 0 a 60 días con Gerardo Villa. Precio de lanzamiento $797 USD." },
+      { name: "description", content: "Inscríbete al curso Amazon + IA de 0 a 60 días con Gerardo Villa. Precio actual $797 USD." },
       { name: "robots", content: "noindex" },
     ],
   }),
