@@ -6,8 +6,8 @@ import gerardoPhoto from "@/assets/gerardo.png.asset.json";
 import { logCheckoutVisit } from "@/lib/excel.functions";
 import { HistoriaExito } from "@/components/HistoriaExito";
 
-const PAYPAL_CLIENT_ID = "BAABdtkl8eNEhFa8UJqHSBT6-sceiny3Pm7tK0MUNU_Q6XYhTqLULJuYc01qoCq2wJArbT4fQ6aV1KhL4M";
-const PAYPAL_BUTTON_ID = "HZH4E3ERVXFXS";
+const PAYPAL_CLIENT_ID = "BAABM538hqsoEceTLLNvFgRBaM-DKUi1kBnxTRf48O56Lp1RXNzoIIx73xbFIsncWy_RvagzK7hj_ZSlBE";
+const PAYPAL_BUTTON_ID = "LXRFP6FNE76WC";
 
 declare global {
   interface Window {
