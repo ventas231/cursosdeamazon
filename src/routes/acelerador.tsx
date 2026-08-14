@@ -17,7 +17,7 @@ export const Route = createFileRoute("/acelerador")({
       {
         property: "og:description",
         content:
-          "Lanza tu primer producto en Amazon en 60 días usando IA. Precio de lanzamiento $497 USD.",
+          "Lanza tu primer producto en Amazon en 60 días usando IA. Precio de lanzamiento $797 USD.",
       },
       { property: "og:type", content: "website" },
       { name: "robots", content: "noindex" },
@@ -48,7 +48,7 @@ function UrgencyBar() {
   return (
     <div className="bg-primary text-primary-foreground text-center px-4 py-3">
       <p className="font-bold text-sm sm:text-base">
-        ⏰ Precio de lanzamiento: $497 USD
+        ⏰ Precio de lanzamiento: $797 USD
       </p>
       <p className="text-xs sm:text-sm opacity-90 mt-1">
         Acceso inmediato al curso completo y a la comunidad privada
@@ -79,7 +79,7 @@ function PrimaryCTA({ id }: { id?: string }) {
         className="group relative block w-full overflow-hidden text-center bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] text-black font-black text-lg sm:text-xl py-5 px-6 rounded-xl shadow-[0_0_45px_-8px_rgba(255,153,0,0.7)] transition-all duration-200 hover:shadow-[0_0_65px_-6px_rgba(255,140,0,0.95)] hover:-translate-y-0.5"
         style={{ animation: "vbounce 2.2s ease-in-out infinite" }}
       >
-        <span className="relative z-10">QUIERO EL SISTEMA AHORA — $497 USD →</span>
+        <span className="relative z-10">QUIERO EL SISTEMA AHORA — $797 USD →</span>
         <span
           className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/35 to-transparent animate-shine"
           aria-hidden="true"
@@ -320,7 +320,7 @@ function WhatYouGet() {
             className="text-6xl sm:text-7xl mt-1 bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] bg-clip-text text-transparent"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            $497 USD
+            $797 USD
           </div>
           <div className="text-foreground/80 mt-2 text-sm">
             Ahorras <span className="text-[#FFCC00] font-bold">$4,084 USD</span> si entras hoy
@@ -329,13 +329,13 @@ function WhatYouGet() {
 
         <a
           href={CHECKOUT_URL}
-          onClick={() => trackLead("price_box_497")}
+          onClick={() => trackLead("price_box_797")}
           className="group relative block w-full overflow-hidden text-center bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] text-black font-black text-lg sm:text-xl py-5 px-6 rounded-xl shadow-[0_0_45px_-8px_rgba(255,153,0,0.7)] transition-all duration-200 hover:shadow-[0_0_65px_-6px_rgba(255,140,0,0.95)] hover:-translate-y-0.5"
           style={{ animation: "vbounce 2.2s ease-in-out infinite" }}
         >
           <span className="relative z-10 block" style={{ fontFamily: "var(--font-display)", letterSpacing: "0.02em" }}>
             <span className="block text-sm line-through opacity-75">Valor real total: $4,581 USD</span>
-            <span className="block text-3xl sm:text-4xl mt-1">TUYO HOY: $497 USD →</span>
+            <span className="block text-3xl sm:text-4xl mt-1">TUYO HOY: $797 USD →</span>
           </span>
           <span
             className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/35 to-transparent animate-shine"
@@ -359,7 +359,7 @@ function ValueReminder() {
           <span className="line-through text-muted-foreground">$4,581 USD</span>.
         </p>
         <p className="mt-3 text-2xl sm:text-4xl font-black bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] bg-clip-text text-transparent">
-          Hoy lo tienes en $497 USD.
+          Hoy lo tienes en $797 USD.
         </p>
       </div>
     </section>
@@ -559,7 +559,7 @@ function SecondCTA() {
           className="block w-full text-center bg-primary hover:bg-primary/90 transition-colors text-primary-foreground font-bold text-lg sm:text-xl py-5 px-6 rounded-xl"
           style={{ animation: "vbounce 1.8s ease-in-out infinite" }}
         >
-          INSCRIBIRME AHORA — $497 USD →
+          INSCRIBIRME AHORA — $797 USD →
         </a>
         <p className="text-muted-foreground text-sm mt-4">
           Acceso inmediato · Garantía de primera venta incluida
@@ -590,7 +590,7 @@ function StickyBuyCTA() {
           className="group relative block w-full overflow-hidden text-center bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] text-black font-black text-base sm:text-xl py-4 sm:py-5 px-6 rounded-xl shadow-[0_0_45px_-8px_rgba(255,153,0,0.7)] transition-all duration-200 hover:shadow-[0_0_65px_-6px_rgba(255,140,0,0.95)] hover:-translate-y-0.5"
           style={{ animation: "vbounce 2.2s ease-in-out infinite" }}
         >
-          <span className="relative z-10">QUIERO EL SISTEMA AHORA — $497 USD →</span>
+          <span className="relative z-10">QUIERO EL SISTEMA AHORA — $797 USD →</span>
           <span
             className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/35 to-transparent animate-shine"
             aria-hidden="true"

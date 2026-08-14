@@ -52,7 +52,7 @@ export const Route = createFileRoute("/checkout")({
   head: () => ({
     meta: [
       { title: "Checkout — Amazon + IA de 0 a 60 días | Gerardo Villa" },
-      { name: "description", content: "Inscríbete al curso Amazon + IA de 0 a 60 días con Gerardo Villa. Precio de lanzamiento $497 USD." },
+      { name: "description", content: "Inscríbete al curso Amazon + IA de 0 a 60 días con Gerardo Villa. Precio de lanzamiento $797 USD." },
       { name: "robots", content: "noindex" },
     ],
   }),
@@ -96,7 +96,7 @@ function Checkout() {
   useEffect(() => {
     const w = window as unknown as { fbq?: (...args: unknown[]) => void };
     if (typeof w.fbq === "function") {
-      w.fbq("track", "InitiateCheckout", { value: 497, currency: "USD" });
+      w.fbq("track", "InitiateCheckout", { value: 797, currency: "USD" });
     }
     // Etiquetar visita a checkout en Google Sheets (pestaña "Carrito Abandonado")
     let whatsapp = "";
@@ -129,7 +129,7 @@ function Checkout() {
           style={{ background: DARK, borderLeft: `3px solid ${ACCENT}`, borderTopRightRadius: 8, borderBottomRightRadius: 8 }}
         >
           <div className="font-bold text-sm sm:text-base" style={{ color: ACCENT }}>
-            Precio de lanzamiento $497 USD
+            Precio de lanzamiento $797 USD
           </div>
           <div className="text-xs sm:text-sm mt-1" style={{ color: "#bbb" }}>
             Acceso inmediato al curso completo y a la comunidad privada
@@ -147,11 +147,11 @@ function Checkout() {
             <div className="pb-4" style={{ borderBottom: `1px solid ${BORDER}` }}>
               <div className="flex justify-between text-sm py-1" style={{ color: TEXT }}>
                 <span>Amazon + IA de 0 a 60 días</span>
-                <span>$497 USD</span>
+                <span>$797 USD</span>
               </div>
               <div className="flex justify-between text-base font-bold py-2 mt-1" style={{ color: TEXT, borderTop: `1px solid ${BORDER}` }}>
                 <span>Total</span>
-                <span>$497 USD</span>
+                <span>$797 USD</span>
               </div>
               <div className="text-[11px] text-right mt-1" style={{ color: MUTED }}>
                 * Todos los precios están en DÓLARES AMERICANOS (USD)
@@ -288,7 +288,7 @@ function Checkout() {
           >
             <span className="relative z-10 block">
               <span className="block text-sm line-through opacity-75">Valor real total: $4,581 USD</span>
-              <span className="block text-3xl mt-1">TUYO HOY: $497 USD</span>
+              <span className="block text-3xl mt-1">TUYO HOY: $797 USD</span>
               <span className="mt-3 inline-block px-4 py-2 rounded-full bg-white text-sm font-bold" style={{ color: ACCENT }}>
                 PAGAR AHORA →
               </span>

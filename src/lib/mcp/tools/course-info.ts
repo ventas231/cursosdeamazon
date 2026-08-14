@@ -16,7 +16,7 @@ export default defineTool({
           {
             name: "Sistema Amazon + IA",
             headline: "Más de $4.6 millones de dólares en ventas de Amazon",
-            price_usd: 497,
+            price_usd: 797,
             landing_url: "https://cursosdeamazon.lovable.app",
             checkout_url: "https://cursosdeamazon.lovable.app/checkout",
             whatsapp_group: "https://chat.whatsapp.com/C5W6DF1bp4MKkdwVAQcgII",
