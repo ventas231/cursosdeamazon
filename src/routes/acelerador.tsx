@@ -261,7 +261,7 @@ function WhatYouGet() {
   const items = [
     { text: "El sistema que Gerardo usó para pasar de cero a más de 4.6 millones de dólares en ventas de Amazon.", value: "$1,997 USD" },
     { text: "Seis módulos probados en cuentas reales: validación, sourcing, branding, PPC, optimización e IA aplicada.", value: "$997 USD" },
-    { text: "La masterclass que ningún curso de Amazon ha hecho con Claude.", value: "$797 USD" },
+    { text: "La masterclass que ningún curso de Amazon ha hecho con Claude.", value: "$497 USD" },
     { text: "Tres herramientas de Claude que la mayoría de sellers ni sabe que existe.", value: "$297 USD" },
     { text: "Plantillas y prompts que usa el equipo de Gerardo hoy.", value: "$397 USD" },
     { text: "Comunidad privada + sesiones mensuales en vivo con Gerardo, gratis durante cuatro meses.", value: "$197 USD" },
