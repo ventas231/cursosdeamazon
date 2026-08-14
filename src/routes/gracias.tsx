@@ -40,7 +40,7 @@ function fbqTrack(event: string, params?: Record<string, unknown>) {
 
 function Gracias() {
   useEffect(() => {
-    fbqTrack("Purchase", { value: 497, currency: "USD" });
+    fbqTrack("Purchase", { value: 797, currency: "USD" });
   }, []);
 
   const gmailCompose = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
