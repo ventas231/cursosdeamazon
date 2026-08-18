@@ -254,7 +254,7 @@ function Checkout() {
 
           <div className="rounded-lg p-6 text-white" style={{ background: DARK, border: `2px solid ${ACCENT}` }}>
             <div className="inline-block px-3 py-1 text-[11px] font-bold rounded mb-4" style={{ background: ACCENT, color: "#fff" }}>
-              BONUS — PRIMERAS 10 PERSONAS O ANTES DEL 15 DE JUNIO
+              BONUS — PRIMERAS 10 PERSONAS
             </div>
             <div className="space-y-4">
               <div className="flex gap-3">
