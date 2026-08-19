@@ -89,7 +89,8 @@ export function WhatsAppForm({
                 isSide ? "text-left" : "text-center",
               )}
             >
-              Acceso inmediato al video. Sin llamadas, sin spam.
+              El video a cambio de tu correo: déjanos tu correo y te mandamos
+              el sistema completo.
             </p>
           </>
         ) : (
