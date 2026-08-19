@@ -102,7 +102,7 @@ export function WhatsAppForm({
                 isSide ? "text-left" : "text-center",
               )}
             >
-              Escribe tu correo y te paso el video directo
+              Danos tu correo y te mandamos el video del sistema completo
             </label>
             <input
               ref={inputRef}
