@@ -70,7 +70,7 @@ function StickyVideoCTA() {
 
           className="w-full h-14 rounded-xl bg-[#FF9900] text-black font-black tracking-wide text-base md:text-lg uppercase animate-pulse-glow transition-all duration-200 hover:bg-[#E68A00] hover:-translate-y-1 hover:shadow-glow-strong"
         >
-          Sí, quiero el video gratis
+          Sí, quiero el video
         </button>
       </div>
     </div>
@@ -110,8 +110,8 @@ function LandingPage() {
           </p>
 
           <p className="mx-auto mt-6 max-w-3xl text-center text-base sm:text-lg md:text-xl text-muted-foreground">
-            Descubre el sistema exacto que uso en mi negocio de Más de 4.6 millones de dólares en ventas de Amazon y cómo
-            tú puedes replicarlo desde cero.
+            El sistema que ha generado más de 4.6 millones de dólares en ventas
+            de Amazon y cómo puedes replicarlo desde cero, a cambio de tu correo.
           </p>
 
           {/* Foto Gerardo + Formulario */}
