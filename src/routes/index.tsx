@@ -110,8 +110,8 @@ function LandingPage() {
           </p>
 
           <p className="mx-auto mt-6 max-w-3xl text-center text-base sm:text-lg md:text-xl text-muted-foreground">
-            Descubre el sistema exacto que uso en mi negocio de Más de 4.6 millones de dólares en ventas de Amazon y cómo
-            tú puedes replicarlo desde cero.
+            El sistema que ha generado más de 4.6 millones de dólares en ventas
+            de Amazon y cómo puedes replicarlo desde cero, a cambio de tu correo.
           </p>
 
           {/* Foto Gerardo + Formulario */}
