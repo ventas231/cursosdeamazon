@@ -132,7 +132,8 @@ export function WhatsAppForm({
                 isSide ? "text-left" : "text-center",
               )}
             >
-              El video se abre al instante. Sin llamadas, sin spam.
+              El video se abre al instante y también te lo mandamos a tu
+              correo.
             </p>
           </form>
         )}
