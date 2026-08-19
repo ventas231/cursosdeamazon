@@ -70,7 +70,7 @@ function StickyVideoCTA() {
 
           className="w-full h-14 rounded-xl bg-[#FF9900] text-black font-black tracking-wide text-base md:text-lg uppercase animate-pulse-glow transition-all duration-200 hover:bg-[#E68A00] hover:-translate-y-1 hover:shadow-glow-strong"
         >
-          Sí, quiero el video gratis
+          Sí, quiero el video
         </button>
       </div>
     </div>
