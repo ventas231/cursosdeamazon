@@ -11,9 +11,33 @@ const checkoutSchema = z.object({
 });
 
 const SPREADSHEET_ID = "1BwhJE_7gP8-SGdnKdCFcbkWktZLJeZuiY6gb3ToiiZw";
-const RANGE = "'Hoja 1'!A:B";
-const SHEET_NAME = "Hoja 1";
+const GATEWAY = "https://connector-gateway.lovable.dev/google_sheets/v4/spreadsheets";
 const CHECKOUT_MARK = "✓";
+
+// The tab has been renamed before ("Hoja 1" -> "PAGINA "), which breaks fixed ranges.
+// Resolve the real tab title at runtime and cache it.
+let cachedSheetName: string | null = null;
+
+async function resolveSheetName(headers: Record<string, string>) {
+  if (cachedSheetName) return cachedSheetName;
+  const res = await fetch(`${GATEWAY}/${SPREADSHEET_ID}?fields=sheets.properties.title`, { headers });
+  if (!res.ok) {
+    console.error(`[sheets] metadata ${res.status}: ${await res.text()}`);
+    return null;
+  }
+  const payload = (await res.json()) as { sheets?: { properties?: { title?: string } }[] };
+  const titles = (payload.sheets || [])
+    .map((s) => s.properties?.title)
+    .filter((t): t is string => Boolean(t));
+  cachedSheetName =
+    titles.find((t) => t.trim().toUpperCase() === "PAGINA") ??
+    titles.find((t) => t.trim().toUpperCase() === "HOJA 1") ??
+    titles[0] ??
+    null;
+  return cachedSheetName;
+}
+
+const buildRange = (sheet: string, a1: string) => encodeURIComponent(`'${sheet}'!${a1}`);
 
 const normalizePhone = (value: string) =>
   value.includes("@") ? value.trim().toLowerCase() : value.replace(/\D/g, "");
@@ -45,16 +69,21 @@ export const subscribeWhatsapp = createServerFn({ method: "POST" })
       return { ok: false as const, error: "sheets_not_configured" };
     }
 
-    const url = `https://connector-gateway.lovable.dev/google_sheets/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`;
+    const headers = {
+      Authorization: `Bearer ${apiKey}`,
+      "X-Connection-Api-Key": connKey,
+      "Content-Type": "application/json",
+    };
 
     try {
+      const sheetName = await resolveSheetName(headers);
+      if (!sheetName) return { ok: false as const, error: "sheet_not_found" };
+
+      const url = `${GATEWAY}/${SPREADSHEET_ID}/values/${buildRange(sheetName, "A:B")}:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`;
+
       const res = await fetch(url, {
         method: "POST",
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-          "X-Connection-Api-Key": connKey,
-          "Content-Type": "application/json",
-        },
+        headers,
         body: JSON.stringify({
           values: [[data.whatsapp, new Date().toISOString()]],
         }),
@@ -84,7 +113,7 @@ export const logCheckoutVisit = createServerFn({ method: "POST" })
       return { ok: false as const, error: "sheets_not_configured" };
     }
 
-    const baseUrl = `https://connector-gateway.lovable.dev/google_sheets/v4/spreadsheets/${SPREADSHEET_ID}/values`;
+    const baseUrl = `${GATEWAY}/${SPREADSHEET_ID}/values`;
     const headers = {
       Authorization: `Bearer ${apiKey}`,
       "X-Connection-Api-Key": connKey,
@@ -92,6 +121,9 @@ export const logCheckoutVisit = createServerFn({ method: "POST" })
     };
 
     try {
+      const sheetName = await resolveSheetName(headers);
+      if (!sheetName) return { ok: false as const, error: "sheet_not_found" };
+
       const targetPhone = normalizePhone(data.whatsapp || "");
       let rows: string[][] = [];
       let checkoutColumnIndex = -1;
@@ -99,8 +131,7 @@ export const logCheckoutVisit = createServerFn({ method: "POST" })
 
       for (const delay of [0, 500, 1200]) {
         if (delay) await wait(delay);
-        const sheetRange = `'${SHEET_NAME}'!A:Z`;
-        const rowsRes = await fetch(`${baseUrl}/${sheetRange}`, { headers });
+        const rowsRes = await fetch(`${baseUrl}/${buildRange(sheetName, "A:Z")}`, { headers });
         if (!rowsRes.ok) {
           const text = await rowsRes.text();
           console.error(`[sheets] checkout read gateway ${rowsRes.status}: ${text}`);
@@ -113,7 +144,7 @@ export const logCheckoutVisit = createServerFn({ method: "POST" })
         checkoutColumnIndex = headersRow.findIndex((header) => normalizeHeader(header) === "CHECK OUT");
 
         if (checkoutColumnIndex === -1) {
-          console.error('[sheets] CHECK OUT column not found in Hoja 1');
+          console.error("[sheets] CHECK OUT column not found in", sheetName);
           return { ok: false as const, error: "checkout_column_not_found" };
         }
 
@@ -127,17 +158,19 @@ export const logCheckoutVisit = createServerFn({ method: "POST" })
       }
 
       if (targetRowIndex === -1) {
-        console.error("[sheets] checkout phone not found in Hoja 1", data.whatsapp);
+        console.error("[sheets] checkout contact not found", data.whatsapp);
         return { ok: false as const, error: "phone_not_found" };
       }
 
       const checkoutCell = `${columnToLetter(checkoutColumnIndex + 1)}${targetRowIndex + 1}`;
-      const updateRange = `'${SHEET_NAME}'!${checkoutCell}`;
-      const updateRes = await fetch(`${baseUrl}/${updateRange}?valueInputOption=USER_ENTERED`, {
-        method: "PUT",
-        headers,
-        body: JSON.stringify({ values: [[CHECKOUT_MARK]] }),
-      });
+      const updateRes = await fetch(
+        `${baseUrl}/${buildRange(sheetName, checkoutCell)}?valueInputOption=USER_ENTERED`,
+        {
+          method: "PUT",
+          headers,
+          body: JSON.stringify({ values: [[CHECKOUT_MARK]] }),
+        },
+      );
 
       if (!updateRes.ok) {
         const text = await updateRes.text();
