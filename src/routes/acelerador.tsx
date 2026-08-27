@@ -647,6 +647,133 @@ function FloatingScrollCTA() {
   );
 }
 
+function RescueModal() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    let shown = false;
+    let buyClicked = false;
+    try {
+      shown = sessionStorage.getItem("rescue_modal_shown") === "1";
+      buyClicked = sessionStorage.getItem("buy_cta_clicked") === "1";
+    } catch {}
+    if (shown) return;
+
+    const mountedAt = Date.now();
+    let lastActivity = Date.now();
+    let lastY = window.scrollY;
+
+    const markBuy = (e: MouseEvent) => {
+      const el = (e.target as HTMLElement | null)?.closest?.("a[href]") as HTMLAnchorElement | null;
+      if (el && el.getAttribute("href")?.includes("/checkout")) {
+        buyClicked = true;
+        try {
+          sessionStorage.setItem("buy_cta_clicked", "1");
+        } catch {}
+      }
+      lastActivity = Date.now();
+    };
+
+    const trigger = () => {
+      if (buyClicked || shown) return;
+      shown = true;
+      try {
+        sessionStorage.setItem("rescue_modal_shown", "1");
+      } catch {}
+      setOpen(true);
+      cleanup();
+    };
+
+    const onMouseOut = (e: MouseEvent) => {
+      if (!e.relatedTarget && e.clientY <= 0) trigger();
+    };
+
+    const onScroll = () => {
+      lastActivity = Date.now();
+      const y = window.scrollY;
+      const delta = lastY - y;
+      lastY = y;
+      if (Date.now() - mountedAt > 15000 && delta > 120) trigger();
+    };
+
+    const onPopState = () => trigger();
+
+    const idleTimer = window.setInterval(() => {
+      if (Date.now() - lastActivity > 40000) trigger();
+    }, 2000);
+
+    const onActivity = () => {
+      lastActivity = Date.now();
+    };
+
+    try {
+      history.pushState(null, "", window.location.href);
+    } catch {}
+
+    document.addEventListener("click", markBuy, true);
+    document.addEventListener("mouseout", onMouseOut);
+    document.addEventListener("touchstart", onActivity, { passive: true });
+    document.addEventListener("keydown", onActivity);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("popstate", onPopState);
+
+    function cleanup() {
+      window.clearInterval(idleTimer);
+      document.removeEventListener("click", markBuy, true);
+      document.removeEventListener("mouseout", onMouseOut);
+      document.removeEventListener("touchstart", onActivity);
+      document.removeEventListener("keydown", onActivity);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("popstate", onPopState);
+    }
+
+    return cleanup;
+  }, []);
+
+  if (!open) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 px-4"
+      role="dialog"
+      aria-modal="true"
+      onClick={() => setOpen(false)}
+    >
+      <div
+        className="w-full max-w-md rounded-2xl border-2 border-[#FF9900]/50 bg-[#0D0D0D] p-6 text-center shadow-[0_0_60px_-10px_rgba(255,153,0,0.6)]"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <h3 className="text-2xl font-black text-foreground leading-tight">
+          ¿Prefieres resolver tus dudas antes de decidir?
+        </h3>
+        <p className="mt-3 text-muted-foreground text-sm sm:text-base">
+          Agenda 20 minutos directo con el equipo. Sin compromiso — le cuentas dónde estás y te decimos si esto encaja contigo.
+        </p>
+        <a
+          href={CALL_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => {
+            trackLead("rescue_modal_call");
+            setOpen(false);
+          }}
+          className="mt-6 block w-full rounded-xl bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] px-6 py-4 font-black text-black"
+        >
+          Agendar 20 min
+        </a>
+        <button
+          type="button"
+          onClick={() => setOpen(false)}
+          className="mt-3 w-full rounded-xl border border-[#333] px-6 py-3 text-sm font-bold text-muted-foreground hover:text-foreground"
+        >
+          No, sigo viendo
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function Footer() {
   return (
     <footer className="bg-[#060606] px-4 py-10 pb-28 border-t border-[#1a1a1a]">
