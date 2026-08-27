@@ -604,16 +604,7 @@ function FloatingWhatsApp() {
     <div className="fixed right-4 bottom-24 z-50 flex flex-col gap-3 items-end">
 
       <a
-        href={CALL_URL}
-        onClick={() => trackLead("call_calendly")}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Agendar una llamada"
-        className="group flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5a] text-white text-sm font-bold pl-3 pr-4 py-2.5 rounded-full shadow-lg shadow-black/40 hover:-translate-y-1 transition-transform duration-200"
-      >
-        <span className="text-lg group-hover:animate-bounce">📞</span>
-        <span className="hidden sm:inline">Quiero una llamada</span>
-      </a>
+
       <a
         href={WHATSAPP_URL}
         onClick={() => trackLead("whatsapp_dudas")}
