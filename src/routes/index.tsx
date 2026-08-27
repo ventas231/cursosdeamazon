@@ -50,14 +50,16 @@ const sellerBullets = [
 const DEADLINE = Date.UTC(2026, 8, 15, 5, 59, 0);
 
 function CountdownBar() {
-  const [left, setLeft] = useState(() => DEADLINE - Date.now());
+  const [left, setLeft] = useState<number | null>(null);
 
   useEffect(() => {
+    setLeft(DEADLINE - Date.now());
     const id = setInterval(() => setLeft(DEADLINE - Date.now()), 1000);
     return () => clearInterval(id);
   }, []);
 
-  const total = Math.max(0, left);
+  const total = Math.max(0, left ?? 0);
+
   const days = Math.floor(total / 86400000);
   const hours = Math.floor((total % 86400000) / 3600000);
   const minutes = Math.floor((total % 3600000) / 60000);
