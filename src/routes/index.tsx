@@ -193,8 +193,18 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* SECCIÓN 5 — Para sellers actuales */}
+      {/* SECCIÓN 5 — Segundo CTA */}
       <section className="bg-surface px-4 py-16 md:py-20">
+        <div id="cta2" className="mx-auto max-w-5xl">
+          <WhatsAppForm
+            heading="Ve el video de 27 minutos gratis"
+            idPrefix="cta2"
+          />
+        </div>
+      </section>
+
+      {/* SECCIÓN 6 — Para sellers actuales */}
+      <section className="bg-surface px-4 pb-16 md:pb-20">
         <div className="mx-auto max-w-5xl">
           <span className="inline-flex items-center rounded-full border border-brand bg-background px-3 py-1 text-xs font-bold uppercase tracking-wider text-brand">
             ¿Ya vendes en Amazon?
@@ -234,6 +244,9 @@ function LandingPage() {
                 <p className="text-base md:text-lg font-bold text-foreground">
                   ¿Quieres que mi equipo lo haga por ti?
                 </p>
+                <span className="mt-3 inline-flex items-center gap-2 rounded-lg bg-brand px-4 py-2 text-sm font-bold text-primary-foreground">
+                  Agenda una llamada con el equipo
+                </span>
               </div>
               <ChevronRight className="h-7 w-7 shrink-0 text-brand transition-transform group-hover:translate-x-1" />
             </a>
@@ -241,15 +254,6 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* SECCIÓN 6 — Segundo CTA */}
-      <section className="bg-surface px-4 pb-16 md:pb-20">
-        <div id="cta2" className="mx-auto max-w-5xl">
-          <WhatsAppForm
-            heading="Ve el video de 27 minutos gratis"
-            idPrefix="cta2"
-          />
-        </div>
-      </section>
 
       {/* SECCIÓN 7 — Garantía */}
       <section className="bg-background px-4 py-16 md:py-20">
