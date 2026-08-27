@@ -47,15 +47,13 @@ function trackLead(source: string) {
 function UrgencyBar() {
   return (
     <div className="bg-primary text-primary-foreground text-center px-4 py-3">
-      <p className="font-bold text-sm sm:text-base">
-        ⏰ Precio actual: $797 USD
-      </p>
-      <p className="text-xs sm:text-sm opacity-90 mt-1">
-        Acceso inmediato al curso completo y a la comunidad privada
+      <p className="font-bold text-sm sm:text-base max-w-3xl mx-auto leading-snug">
+        ⏰ Solo quedan 10 lugares con revisión 1:1 de tu listing directo con Gerardo. Después, esa sesión se cotiza aparte ($5,000 MXN).
       </p>
     </div>
   );
 }
+
 
 function Header() {
   return (
@@ -265,7 +263,9 @@ function WhatYouGet() {
     { text: "Tres herramientas de Claude que la mayoría de sellers ni sabe que existe.", value: "$297 USD" },
     { text: "Plantillas y prompts que usa el equipo de Gerardo hoy.", value: "$397 USD" },
     { text: "Comunidad privada + sesiones mensuales en vivo con Gerardo, gratis durante cuatro meses.", value: "$197 USD" },
+    { text: "Entrando ahora, Gerardo revisa tu primer listing 1:1 — es su tiempo personal, y es limitado. Cuando se llenen los lugares, se cierra. (Distinto de la garantía de primera venta, que va siempre incluida.)", value: "$5,000 MXN" },
     { text: "Para sellers activos: Claude entra a tus números, analiza tus Search Terms, TACOS y ACOS, y te entrega un plan de acción concreto. Sin adivinar, sin perder tiempo.", value: "$199 USD" },
+
   ];
   return (
     <section id="ofertas" className="relative overflow-hidden px-4 py-16">
@@ -604,19 +604,8 @@ function StickyBuyCTA() {
 function FloatingWhatsApp() {
   return (
     <div className="fixed right-4 bottom-24 z-50 flex flex-col gap-3 items-end">
+      <a
 
-      <a
-        href={CALL_URL}
-        onClick={() => trackLead("call_calendly")}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Agendar una llamada"
-        className="group flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5a] text-white text-sm font-bold pl-3 pr-4 py-2.5 rounded-full shadow-lg shadow-black/40 hover:-translate-y-1 transition-transform duration-200"
-      >
-        <span className="text-lg group-hover:animate-bounce">📞</span>
-        <span className="hidden sm:inline">Quiero una llamada</span>
-      </a>
-      <a
         href={WHATSAPP_URL}
         onClick={() => trackLead("whatsapp_dudas")}
         target="_blank"
@@ -658,6 +647,133 @@ function FloatingScrollCTA() {
   );
 }
 
+function RescueModal() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    let shown = false;
+    let buyClicked = false;
+    try {
+      shown = sessionStorage.getItem("rescue_modal_shown") === "1";
+      buyClicked = sessionStorage.getItem("buy_cta_clicked") === "1";
+    } catch {}
+    if (shown) return;
+
+    const mountedAt = Date.now();
+    let lastActivity = Date.now();
+    let lastY = window.scrollY;
+
+    const markBuy = (e: MouseEvent) => {
+      const el = (e.target as HTMLElement | null)?.closest?.("a[href]") as HTMLAnchorElement | null;
+      if (el && el.getAttribute("href")?.includes("/checkout")) {
+        buyClicked = true;
+        try {
+          sessionStorage.setItem("buy_cta_clicked", "1");
+        } catch {}
+      }
+      lastActivity = Date.now();
+    };
+
+    const trigger = () => {
+      if (buyClicked || shown) return;
+      shown = true;
+      try {
+        sessionStorage.setItem("rescue_modal_shown", "1");
+      } catch {}
+      setOpen(true);
+      cleanup();
+    };
+
+    const onMouseOut = (e: MouseEvent) => {
+      if (!e.relatedTarget && e.clientY <= 0) trigger();
+    };
+
+    const onScroll = () => {
+      lastActivity = Date.now();
+      const y = window.scrollY;
+      const delta = lastY - y;
+      lastY = y;
+      if (Date.now() - mountedAt > 15000 && delta > 120) trigger();
+    };
+
+    const onPopState = () => trigger();
+
+    const idleTimer = window.setInterval(() => {
+      if (Date.now() - lastActivity > 40000) trigger();
+    }, 2000);
+
+    const onActivity = () => {
+      lastActivity = Date.now();
+    };
+
+    try {
+      history.pushState(null, "", window.location.href);
+    } catch {}
+
+    document.addEventListener("click", markBuy, true);
+    document.addEventListener("mouseout", onMouseOut);
+    document.addEventListener("touchstart", onActivity, { passive: true });
+    document.addEventListener("keydown", onActivity);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("popstate", onPopState);
+
+    function cleanup() {
+      window.clearInterval(idleTimer);
+      document.removeEventListener("click", markBuy, true);
+      document.removeEventListener("mouseout", onMouseOut);
+      document.removeEventListener("touchstart", onActivity);
+      document.removeEventListener("keydown", onActivity);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("popstate", onPopState);
+    }
+
+    return cleanup;
+  }, []);
+
+  if (!open) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 px-4"
+      role="dialog"
+      aria-modal="true"
+      onClick={() => setOpen(false)}
+    >
+      <div
+        className="w-full max-w-md rounded-2xl border-2 border-[#FF9900]/50 bg-[#0D0D0D] p-6 text-center shadow-[0_0_60px_-10px_rgba(255,153,0,0.6)]"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <h3 className="text-2xl font-black text-foreground leading-tight">
+          ¿Prefieres resolver tus dudas antes de decidir?
+        </h3>
+        <p className="mt-3 text-muted-foreground text-sm sm:text-base">
+          Agenda 20 minutos directo con el equipo. Sin compromiso — le cuentas dónde estás y te decimos si esto encaja contigo.
+        </p>
+        <a
+          href={CALL_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => {
+            trackLead("rescue_modal_call");
+            setOpen(false);
+          }}
+          className="mt-6 block w-full rounded-xl bg-gradient-to-r from-[#FFCC00] via-[#FF9900] to-[#FF6B00] px-6 py-4 font-black text-black"
+        >
+          Agendar 20 min
+        </a>
+        <button
+          type="button"
+          onClick={() => setOpen(false)}
+          className="mt-3 w-full rounded-xl border border-[#333] px-6 py-3 text-sm font-bold text-muted-foreground hover:text-foreground"
+        >
+          No, sigo viendo
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function Footer() {
   return (
     <footer className="bg-[#060606] px-4 py-10 pb-28 border-t border-[#1a1a1a]">
@@ -692,6 +808,7 @@ function VSLPage() {
       <StickyBuyCTA />
 
       <FloatingWhatsApp />
+      <RescueModal />
       <FloatingScrollCTA />
       <style>{`@keyframes vbounce {0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}} @keyframes shine {0%{transform:translateX(-100%)}100%{transform:translateX(100%)}} .animate-shine { animation: shine 2.2s ease-in-out infinite } @keyframes pulse-ring {0%,100%{box-shadow:0 0 35px -4px rgba(255,0,0,0.75); transform:scale(1)}50%{box-shadow:0 0 55px -2px rgba(255,0,0,1); transform:scale(1.03)}}`}</style>
     </div>

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { Shield, Lock, Rocket, Bot, Zap, FileText, Users, BarChart3, ShieldCheck, Target, Search, Star, MessageCircle, Calendar, HelpCircle } from "lucide-react";
 import gerardoPhoto from "@/assets/gerardo.png.asset.json";
@@ -93,6 +93,23 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 
 function Checkout() {
   const logVisit = useServerFn(logCheckoutVisit);
+  const [email, setEmail] = useState("");
+  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim());
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("buyer_email") || localStorage.getItem("lead_whatsapp") || "";
+      if (saved.includes("@")) setEmail(saved);
+    } catch {}
+  }, []);
+
+  useEffect(() => {
+    if (!emailValid) return;
+    try {
+      localStorage.setItem("buyer_email", email.trim().toLowerCase());
+    } catch {}
+  }, [email, emailValid]);
+
   useEffect(() => {
     const w = window as unknown as { fbq?: (...args: unknown[]) => void };
     if (typeof w.fbq === "function") {
@@ -158,6 +175,26 @@ function Checkout() {
               </div>
             </div>
 
+            <div className="mt-5">
+              <label htmlFor="buyer-email" className="block text-sm font-semibold mb-1" style={{ color: TEXT }}>
+                Tu correo electrónico *
+              </label>
+              <input
+                id="buyer-email"
+                type="email"
+                required
+                maxLength={255}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="tucorreo@ejemplo.com"
+                className="w-full rounded-lg px-4 py-3 text-sm outline-none"
+                style={{ border: `1px solid ${emailValid || email === "" ? BORDER : "#e02424"}`, background: "#fff", color: TEXT }}
+              />
+              <p className="text-xs mt-1" style={{ color: MUTED }}>
+                Usa el mismo correo con el que quieres tu acceso al curso.
+              </p>
+            </div>
+
             <label className="flex items-start gap-2 mt-5 text-sm" style={{ color: TEXT }}>
               <input type="checkbox" required className="mt-0.5" defaultChecked />
               <span>
@@ -171,9 +208,17 @@ function Checkout() {
               Asegúrate de llenar tus datos arriba antes de pagar. Al aprobar el pago en PayPal serás redirigido automáticamente a tu acceso al curso.
             </p>
 
-            <div className="mt-2 p-1 rounded-lg">
-              <PayPalHostedButton />
+            <div className="mt-2 p-1 rounded-lg relative">
+              <div style={{ opacity: emailValid ? 1 : 0.45, pointerEvents: emailValid ? "auto" : "none" }}>
+                <PayPalHostedButton />
+              </div>
+              {!emailValid && (
+                <p className="text-xs mt-2 text-center font-semibold" style={{ color: ACCENT }}>
+                  Escribe tu correo para activar el pago.
+                </p>
+              )}
             </div>
+
 
             <div className="flex items-center justify-center gap-2 mt-4 text-xs" style={{ color: MUTED }}>
               <Lock className="h-3.5 w-3.5" />
