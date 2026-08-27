@@ -158,6 +158,26 @@ function Checkout() {
               </div>
             </div>
 
+            <div className="mt-5">
+              <label htmlFor="buyer-email" className="block text-sm font-semibold mb-1" style={{ color: TEXT }}>
+                Tu correo electrónico *
+              </label>
+              <input
+                id="buyer-email"
+                type="email"
+                required
+                maxLength={255}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="tucorreo@ejemplo.com"
+                className="w-full rounded-lg px-4 py-3 text-sm outline-none"
+                style={{ border: `1px solid ${emailValid || email === "" ? BORDER : "#e02424"}`, background: "#fff", color: TEXT }}
+              />
+              <p className="text-xs mt-1" style={{ color: MUTED }}>
+                Usa el mismo correo con el que quieres tu acceso al curso.
+              </p>
+            </div>
+
             <label className="flex items-start gap-2 mt-5 text-sm" style={{ color: TEXT }}>
               <input type="checkbox" required className="mt-0.5" defaultChecked />
               <span>
@@ -171,9 +191,17 @@ function Checkout() {
               Asegúrate de llenar tus datos arriba antes de pagar. Al aprobar el pago en PayPal serás redirigido automáticamente a tu acceso al curso.
             </p>
 
-            <div className="mt-2 p-1 rounded-lg">
-              <PayPalHostedButton />
+            <div className="mt-2 p-1 rounded-lg relative">
+              <div style={{ opacity: emailValid ? 1 : 0.45, pointerEvents: emailValid ? "auto" : "none" }}>
+                <PayPalHostedButton />
+              </div>
+              {!emailValid && (
+                <p className="text-xs mt-2 text-center font-semibold" style={{ color: ACCENT }}>
+                  Escribe tu correo para activar el pago.
+                </p>
+              )}
             </div>
+
 
             <div className="flex items-center justify-center gap-2 mt-4 text-xs" style={{ color: MUTED }}>
               <Lock className="h-3.5 w-3.5" />
