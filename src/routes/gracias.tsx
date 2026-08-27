@@ -55,7 +55,7 @@ function Gracias() {
           localStorage.removeItem("buyer_email");
         } catch {}
       })
-      .catch((err) => console.error("[sheets] purchase log failed", err));
+      .catch((err: unknown) => console.error("[sheets] purchase log failed", err));
   }, [logPurchase]);
 
 
