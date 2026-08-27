@@ -93,6 +93,23 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 
 function Checkout() {
   const logVisit = useServerFn(logCheckoutVisit);
+  const [email, setEmail] = useState("");
+  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim());
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("buyer_email") || localStorage.getItem("lead_whatsapp") || "";
+      if (saved.includes("@")) setEmail(saved);
+    } catch {}
+  }, []);
+
+  useEffect(() => {
+    if (!emailValid) return;
+    try {
+      localStorage.setItem("buyer_email", email.trim().toLowerCase());
+    } catch {}
+  }, [email, emailValid]);
+
   useEffect(() => {
     const w = window as unknown as { fbq?: (...args: unknown[]) => void };
     if (typeof w.fbq === "function") {
