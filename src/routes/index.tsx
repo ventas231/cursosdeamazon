@@ -85,12 +85,9 @@ function LandingPage() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      {/* SECCIÓN 1 — Urgency Bar */}
-      <div className="w-full bg-brand text-primary-foreground">
-        <div className="mx-auto max-w-6xl px-4 py-2.5 text-center md:py-2">
-          <p className="text-sm font-bold leading-tight">🔥 ACCESO LIMITADO</p>
-        </div>
-      </div>
+      {/* SECCIÓN 1 — Temporizador */}
+      <CountdownBar />
+
 
       {/* SECCIÓN 2 — HERO */}
       <section className="bg-background px-4 py-[60px] md:py-20">
