@@ -39,9 +39,23 @@ function fbqTrack(event: string, params?: Record<string, unknown>) {
 }
 
 function Gracias() {
+  const logPurchase = useServerFn(logPurchaseEmail);
   useEffect(() => {
     fbqTrack("Purchase", { value: 797, currency: "USD" });
-  }, []);
+    let email = "";
+    try {
+      email = localStorage.getItem("buyer_email") || "";
+    } catch {}
+    if (!email.includes("@")) return;
+    logPurchase({ data: { email, amount: "797 USD" } })
+      .then(() => {
+        try {
+          localStorage.removeItem("buyer_email");
+        } catch {}
+      })
+      .catch((err) => console.error("[sheets] purchase log failed", err));
+  }, [logPurchase]);
+
 
   const gmailCompose = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
     SUPPORT_EMAIL,
