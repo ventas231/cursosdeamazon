@@ -11,16 +11,17 @@ const checkoutSchema = z.object({
 });
 
 const SPREADSHEET_ID = "1BwhJE_7gP8-SGdnKdCFcbkWktZLJeZuiY6gb3ToiiZw";
+const PURCHASES_SPREADSHEET_ID = "15ANLgzt_hOLhb3g8scOTg5DssgdO_NI_hwwoxnx7ezQ";
 const GATEWAY = "https://connector-gateway.lovable.dev/google_sheets/v4/spreadsheets";
 const CHECKOUT_MARK = "✓";
 
 // The tab has been renamed before ("Hoja 1" -> "PAGINA "), which breaks fixed ranges.
 // Resolve the real tab title at runtime and cache it.
-let cachedSheetName: string | null = null;
+const sheetNameCache: Record<string, string> = {};
 
-async function resolveSheetName(headers: Record<string, string>) {
-  if (cachedSheetName) return cachedSheetName;
-  const res = await fetch(`${GATEWAY}/${SPREADSHEET_ID}?fields=sheets.properties.title`, { headers });
+async function resolveSheetName(headers: Record<string, string>, spreadsheetId = SPREADSHEET_ID) {
+  if (sheetNameCache[spreadsheetId]) return sheetNameCache[spreadsheetId];
+  const res = await fetch(`${GATEWAY}/${spreadsheetId}?fields=sheets.properties.title`, { headers });
   if (!res.ok) {
     console.error(`[sheets] metadata ${res.status}: ${await res.text()}`);
     return null;
@@ -29,13 +30,15 @@ async function resolveSheetName(headers: Record<string, string>) {
   const titles = (payload.sheets || [])
     .map((s) => s.properties?.title)
     .filter((t): t is string => Boolean(t));
-  cachedSheetName =
+  const resolved =
     titles.find((t) => t.trim().toUpperCase() === "PAGINA") ??
     titles.find((t) => t.trim().toUpperCase() === "HOJA 1") ??
     titles[0] ??
     null;
-  return cachedSheetName;
+  if (resolved) sheetNameCache[spreadsheetId] = resolved;
+  return resolved;
 }
+
 
 const buildRange = (sheet: string, a1: string) => encodeURIComponent(`'${sheet}'!${a1}`);
 
