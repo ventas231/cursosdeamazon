@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { Shield, Lock, Rocket, Bot, Zap, FileText, Users, BarChart3, ShieldCheck, Target, Search, Star, MessageCircle, Calendar, HelpCircle } from "lucide-react";
 import gerardoPhoto from "@/assets/gerardo.png.asset.json";
