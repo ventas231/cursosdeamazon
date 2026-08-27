@@ -263,7 +263,9 @@ function WhatYouGet() {
     { text: "Tres herramientas de Claude que la mayoría de sellers ni sabe que existe.", value: "$297 USD" },
     { text: "Plantillas y prompts que usa el equipo de Gerardo hoy.", value: "$397 USD" },
     { text: "Comunidad privada + sesiones mensuales en vivo con Gerardo, gratis durante cuatro meses.", value: "$197 USD" },
+    { text: "Entrando ahora, Gerardo revisa tu primer listing 1:1 — es su tiempo personal, y es limitado. Cuando se llenen los lugares, se cierra. (Distinto de la garantía de primera venta, que va siempre incluida.)", value: "$5,000 MXN" },
     { text: "Para sellers activos: Claude entra a tus números, analiza tus Search Terms, TACOS y ACOS, y te entrega un plan de acción concreto. Sin adivinar, sin perder tiempo.", value: "$199 USD" },
+
   ];
   return (
     <section id="ofertas" className="relative overflow-hidden px-4 py-16">
