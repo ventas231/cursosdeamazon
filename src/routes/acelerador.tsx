@@ -47,15 +47,13 @@ function trackLead(source: string) {
 function UrgencyBar() {
   return (
     <div className="bg-primary text-primary-foreground text-center px-4 py-3">
-      <p className="font-bold text-sm sm:text-base">
-        ⏰ Precio actual: $797 USD
-      </p>
-      <p className="text-xs sm:text-sm opacity-90 mt-1">
-        Acceso inmediato al curso completo y a la comunidad privada
+      <p className="font-bold text-sm sm:text-base max-w-3xl mx-auto leading-snug">
+        ⏰ Solo quedan 10 lugares con revisión 1:1 de tu listing directo con Gerardo. Después, esa sesión se cotiza aparte ($5,000 MXN).
       </p>
     </div>
   );
 }
+
 
 function Header() {
   return (
