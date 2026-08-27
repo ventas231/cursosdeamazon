@@ -187,3 +187,51 @@ export const logCheckoutVisit = createServerFn({ method: "POST" })
       return { ok: false as const, error: "request_failed" };
     }
   });
+
+const purchaseSchema = z.object({
+  email: z.string().trim().email().max(255),
+  amount: z.string().max(50).optional().default("797 USD"),
+});
+
+export const logPurchaseEmail = createServerFn({ method: "POST" })
+  .inputValidator((input: unknown) => purchaseSchema.parse(input))
+  .handler(async ({ data }) => {
+    const apiKey = process.env.LOVABLE_API_KEY;
+    const connKey = process.env.GOOGLE_SHEETS_API_KEY;
+
+    if (!apiKey || !connKey) {
+      console.error("[sheets] missing LOVABLE_API_KEY or GOOGLE_SHEETS_API_KEY");
+      return { ok: false as const, error: "sheets_not_configured" };
+    }
+
+    const headers = {
+      Authorization: `Bearer ${apiKey}`,
+      "X-Connection-Api-Key": connKey,
+      "Content-Type": "application/json",
+    };
+
+    try {
+      const sheetName = await resolveSheetName(headers, PURCHASES_SPREADSHEET_ID);
+      if (!sheetName) return { ok: false as const, error: "sheet_not_found" };
+
+      const url = `${GATEWAY}/${PURCHASES_SPREADSHEET_ID}/values/${buildRange(sheetName, "A:C")}:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`;
+      const res = await fetch(url, {
+        method: "POST",
+        headers,
+        body: JSON.stringify({
+          values: [[data.email, new Date().toISOString(), data.amount]],
+        }),
+      });
+
+      if (!res.ok) {
+        const text = await res.text();
+        console.error(`[sheets] purchase gateway ${res.status}: ${text}`);
+        return { ok: false as const, error: `gateway_${res.status}` };
+      }
+
+      return { ok: true as const };
+    } catch (err) {
+      console.error("[sheets] purchase request failed", err);
+      return { ok: false as const, error: "request_failed" };
+    }
+  });
