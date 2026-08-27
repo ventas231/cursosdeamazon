@@ -602,10 +602,8 @@ function StickyBuyCTA() {
 function FloatingWhatsApp() {
   return (
     <div className="fixed right-4 bottom-24 z-50 flex flex-col gap-3 items-end">
-
       <a
 
-      <a
         href={WHATSAPP_URL}
         onClick={() => trackLead("whatsapp_dudas")}
         target="_blank"
