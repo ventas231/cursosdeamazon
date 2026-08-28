@@ -794,7 +794,6 @@ function VSLPage() {
       window.fbq("track", "Lead");
     }
     ttqPage();
-    trackEngineEvent("Order Created", "6a91ab9f9530819eb601dec9603662ae");
   }, []);
   return (
     <div className="min-h-screen bg-background text-foreground">
