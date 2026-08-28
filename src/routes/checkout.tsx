@@ -5,6 +5,7 @@ import { Shield, Lock, Rocket, Bot, Zap, FileText, Users, BarChart3, ShieldCheck
 import gerardoPhoto from "@/assets/gerardo.png.asset.json";
 import { logCheckoutVisit } from "@/lib/excel.functions";
 import { HistoriaExito } from "@/components/HistoriaExito";
+import { ttqPage, trackEngineEvent } from "@/lib/track";
 
 const PAYPAL_CLIENT_ID = "BAABM538hqsoEceTLLNvFgRBaM-DKUi1kBnxTRf48O56Lp1RXNzoIIx73xbFIsncWy_RvagzK7hj_ZSlBE";
 const PAYPAL_BUTTON_ID = "LXRFP6FNE76WC";
