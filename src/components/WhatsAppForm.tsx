@@ -12,8 +12,6 @@ interface WhatsAppFormProps {
   variant?: "default" | "side";
 }
 
-const SUBSCRIPTION_CREATED_EVENT_ID = "6a91ab9f9530819eb601dec9603662ae";
-
 export function WhatsAppForm({
   heading,
   subheading,
@@ -51,7 +49,7 @@ export function WhatsAppForm({
     }
 
     // El usuario ya entregó su correo y obtuvo acceso al video.
-    trackEngineEvent("subscription_created", SUBSCRIPTION_CREATED_EVENT_ID);
+    trackEngineEvent("subscription_created", "plan_enrollment");
 
     setLoading(false);
     navigate({ to: "/acelerador" });
