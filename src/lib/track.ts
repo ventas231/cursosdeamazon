@@ -22,23 +22,24 @@ export function ttqPage() {
   }
 }
 
+type OpenAIEventType = "contents" | "plan_enrollment";
+
 /**
- * Envía un evento al OpenAI Ads Pixel.
- * El segundo argumento es el ID del evento configurado en Ads Manager.
+ * Envía un evento estándar al OpenAI Ads Pixel usando la sintaxis
+ * proporcionada por Ads Manager.
  */
-export function trackEngineEvent(event: string, eventId: string) {
+export function trackEngineEvent(event: string, type: OpenAIEventType) {
   if (typeof window === "undefined" || typeof window.oaiq !== "function") {
-    console.warn("[OpenAI Pixel] oaiq no está disponible; evento no enviado", { event, eventId });
+    console.warn("[OpenAI Pixel] oaiq no está disponible; evento no enviado", { event, type });
     return false;
   }
 
   try {
-    // Sintaxis oficial del SDK: oaiq("event", nombre_evento, { event_id }).
-    window.oaiq("event", event, { event_id: eventId });
-    console.info("[OpenAI Pixel] evento enviado", { event, eventId });
+    window.oaiq("measure", event, { type });
+    console.info("[OpenAI Pixel] evento enviado", { event, type });
     return true;
   } catch (error) {
-    console.error("[OpenAI Pixel] error enviando evento", { event, eventId, error });
+    console.error("[OpenAI Pixel] error enviando evento", { event, type, error });
     return false;
   }
 }
