@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { subscribeWhatsapp } from "@/lib/excel.functions";
+import { trackEngineEvent } from "@/lib/track";
 
 interface WhatsAppFormProps {
   heading?: string;
@@ -10,6 +11,8 @@ interface WhatsAppFormProps {
   idPrefix: string;
   variant?: "default" | "side";
 }
+
+const SUBSCRIPTION_CREATED_EVENT_ID = "6a91ab9f9530819eb601dec9603662ae";
 
 export function WhatsAppForm({
   heading,
@@ -44,8 +47,12 @@ export function WhatsAppForm({
       localStorage.setItem("lead_whatsapp", value);
       await subscribeWhatsapp({ data: { whatsapp: value } });
     } catch {
-      // seguimos aunque falle el registro
+      // Conservamos el flujo actual aunque falle el registro externo.
     }
+
+    // El usuario ya entregó su correo y obtuvo acceso al video.
+    trackEngineEvent("subscription_created", SUBSCRIPTION_CREATED_EVENT_ID);
+
     setLoading(false);
     navigate({ to: "/acelerador" });
   };
