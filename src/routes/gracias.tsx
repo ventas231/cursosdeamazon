@@ -46,7 +46,7 @@ function Gracias() {
   useEffect(() => {
     fbqTrack("Purchase", { value: 797, currency: "USD" });
     ttqPage();
-    trackEngineEvent("Order Created", "6a91ab9f9530819eb601dec9603662ae");
+    trackEngineEvent("order_created", "contents");
     let email = "";
     try {
       email = localStorage.getItem("buyer_email") || "";
