@@ -25,8 +25,8 @@ export function ttqPage() {
   }
 }
 
-/** Evento de conversión del custom engine oaiq. Se envía vía oaiq("track", ...). */
+/** Evento de conversión del custom engine oaiq. Sintaxis oficial del SDK: oaiq("event", ...). */
 export function trackEngineEvent(event: string, eventId: string) {
   if (typeof window === "undefined" || typeof window.oaiq !== "function") return;
-  window.oaiq("track", event, { event_id: eventId });
+  window.oaiq("event", event, { event_id: eventId });
 }
