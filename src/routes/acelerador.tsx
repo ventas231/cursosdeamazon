@@ -794,6 +794,7 @@ function VSLPage() {
       window.fbq("track", "Lead");
     }
     ttqPage();
+    trackEngineEvent("Subscription Created", "6a91ab0d7bac819ea83cfa1ae113fa58");
   }, []);
   return (
     <div className="min-h-screen bg-background text-foreground">
