@@ -1,5 +1,5 @@
-// Helpers de tracking: TikTok Pixel (global) + píxel custom engine.
-// El TikTok Pixel base se carga en src/routes/__root.tsx (head) y está en todas las rutas.
+// Helpers de tracking: TikTok Pixel (global) + píxel oaiq custom engine.
+// Los scripts base se cargan en src/routes/__root.tsx (head) y están en todas las rutas.
 
 declare global {
   interface Window {
@@ -7,9 +7,12 @@ declare global {
       page?: () => void;
       track?: (event: string, params?: Record<string, unknown>) => void;
     };
-    // Cola de eventos del píxel custom engine (ID U25XSseFahYjorZUNtSHXN).
-    // Los eventos quedan encolados para que el script base del engine los consuma.
-    __ceq?: Array<{ pixel: string; event: string; event_id: string; ts: number }>;
+    // Stub del píxel oaiq (ID U25XSseFahYjorZUNtSHXN): encola llamadas
+    // hasta que el script base (bzrcdn.openai.com/sdk/oaiq.min.js) las consuma.
+    oaiq?: {
+      (...args: unknown[]): void;
+      q?: unknown[];
+    };
   }
 }
 
@@ -22,9 +25,8 @@ export function ttqPage() {
   }
 }
 
-/** Evento de conversión del custom engine. Se encola en window.__ceq. */
+/** Evento de conversión del custom engine oaiq. Se envía vía oaiq("track", ...). */
 export function trackEngineEvent(event: string, eventId: string) {
-  if (typeof window === "undefined") return;
-  window.__ceq = window.__ceq || [];
-  window.__ceq.push({ pixel: CUSTOM_ENGINE_PIXEL_ID, event, event_id: eventId, ts: Date.now() });
+  if (typeof window === "undefined" || typeof window.oaiq !== "function") return;
+  window.oaiq("track", event, { event_id: eventId });
 }
