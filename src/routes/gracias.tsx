@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { logPurchaseEmail } from "@/lib/excel.functions";
+import { ttqPage, trackEngineEvent } from "@/lib/track";
 import {
   CheckCircle2,
   Mail,

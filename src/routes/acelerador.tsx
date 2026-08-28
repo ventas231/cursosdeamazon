@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import gerardoPhoto from "@/assets/gerardo.png.asset.json";
 import { HistoriaExito } from "@/components/HistoriaExito";
+import { ttqPage, trackEngineEvent } from "@/lib/track";
 
 
 export const Route = createFileRoute("/acelerador")({
