@@ -5,6 +5,7 @@ import { Shield, Lock, Rocket, Bot, Zap, FileText, Users, BarChart3, ShieldCheck
 import gerardoPhoto from "@/assets/gerardo.png.asset.json";
 import { logCheckoutVisit } from "@/lib/excel.functions";
 import { HistoriaExito } from "@/components/HistoriaExito";
+import { ttqPage, trackEngineEvent } from "@/lib/track";
 
 const PAYPAL_CLIENT_ID = "BAABM538hqsoEceTLLNvFgRBaM-DKUi1kBnxTRf48O56Lp1RXNzoIIx73xbFIsncWy_RvagzK7hj_ZSlBE";
 const PAYPAL_BUTTON_ID = "LXRFP6FNE76WC";
@@ -115,6 +116,8 @@ function Checkout() {
     if (typeof w.fbq === "function") {
       w.fbq("track", "InitiateCheckout", { value: 797, currency: "USD" });
     }
+    ttqPage();
+    trackEngineEvent("Checkout Started", "6a91ab4dab2c819e8343cf8158a0612c");
     // Etiquetar visita a checkout en Google Sheets (pestaña "Carrito Abandonado")
     let whatsapp = "";
     try {

@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { logPurchaseEmail } from "@/lib/excel.functions";
+import { ttqPage, trackEngineEvent } from "@/lib/track";
 import {
   CheckCircle2,
   Mail,
@@ -44,6 +45,8 @@ function Gracias() {
   const logPurchase = useServerFn(logPurchaseEmail);
   useEffect(() => {
     fbqTrack("Purchase", { value: 797, currency: "USD" });
+    ttqPage();
+    trackEngineEvent("Subscription Created", "6a91ab0d7bac819ea83cfa1ae113fa58");
     let email = "";
     try {
       email = localStorage.getItem("buyer_email") || "";

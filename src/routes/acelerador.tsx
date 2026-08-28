@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import gerardoPhoto from "@/assets/gerardo.png.asset.json";
 import { HistoriaExito } from "@/components/HistoriaExito";
+import { ttqPage, trackEngineEvent } from "@/lib/track";
 
 
 export const Route = createFileRoute("/acelerador")({
@@ -792,6 +793,8 @@ function VSLPage() {
     if (typeof window !== "undefined" && typeof window.fbq === "function") {
       window.fbq("track", "Lead");
     }
+    ttqPage();
+    trackEngineEvent("Order Created", "6a91ab9f9530819eb601dec9603662ae");
   }, []);
   return (
     <div className="min-h-screen bg-background text-foreground">

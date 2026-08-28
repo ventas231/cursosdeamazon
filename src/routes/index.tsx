@@ -4,6 +4,7 @@ import { Check, ChevronRight, ShieldCheck } from "lucide-react";
 import { WhatsAppForm } from "@/components/WhatsAppForm";
 import { HistoriaExito } from "@/components/HistoriaExito";
 import { fbqTrack } from "@/lib/fbq";
+import { ttqPage } from "@/lib/track";
 import gerardoPhoto from "@/assets/gerardo.png.asset.json";
 import logoAmazon from "@/assets/logo-amazon-new.png";
 import logoHelium10 from "@/assets/logo-helium10-clean.png";
@@ -124,6 +125,7 @@ function StickyVideoCTA() {
 function LandingPage() {
   useEffect(() => {
     fbqTrack("PageView");
+    ttqPage();
   }, []);
 
 
