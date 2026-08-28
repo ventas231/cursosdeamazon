@@ -1,5 +1,5 @@
-// Helpers de tracking: TikTok Pixel (global) + píxel oaiq custom engine.
-// Los scripts base se cargan en src/routes/__root.tsx (head) y están en todas las rutas.
+// Helpers de tracking: TikTok Pixel + OpenAI Ads Pixel.
+// Los scripts base se cargan en src/routes/__root.tsx y están disponibles en todas las rutas.
 
 declare global {
   interface Window {
@@ -7,8 +7,6 @@ declare global {
       page?: () => void;
       track?: (event: string, params?: Record<string, unknown>) => void;
     };
-    // Stub del píxel oaiq (ID U25XSseFahYjorZUNtSHXN): encola llamadas
-    // hasta que el script base (bzrcdn.openai.com/sdk/oaiq.min.js) las consuma.
     oaiq?: {
       (...args: unknown[]): void;
       q?: unknown[];
@@ -18,15 +16,29 @@ declare global {
 
 export const CUSTOM_ENGINE_PIXEL_ID = "U25XSseFahYjorZUNtSHXN";
 
-/** Page view de TikTok en navegaciones SPA (el base script solo dispara una vez). */
 export function ttqPage() {
   if (typeof window !== "undefined" && typeof window.ttq?.page === "function") {
     window.ttq.page();
   }
 }
 
-/** Evento de conversión del custom engine oaiq. Sintaxis oficial del SDK: oaiq("event", ...). */
+/**
+ * Envía un evento al OpenAI Ads Pixel.
+ * El segundo argumento es el ID del evento configurado en Ads Manager.
+ */
 export function trackEngineEvent(event: string, eventId: string) {
-  if (typeof window === "undefined" || typeof window.oaiq !== "function") return;
-  window.oaiq("event", event, { event_id: eventId });
+  if (typeof window === "undefined" || typeof window.oaiq !== "function") {
+    console.warn("[OpenAI Pixel] oaiq no está disponible; evento no enviado", { event, eventId });
+    return false;
+  }
+
+  try {
+    // La configuración de Ads Manager identifica el evento por su event_id.
+    window.oaiq("event", { event_id: eventId });
+    console.info("[OpenAI Pixel] evento enviado", { event, eventId });
+    return true;
+  } catch (error) {
+    console.error("[OpenAI Pixel] error enviando evento", { event, eventId, error });
+    return false;
+  }
 }
