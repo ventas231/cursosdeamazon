@@ -124,6 +124,7 @@ function StickyVideoCTA() {
 function LandingPage() {
   useEffect(() => {
     fbqTrack("PageView");
+    ttqPage();
   }, []);
 
 
