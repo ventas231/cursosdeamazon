@@ -33,8 +33,8 @@ export function trackEngineEvent(event: string, eventId: string) {
   }
 
   try {
-    // La configuración de Ads Manager identifica el evento por su event_id.
-    window.oaiq("event", { event_id: eventId });
+    // Sintaxis oficial del SDK: oaiq("event", nombre_evento, { event_id }).
+    window.oaiq("event", event, { event_id: eventId });
     console.info("[OpenAI Pixel] evento enviado", { event, eventId });
     return true;
   } catch (error) {
