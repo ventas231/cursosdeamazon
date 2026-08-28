@@ -117,7 +117,7 @@ function Checkout() {
       w.fbq("track", "InitiateCheckout", { value: 797, currency: "USD" });
     }
     ttqPage();
-    trackEngineEvent("Checkout Started", "6a91ab4dab2c819e8343cf8158a0612c");
+    trackEngineEvent("checkout_started", "contents");
     // Etiquetar visita a checkout en Google Sheets (pestaña "Carrito Abandonado")
     let whatsapp = "";
     try {
