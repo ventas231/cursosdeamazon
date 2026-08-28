@@ -155,6 +155,15 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
           }}
         />
         {/* End TikTok Pixel Code */}
+        {/* oaiq Pixel Code (custom engine, global) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"U25XSseFahYjorZUNtSHXN",debug:true});
+            `,
+          }}
+        />
+        {/* End oaiq Pixel Code */}
       </head>
       <body>
         {children}
