@@ -1,0 +1,12 @@
+# Prueba temporal del Apps Script (acción "ping": no escribe nada en las hojas).
+name: Probar script de Sheets
+on:
+  push:
+    branches: [claude/summaproducts-footer-test-0ebqm8]
+    paths: [.github/workflows/probar-script.yml]
+jobs:
+  probar:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -sS -L -X POST -H 'Content-Type: text/plain;charset=utf-8' -d '{"action":"ping"}' "https://script.google.com/macros/s/AKfycbyR-SRy-p516qEAIuZzdYpE11VKBweL7EZrnjzEBZAnBW4tQ3_bQxRVJZZD7bETAUpz/exec" -w "\nHTTP %{http_code}\n" | head -c 600
