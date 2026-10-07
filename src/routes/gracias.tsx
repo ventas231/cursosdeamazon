@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { useServerFn } from "@tanstack/react-start";
 import { logPurchaseEmail } from "@/lib/excel.functions";
 import { ttqPage, trackEngineEvent } from "@/lib/track";
 import {
@@ -42,7 +41,7 @@ function fbqTrack(event: string, params?: Record<string, unknown>) {
 }
 
 function Gracias() {
-  const logPurchase = useServerFn(logPurchaseEmail);
+  const logPurchase = logPurchaseEmail;
   useEffect(() => {
     fbqTrack("Purchase", { value: 797, currency: "USD" });
     ttqPage();
