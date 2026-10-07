@@ -87,8 +87,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Lovable App" },
       { name: "twitter:description", content: "Landing page for Amazon + AI sales system, capturing WhatsApp for lead generation." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/22c2aeb1-ad80-4058-92a3-d8e4a85a7c30/id-preview-b5fe2f19--dc354da1-0939-4e08-91a9-7ed90ab6c95f.lovable.app-1780355409483.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/22c2aeb1-ad80-4058-92a3-d8e4a85a7c30/id-preview-b5fe2f19--dc354da1-0939-4e08-91a9-7ed90ab6c95f.lovable.app-1780355409483.png" },
+      { property: "og:image", content: "https://gerardovilla.mx/og-image.png" },
+      { name: "twitter:image", content: "https://gerardovilla.mx/og-image.png" },
     ],
     links: [
       {
