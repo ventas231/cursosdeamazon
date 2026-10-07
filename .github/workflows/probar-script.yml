@@ -9,4 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          curl -sS -L -X POST -H 'Content-Type: text/plain;charset=utf-8' -d '{"action":"ping"}' "https://script.google.com/macros/s/AKfycbyR-SRy-p516qEAIuZzdYpE11VKBweL7EZrnjzEBZAnBW4tQ3_bQxRVJZZD7bETAUpz/exec" -w "\nHTTP %{http_code}\n" | head -c 600
+          # Como el navegador: POST y, tras la redirección 302, GET de la respuesta.
+          curl -sS -L -H 'Content-Type: text/plain;charset=utf-8' --data '{"action":"ping"}' "https://script.google.com/macros/s/AKfycbyR-SRy-p516qEAIuZzdYpE11VKBweL7EZrnjzEBZAnBW4tQ3_bQxRVJZZD7bETAUpz/exec" -o /tmp/r.txt -w "HTTP %{http_code} | final: %{url_effective}\n"
+          head -c 300 /tmp/r.txt; echo
+          grep -o "<title>[^<]*" /tmp/r.txt || true
