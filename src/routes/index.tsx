@@ -47,50 +47,6 @@ const sellerBullets = [
   "Automatiza reportes de Seller Central y toma decisiones con datos, no con intuición",
 ];
 
-// 14 de septiembre 2026, 23:59 hora CDMX (UTC-6) — fecha fija para todos
-const DEADLINE = Date.UTC(2026, 8, 15, 5, 59, 0);
-
-function CountdownBar() {
-  const [left, setLeft] = useState<number | null>(null);
-
-  useEffect(() => {
-    setLeft(DEADLINE - Date.now());
-    const id = setInterval(() => setLeft(DEADLINE - Date.now()), 1000);
-    return () => clearInterval(id);
-  }, []);
-
-  const total = Math.max(0, left ?? 0);
-
-  const days = Math.floor(total / 86400000);
-  const hours = Math.floor((total % 86400000) / 3600000);
-  const minutes = Math.floor((total % 3600000) / 60000);
-  const seconds = Math.floor((total % 60000) / 1000);
-  const pad = (n: number) => String(n).padStart(2, "0");
-
-  return (
-    <div className="w-full bg-brand text-primary-foreground">
-      <div className="mx-auto max-w-6xl px-4 py-3 text-center">
-        <p className="text-xs sm:text-sm font-bold leading-snug">
-          ⏰ Últimos lugares con revisión 1:1 de tu listing con Gerardo — hasta el 14 de septiembre o hasta que se agoten (lo que pase primero).
-        </p>
-        <div className="mt-2 flex items-center justify-center gap-2 sm:gap-3">
-          {[
-            { v: days, l: "días" },
-            { v: hours, l: "hrs" },
-            { v: minutes, l: "min" },
-            { v: seconds, l: "seg" },
-          ].map((u) => (
-            <div key={u.l} className="min-w-[52px] rounded-lg bg-black/25 px-2.5 py-1.5">
-              <div className="text-lg sm:text-xl font-black tabular-nums leading-none">{pad(u.v)}</div>
-              <div className="text-[10px] uppercase tracking-wider opacity-80">{u.l}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function StickyVideoCTA() {
   const [show, setShow] = useState(false);
 
@@ -131,10 +87,6 @@ function LandingPage() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      {/* SECCIÓN 1 — Temporizador */}
-      <CountdownBar />
-
-
       {/* SECCIÓN 2 — HERO */}
       <section className="bg-background px-4 py-[60px] md:py-20">
         <div className="mx-auto max-w-7xl">
