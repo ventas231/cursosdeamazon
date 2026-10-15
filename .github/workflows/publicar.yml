@@ -1,4 +1,4 @@
-# Publica gerardovilla.mx en GitHub Pages cada vez que se fusiona un cambio a main.
+# Publica amazon.gerardovilla.mx en GitHub Pages cada vez que se fusiona un cambio a main.
 name: Publicar sitio
 
 on:
