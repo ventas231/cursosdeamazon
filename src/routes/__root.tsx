@@ -87,8 +87,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Lovable App" },
       { name: "twitter:description", content: "Landing page for Amazon + AI sales system, capturing WhatsApp for lead generation." },
-      { property: "og:image", content: "https://gerardovilla.mx/og-image.png" },
-      { name: "twitter:image", content: "https://gerardovilla.mx/og-image.png" },
+      { property: "og:image", content: "https://amazon.gerardovilla.mx/og-image.png" },
+      { name: "twitter:image", content: "https://amazon.gerardovilla.mx/og-image.png" },
     ],
     links: [
       {

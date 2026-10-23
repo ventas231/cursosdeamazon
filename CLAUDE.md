@@ -1,4 +1,4 @@
-# Cómo se trabaja este sitio (cursosdeamazon → gerardovilla.mx)
+# Cómo se trabaja este sitio (cursosdeamazon → amazon.gerardovilla.mx)
 
 Claude es el editor y quien publica este sitio. El dueño no usa otro editor:
 pide los cambios en el chat y Claude los hace y los publica.

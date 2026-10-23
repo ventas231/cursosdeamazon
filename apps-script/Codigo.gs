@@ -1,5 +1,5 @@
 /**
- * Recibe los formularios de cursosdeamazon (gerardovilla.mx) y los guarda en
+ * Recibe los formularios de cursosdeamazon (amazon.gerardovilla.mx) y los guarda en
  * los mismos Google Sheets de siempre. Reemplaza al servidor anterior.
  *
  * Instalación (una vez, con la cuenta de Google dueña de los Sheets):
